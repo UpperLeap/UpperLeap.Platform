@@ -1,3 +1,16 @@
 {
-  "welcome": "Welcome!"
+  "welcome": "Welcome!",
+  "navbar": {
+    "login": "Login",
+    "exploreGames": "Explore Games",
+    "language": "Language",
+    "english": "English",
+    "deutsch": "Deutsch"
+  },
+  "landing": {
+    "title": "Maximize your gaming potential, ",
+    "effortlessly": " effortlessly.",
+    "description": "Elevate your gaming experience with UpperLeap, the ultimate platform for rank boosting and performance enhancement, designed for gamers striving to reach new heights with top-tier strategies and expert support.",
+    "exploreGames": " Explore our Games ✦ unlock your potential now"
+  }
 }

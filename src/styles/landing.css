@@ -1,0 +1,32 @@
+.cover-light-up {
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  animation: light-up 1s 0.7s forwards;
+}
+
+.hero-title {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  animation: fadeIn-up-to-down 1s 0s forwards;
+}
+
+.hero-description {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  animation: fadeIn-up-to-down 1s 0.2s forwards;
+}
+
+@keyframes fadeIn-up-to-down {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes light-up {
+  to {
+    opacity: 1;
+  }
+}

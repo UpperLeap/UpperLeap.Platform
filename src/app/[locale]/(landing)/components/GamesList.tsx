@@ -31,7 +31,7 @@ const GamesList = () => {
   ];
 
   return (
-    <div className="max-w-medium mx-auto mt-10 arc-wrapper">
+    <div className="max-w-medium mx-auto mt-10 arc-wrapper" id="games-list">
       <div className="flex items-center gap-5 justify-around">
         {games.map((game, i) => (
           <Link key={i} className="flex flex-col gap-4" href={game.path}>

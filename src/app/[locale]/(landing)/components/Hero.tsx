@@ -4,7 +4,7 @@ const Hero = () => {
   const t = useTranslations();
 
   return (
-    <section className="max-w-large mx-auto">
+    <section className="max-w-medium mx-auto">
       <h1 className="text-foreground text-5xl font-bold mx-auto w-fit mb-4 flex items-center gap-2 hero-title">
         {t("landing.title")}
         <span className="text-primary">{t("landing.effortlessly")}</span>

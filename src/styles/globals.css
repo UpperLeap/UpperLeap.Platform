@@ -20,6 +20,9 @@ bg-main {
   @apply bg-black dark:bg-white text-white dark:text-black;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 html.lenis,
 html.lenis body {
   height: auto;
@@ -48,6 +51,7 @@ html.lenis body {
 @layer base {
   :root {
     --background: 0 0% 100%;
+    --background-secondary: 0 0% 94%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
@@ -76,6 +80,7 @@ html.lenis body {
 
   .dark {
     --background: 252 26% 4%;
+    --background-secondary: 0 0% 9%;
     --foreground: 0 100% 100%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -100,14 +105,4 @@ html.lenis body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
-
-.game-card-wrapper {
-  @apply relative w-[190px] aspect-[6/8] rounded-md overflow-hidden hover:scale-105 duration-300 hover:outline hover:brightness-105 outline-1 outline-offset-2 outline-gray-500 bg-cover;
-}
-.game-logo {
-  @apply absolute bottom-0 duration-300 object-cover w-full h-full;
-}
-.game-card-wrapper:hover .game-logo {
-  @apply scale-110 duration-300;
 }

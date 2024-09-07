@@ -25,6 +25,7 @@ const config: Config = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
+        "background-secondary": "hsl(var(--background-secondary))",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -57,7 +58,7 @@ const config: Config = {
       },
       maxWidth: {
         large: "1640px",
-        medium: "1200px",
+        medium: "1240px",
       },
       keyframes: {
         "custom-shimmer": {

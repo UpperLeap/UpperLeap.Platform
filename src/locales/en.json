@@ -11,6 +11,55 @@
     "title": "Maximize your gaming potential, ",
     "effortlessly": " effortlessly.",
     "description": "Elevate your gaming experience with UpperLeap, the ultimate platform for rank boosting and performance enhancement, designed for gamers striving to reach new heights with top-tier strategies and expert support.",
-    "exploreGames": " Explore our Games ✦ unlock your potential now"
+    "exploreGames": " Explore our Games ✦ unlock your potential now",
+    "servicesTitle": "Three key points to craft the perfect boosting experience",
+    "velocityScroll": "Scroll down to learn more",
+    "speed": {
+      "header": "Boosting at the speed of light",
+      "title": "Speed",
+      "description": "Our boosters are the fastest in the industry, ensuring you reach your desired rank in record time."
+    },
+    "security": {
+      "header": "Your security is our priority",
+      "title": "Security",
+      "description": "We take your account security seriously, ensuring your data is protected and your privacy is respected."
+    },
+    "efficiency": {
+      "header": "Top tier boosters",
+      "title": "Efficiency",
+      "description": "Our boosters are experts in their field a group of to tier players, guaranteeing you the best results with the least effort."
+    },
+    "faq": "Frequently asked questions",
+    "stillNeedHelp": "Still need help? Contact us",
+    "accordion": {
+      "0": {
+        "question": "How does boosting work?",
+        "answer": "Boosting is a service where a highly skilled player logs into your account and plays on your behalf to achieve your desired rank."
+      },
+      "1": {
+        "question": "Is boosting safe?",
+        "answer": "Yes, our boosters are professionals who take your account security seriously. We use VPNs and other security measures to ensure your account is safe."
+      },
+      "2": {
+        "question": "How long does boosting take?",
+        "answer": "The time it takes to boost your account depends on the game and the rank you want to achieve. Our boosters are the fastest in the industry and will work to get you to your desired rank as quickly as possible."
+      },
+      "3": {
+        "question": "What games do you offer boosting for?",
+        "answer": "We offer boosting services for a wide range of games, including League of Legends, Valorant, and more. If you don't see your game listed, contact us and we'll see if we can help."
+      },
+      "4": {
+        "question": "What games do you offer boosting for?",
+        "answer": "We offer boosting services for a wide range of games, including League of Legends, Valorant, and more. If you don't see your game listed, contact us and we'll see if we can help."
+      },
+      "5": {
+        "question": "What games do you offer boosting for?",
+        "answer": "We offer boosting services for a wide range of games, including League of Legends, Valorant, and more. If you don't see your game listed, contact us and we'll see if we can help."
+      }
+    },
+    "getStarted": {
+        "title": "Don’t settle for less – it’s time to reach the top!",
+        "description": "Let our elite team help you dominate the competition and climb to the ranks you deserve. Start your journey to victory now!"
+      }
   }
 }

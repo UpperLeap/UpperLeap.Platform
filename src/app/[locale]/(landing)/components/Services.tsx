@@ -1,16 +1,16 @@
 import { useTranslations } from "next-intl";
-import Image from "next/image";
-import ranks from "../../../../../public/Group 1.svg";
+import OrbitingRanks from "./OrbitingRanks";
+// import Image from "next/image";
 
 const Services = () => {
   const t = useTranslations();
 
   return (
     <section className="max-w-medium mx-auto my-52 px-5">
-      <h2 className="text-4xl text-foreground text-center max-w-2xl mx-auto">
+      <h2 className="text-4xl text-foreground text-center max-w-2xl mx-auto mobile:text-2xl">
         {t("landing.servicesTitle")}
       </h2>
-      <div className="grid grid-cols-2 grid-rows-2 gap-5 mt-10">
+      <div className="grid grid-cols-2 grid-rows-2 gap-5 mt-10 mobile:grid-cols-1">
         <div className="bg-background-secondary row-span-2 p-5 rounded-xl flex flex-col gap-10">
           {/* <Image
             src={ranks}
@@ -19,6 +19,7 @@ const Services = () => {
             height={100}
             className="w-full h-auto object-cover"
           /> */}
+          <OrbitingRanks />
           <div>
             <p className="text-primary text-sm font-bold">
               {t("landing.efficiency.title")}

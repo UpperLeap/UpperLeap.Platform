@@ -27,6 +27,7 @@ const config: Config = {
         background: "hsl(var(--background))",
         "background-secondary": "hsl(var(--background-secondary))",
         foreground: "hsl(var(--foreground))",
+        "foreground-secondary": "hsl(var(--foreground-secondary))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -69,9 +70,20 @@ const config: Config = {
             "background-position": "calc(100% + var(--shimmer-width)) 0",
           },
         },
+        orbit: {
+          "0%": {
+            transform:
+              "rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)",
+          },
+          "100%": {
+            transform:
+              "rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)",
+          },
+        },
       },
       animation: {
         "custom-shimmer": "custom-shimmer 8s infinite",
+        orbit: "orbit calc(var(--duration)*1s) linear infinite",
       },
     },
   },

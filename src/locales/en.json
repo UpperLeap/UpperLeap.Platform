@@ -7,6 +7,23 @@
     "english": "English",
     "deutsch": "Deutsch"
   },
+  "footer": {
+    "title": "Maximize your gaming potential, effortlessly.",
+    "subTitle": "We Elevate the gaming experience for players worldwide.",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "blogs": "Blogs",
+    "workWithUs": "Work with us",
+    "legal": "Legal",
+    "tos": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "support": "Support",
+    "supportDescription": "We're here to help. Our expert support team is at your service whenever you need anything.",
+    "ourCommunity": "Our Community",
+    "chatWithUs": "Chat with us",
+    "rightsReserved": "All rights reserved"
+  },
   "landing": {
     "title": "Maximize your gaming potential, ",
     "effortlessly": " effortlessly.",
@@ -58,8 +75,8 @@
       }
     },
     "getStarted": {
-        "title": "Don’t settle for less – it’s time to reach the top!",
-        "description": "Let our elite team help you dominate the competition and climb to the ranks you deserve. Start your journey to victory now!"
-      }
+      "title": "Don’t settle for less – it’s time to reach the top!",
+      "description": "Let our elite team help you dominate the competition and climb to the ranks you deserve. Start your journey to victory now!"
+    }
   }
 }

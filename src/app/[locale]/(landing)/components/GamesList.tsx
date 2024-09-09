@@ -8,7 +8,7 @@ const GamesList = () => {
       name: "Valorant",
       path: "/game/valorant",
       imageUrl:
-        "https://blitz-cdn.blitz.gg/blitz/ui/img/game-cover/val-min.webp", 
+        "https://blitz-cdn.blitz.gg/blitz/ui/img/game-cover/val-min.webp",
     },
     {
       name: "League of Legends",
@@ -31,13 +31,14 @@ const GamesList = () => {
   ];
 
   return (
-    <div className="max-w-medium mx-auto mt-10 arc-wrapper" id="games-list">
-      <div className="flex items-center gap-5 justify-around">
+    <div
+      className="max-w-medium mx-auto mt-10 arc-wrapper px-5"
+      id="games-list"
+    >
+      <div className="flex items-center gap-5 justify-around flex-wrap">
         {games.map((game, i) => (
           <Link key={i} className="flex flex-col gap-4" href={game.path}>
-            <div
-              className="game-card-wrapper"
-            >
+            <div className="game-card-wrapper">
               <Image
                 className="game-logo"
                 src={game.imageUrl}

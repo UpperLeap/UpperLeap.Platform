@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
+
 const GetStarted = () => {
   const t = useTranslations();
 
@@ -13,12 +14,13 @@ const GetStarted = () => {
           alt="Get started"
           width={400}
           height={400}
+          loading="lazy"
           className="w-full h-full object-cover"
         />
-        <div className="absolute top-0 left-0 z-[1] h-full w-full  bg-gradient-to-b from-background from-5% backdrop-blur-sm via-background/80 to-background/70 dark:via-background/95 dark:to-background/80"></div>
+        <div className="absolute top-0 left-0 z-[1] h-full w-full bg-gradient-to-b from-background from-5% backdrop-blur-sm via-background/80 to-background/70 dark:via-background/95 dark:to-background/80"></div>
       </div>
       <div className="max-w-medium mx-auto flex flex-col items-center h-full justify-center px-5 text-center relative z-[2]">
-        <h2 className="text-foreground font-bold text-4xl mx-auto">
+        <h2 className="text-foreground font-bold text-4xl mx-auto mobile:text-3xl">
           {t("landing.getStarted.title")}
         </h2>
         <p className="max-w-2xl mt-3 mx-auto">
@@ -34,7 +36,7 @@ const GetStarted = () => {
               <FaArrowRightLong />
             </span>
           </Link>
-          <button className="flex items-center gap-2 bg-secondary px-4 py-2 text-foreground rounded-lg hover:bg-opacity-70 duration-300 active:scale-90">
+          <button className="flex items-center gap-2 bg-secondary text-white px-4 py-2 text-foreground rounded-lg hover:bg-opacity-70 duration-300 active:scale-90">
             <span>{t("navbar.login")}</span>
             <span>
               <FaArrowRightLong />

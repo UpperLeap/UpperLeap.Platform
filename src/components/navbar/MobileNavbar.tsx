@@ -11,9 +11,17 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import Logo from "../shared/Logo";
 import ExploreGamesLink from "./ExploreGamesLink";
 import LanguagePicker from "./LanguagePicker";
-import ThemeSwitcher from "./ThemeSwitcher";
 import { Button } from "@nextui-org/button";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { Skeleton } from "@nextui-org/skeleton";
+import dynamic from "next/dynamic";
+const ThemeSwitcher = dynamic(
+  () => import("../../components/navbar/ThemeSwitcher"),
+  {
+    ssr: false,
+    loading: () => <Skeleton className="w-10 h-10 rounded-full" />,
+  },
+);
 
 const MobileNavbar = () => {
   const t = useTranslations();

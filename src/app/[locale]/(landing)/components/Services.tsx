@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import OrbitingRanks from "./OrbitingRanks";
-// import Image from "next/image";
+import { FaLock } from "react-icons/fa";
+import { IoSpeedometerOutline } from "react-icons/io5";
 
 const Services = () => {
   const t = useTranslations();
@@ -12,13 +13,6 @@ const Services = () => {
       </h2>
       <div className="grid grid-cols-2 grid-rows-2 gap-5 mt-10 mobile:grid-cols-1">
         <div className="bg-background-secondary row-span-2 p-5 rounded-xl flex flex-col gap-10">
-          {/* <Image
-            src={ranks}
-            alt="efficiency"
-            width={100}
-            height={100}
-            className="w-full h-auto object-cover"
-          /> */}
           <OrbitingRanks />
           <div>
             <p className="text-primary text-sm font-bold">
@@ -30,8 +24,10 @@ const Services = () => {
             <p className="text-sm">{t("landing.efficiency.description")}</p>
           </div>
         </div>
-        <div className="bg-background-secondary col-span-1 p-5 rounded-xl">
-          {/* <Image src="" alt="speed" width={100} height={100} className="w-full h-auto object-cover" /> */}
+        <div className=" bg-background-secondary col-span-1 p-5 rounded-xl relative overflow-hidden group">
+          <span className="absolute right-0 -bottom-5 -rotate-[20deg] text-9xl opacity-55 group-hover:text-primary duration-500">
+            <IoSpeedometerOutline />
+          </span>
           <div>
             <p className="text-primary text-sm font-bold">
               {t("landing.speed.title")}
@@ -42,8 +38,10 @@ const Services = () => {
             <p className="text-sm">{t("landing.speed.description")}</p>
           </div>
         </div>
-        <div className="bg-background-secondary col-span-1 p-5 rounded-xl">
-          {/* <Image src="" alt="speed" width={100} height={100} className="w-full h-auto object-cover" /> */}
+        <div className="bg-background-secondary col-span-1 p-5 rounded-xl relative overflow-hidden group">
+          <span className="absolute right-0 -bottom-5 -rotate-[20deg] text-9xl opacity-55 group-hover:text-primary duration-500">
+            <FaLock />
+          </span>
           <div>
             <p className="text-primary text-sm font-bold">
               {t("landing.security.title")}

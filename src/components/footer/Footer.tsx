@@ -4,6 +4,7 @@ import Legal from "./Legal";
 import Support from "./Support";
 import Slogan from "./Slogan";
 import Socials from "./Socials";
+import Link from "next/link";
 
 const Footer = () => {
   const t = useTranslations();
@@ -20,9 +21,15 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-foreground-secondary/30 mt-10 py-5 flex items-center justify-between flex-wrap gap-5">
-          <p>
-            © {currentYear} UpperLeap, {t("footer.rightsReserved")}
-          </p>
+          <div className="flex items-center gap-2 flex-wrap">
+            <p>
+              © {currentYear} UpperLeap, {t("footer.rightsReserved")}
+            </p>
+            <span>•</span>
+            <Link href="https://status.upperleap.com/" className="hover:underline">
+              {t("footer.status")}
+            </Link>
+          </div>
           <Socials />
         </div>
       </div>

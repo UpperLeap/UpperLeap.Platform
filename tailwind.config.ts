@@ -61,6 +61,11 @@ const config: Config = {
         large: "1640px",
         medium: "1240px",
       },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
       keyframes: {
         "custom-shimmer": {
           "0%, 90%, 100%": {

@@ -44,6 +44,28 @@ html.lenis body {
   @apply absolute inset-0 rounded-br-xl rounded-bl-xl backdrop-blur-3xl bg-gray-100/20 dark:bg-[#1A1B20]/20 transition-all duration-200;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--scrollbar);
+}
+
+::-webkit-scrollbar-thumb {
+  cursor: grab;
+  background: var(--scrollbar-thumb);
+}
+::-webkit-scrollbar-thumb:hover {
+  opacity: 0.8;
+}
+
+::-moz-selection {
+  color: black;
+  background: #7367f0;
+}
+::selection {
+  color: black;
+  background: #7367f0;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -73,6 +95,8 @@ html.lenis body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --scrollbar: #f1f1f1;
+    --scrollbar-thumb: #c1c1c1;
   }
 
   .dark {
@@ -102,5 +126,7 @@ html.lenis body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --scrollbar: #424242;
+    --scrollbar-thumb: #686868;
   }
 }

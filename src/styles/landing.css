@@ -43,16 +43,23 @@
 
 /*  #7166f0, */
 .faq-blob {
-  background: linear-gradient(45deg, #e81719, #6419e6, #fd9024, #7166f0, #12c0aa);
+  background: linear-gradient(
+    45deg,
+    #e81719,
+    #6419e6,
+    #fd9024,
+    #7166f0,
+    #12c0aa
+  );
   background-size: 300% 300%;
   transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
   animation: color-swap 12s ease-in-out infinite;
 }
 
-
 @keyframes color-swap {
   0% {
     background-position: 0% 50%;
+    rotate: 0deg;
   }
   50% {
     background-position: 100% 50%;
@@ -60,5 +67,23 @@
   }
   100% {
     background-position: 0% 50%;
+    rotate: 0deg;
+  }
+}
+
+.blitz-rotate {
+  transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  animation: rotateing-blitz 12s ease-in-out infinite;
+}
+
+@keyframes rotateing-blitz {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: -180deg;
+  }
+  100% {
+    rotate: 0deg;
   }
 }

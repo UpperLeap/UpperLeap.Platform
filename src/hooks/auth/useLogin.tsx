@@ -1,15 +1,17 @@
+'use client'
+
 import { AxiosError } from "axios";
 import { useTranslations } from "next-intl";
 import React from "react";
 import toast from "react-hot-toast";
 import { useAction } from "../api/useAction";
 import useModalStore from "@/stores/auth_modal";
-import { createCookieClient } from "@/services/cookies/cookiesClient";
 import { axiosInstance } from "@/utils/axiosInstance";
 import { TOKEN_TYPE } from "@/constants/api";
 import { AuthResponse } from "@/types/globals";
 import { useAuthStore } from "@/stores/auth";
 import { useRouter } from "next/navigation";
+import { setAuthenticationCookie } from "@/app/actions/auth";
 
 const useLogin = (isOtp?: boolean) => {
   const t = useTranslations();
@@ -25,19 +27,8 @@ const useLogin = (isOtp?: boolean) => {
     }
   };
 
-  const onSuccess = (data: AuthResponse) => {
-    createCookieClient({
-      name: "accessToken",
-      value: data?.accessToken,
-      maxAge: Date.parse(data.expiry),
-      secure: true,
-    });
-    createCookieClient({
-      name: "refreshToken",
-      value: data?.refreshToken,
-      maxAge: Date.parse(data.expiry),
-      secure: true,
-    });
+  const onSuccess = async (data: AuthResponse) => {
+    await setAuthenticationCookie(data);
 
     axiosInstance.defaults.headers.common["Authorization"] =
       `${TOKEN_TYPE} ${data?.accessToken}`;

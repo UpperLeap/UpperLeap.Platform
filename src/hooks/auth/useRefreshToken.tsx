@@ -1,7 +1,7 @@
 "use client";
+
 import useRefreshStateStore from "@/stores/refresh_token";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-
 import { requestHandler } from "../api/utils";
 import { useLogout } from "./useLogout";
 import { AuthResponse } from "@/types/globals";
@@ -23,27 +23,32 @@ export const useRefreshToken = () => {
   };
 
   const onSuccess = (data: AuthResponse) => {
-    createCookieClient({
-      name: "accessToken",
-      value: data?.accessToken,
-      maxAge: Date.parse(data.expiry),
-      secure: true,
-    });
-    createCookieClient({
-      name: "refreshToken",
-      value: data?.refreshToken,
-      maxAge: Date.parse(data.expiry),
-      secure: true,
-    });
+    if (data?.accessToken) {
+      createCookieClient({
+        name: "accessToken",
+        value: data.accessToken,
+        maxAge: Math.floor((Date.parse(data.expiry) - Date.now()) / 1000),
+        secure: true,
+      });
 
-    axiosInstance.defaults.headers.common["Authorization"] =
-      `${TOKEN_TYPE} ${data?.accessToken}`;
+      axiosInstance.defaults.headers.common["Authorization"] =
+        `${TOKEN_TYPE} ${data.accessToken}`;
+    }
 
-    // refetch all queries
+    if (data?.refreshToken) {
+      createCookieClient({
+        name: "refreshToken",
+        value: data.refreshToken,
+        maxAge: Math.floor((Date.parse(data.expiry) - Date.now()) / 1000),
+        secure: true,
+      });
+    }
+
+    // Refetch all queries or specify particular queries if needed
     queryClient.invalidateQueries();
   };
 
-  const { mutate, ...action } = useMutation({
+  const { mutate, isPending, isError, isSuccess, error, data } = useMutation({
     mutationFn: (payload: RefreshTokenRequest) =>
       requestHandler({
         method: "POST",
@@ -57,5 +62,5 @@ export const useRefreshToken = () => {
     },
   });
 
-  return { mutate, ...action };
+  return { mutate, isPending, isError, isSuccess, error, data };
 };

@@ -4,62 +4,54 @@ import { AuthResponse } from "@/types/globals";
 import { cookies } from "next/headers";
 
 export async function POST(req: NextRequest) {
-  // const refreshToken = cookies().get("refreshToken");
-  // const accessToken = cookies().get("accessToken");
-  const refreshToken = req.headers.get("refreshToken");
-  const authorizationHeader = req.headers.get("Authorization");
+  const cookieStore = cookies();
+  const refreshToken = cookieStore.get("refreshToken")?.value;
+  const accessToken = cookieStore.get("accessToken")?.value;
 
-  // console.log(
-  //   refreshToken,
-  //   accessToken,
-  // );
+  if (!refreshToken || !accessToken) {
+    console.log("invalid session");
 
-  if (!refreshToken || !authorizationHeader) {
-    console.log("No valid session found");
-
-    return NextResponse.json(
-      { error: "No valid session found" },
-      { status: 401 },
-    );
+    return NextResponse.json({ error: "Invalid Session" }, { status: 401 });
   }
 
   const response = await fetch(`${BASE_URL}/authentication/refresh`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: authorizationHeader,
+      Authorization: `Bearer ${accessToken}`,
     },
     body: JSON.stringify({
       refreshToken: refreshToken,
     }),
   });
 
-  if (!response.ok) {
-    console.log("logout");
+  if(!response.ok) {
+    console.log("should logout")
 
-    cookies().delete("accessToken");
-    cookies().delete("refreshToken");
+    cookieStore.delete("accessToken");
+    cookieStore.delete("refreshToken");
 
-    return NextResponse.json(
-      { error: "Failed to refresh token" },
-      { status: 401 },
-    );
+    return NextResponse.json({ error: "Failed to refresh session" }, { status: 401 });
   }
 
-  const data: AuthResponse = await response.json();
+  const data: AuthResponse = await response.json()
+  const res = NextResponse.json({ message: "Session refreshed" })
 
-  cookies().set("accessToken", data.accessToken, {
-    maxAge: Date.parse(data.expiry),
-    secure: true,
-    path: "/",
-    expires: new Date(Date.parse(data.expiry)),
-  });
-  cookies().set("refreshToken", data.refreshToken, {
-    maxAge: Date.parse(data.expiry),
-    secure: true,
-    path: "/",
-    expires: new Date(Date.parse(data.expiry)),
-  });
+  res.cookies.set('accessToken', data.accessToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    maxAge: Math.floor((Date.parse(data.expiry) - Date.now()) / 1000),
+    path: "/"
+  })
 
-  return NextResponse.json({ message: "Session refreshed" });
+  res.cookies.set('refreshToken', data.refreshToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    maxAge: Math.floor((Date.parse(data.expiry) - Date.now()) / 1000),
+    path: "/"
+  })
+
+  return res;
 }

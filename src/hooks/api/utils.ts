@@ -1,8 +1,10 @@
-import { axiosInstance } from "@/utils/axiosInstance";
+import { axiosInstance, setAuthHeader } from "@/utils/axiosInstance";
 import type { FetcherParamsType } from "./types";
 
-export const requestHandler = async <T>(fetcherParams: FetcherParamsType<T>) =>
-  await axiosInstance
+export const requestHandler = async <T>(fetcherParams: FetcherParamsType<T>) => {
+  await setAuthHeader()
+
+  return await axiosInstance
     .request({
       method: fetcherParams.method,
       url: fetcherParams.endpoint,
@@ -10,3 +12,4 @@ export const requestHandler = async <T>(fetcherParams: FetcherParamsType<T>) =>
       ...(fetcherParams.options && fetcherParams.options),
     })
     .then((res) => res.data);
+}

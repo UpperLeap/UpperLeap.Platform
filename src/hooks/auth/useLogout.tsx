@@ -1,4 +1,5 @@
 "use client";
+import { deleteAuthenticationCookies } from "@/app/actions/auth";
 import { clearCookiesClient } from "@/services/cookies/cookiesClient";
 import { useAuthStore } from "@/stores/auth";
 
@@ -7,11 +8,10 @@ import { useAuthStore } from "@/stores/auth";
 // import { requestHandler } from "./api/utils";
 
 export const useLogout = () => {
-  const { removeAuth } = useAuthStore();
 
-  const clearData = () => {
-    clearCookiesClient();
-    removeAuth();
+  const clearData = async () => {
+    console.log("asdawdadwd")
+    await deleteAuthenticationCookies();
   };
 
   // const { mutate: logout, ...action } = useMutation({

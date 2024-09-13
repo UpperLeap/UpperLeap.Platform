@@ -11,6 +11,6 @@ export const setAuthHeader = async () => {
 
   if (accessToken) {
     axiosInstance.defaults.headers.common["Authorization"] =
-      `${TOKEN_TYPE} ${accessToken.value}`;
+      `${TOKEN_TYPE} ${accessToken}`;
   }
 }

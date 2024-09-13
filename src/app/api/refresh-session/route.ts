@@ -11,15 +11,14 @@ export async function GET(req: NextRequest) {
   const refreshToken = req.headers.get("refreshToken");
   const authorizationHeader = req.headers.get("Authorization");
 
-  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
+  // const session = await getIronSession<SessionData>(cookies(), sessionOptions);
 
   console.log({
     headerData: authorizationHeader,
-    auth: session.accessToken,
     bt: refreshToken,
   });
 
-  if (!session.refreshToken || !session.accessToken) {
+  if (!refreshToken || !authorizationHeader) {
     console.log("invalid session");
 
     return NextResponse.json({ error: "Invalid Session" }, { status: 401 });
@@ -29,7 +28,7 @@ export async function GET(req: NextRequest) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${session.accessToken}`,
+      Authorization: `${authorizationHeader}`,
     },
     body: JSON.stringify({
       refreshToken: refreshToken,

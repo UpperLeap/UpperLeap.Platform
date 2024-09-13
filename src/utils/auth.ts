@@ -26,7 +26,11 @@ export async function refreshSession(request: NextRequest) {
   const refreshToken = ironSession.refreshToken;
   const accessToken = ironSession.accessToken;
 
-  if (session?.exp || 0 < Date.now()) {
+  if (session?.exp) {
+
+    const currentTime = Math.floor(Date.now() / 1000);
+    if (!(session.exp < currentTime)) return;
+
     const response = await fetch(
       `${request.nextUrl.origin}/api/refresh-session`,
       {

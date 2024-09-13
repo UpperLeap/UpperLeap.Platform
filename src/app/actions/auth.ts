@@ -39,13 +39,14 @@ export async function setAuthenticationCookie(data: AuthResponse) {
 export async function getAuthenticationCookies() {
   const cookieStore = cookies();
 
-  const session = await getIronSession(cookies(), sessionOptions);
+  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
 
-  // console.log(session);
+  console.log(session.refreshToken);
+  console.log(session.accessToken);
 
   return {
-    accessToken: cookieStore.get("accessToken"),
-    refreshToken: cookieStore.get("refreshToken"),
+    accessToken: session.accessToken,
+    refreshToken: session.refreshToken,
   };
 }
 

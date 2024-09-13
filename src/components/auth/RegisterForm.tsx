@@ -41,7 +41,6 @@ const RegisterForm = () => {
         isDisabled={!payload.email || isPending}
         isLoading={isPending}
         className="w-full text-white mt-3"
-        onPress={() => console.log("register")}
         type="submit"
       >
         {t("common.continue")}

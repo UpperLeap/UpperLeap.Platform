@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { AxiosError } from "axios";
 import { useTranslations } from "next-intl";

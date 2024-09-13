@@ -16,8 +16,8 @@ const ThemeSwitcher = dynamic(
   },
 );
 
-const Navbar = () => {
-  const isLoggedIn = getSession();
+const Navbar = async () => {
+  const isLoggedIn = await getSession();
 
   return (
     <header className="z-10 mobile:px-5 px-10 py-5 sticky top-0 border-transparent select-none before:p-px nav-header w-full">

@@ -8,6 +8,7 @@ import { AuthResponse } from "@/types/globals";
 import { createCookieClient } from "@/services/cookies/cookiesClient";
 import { axiosInstance } from "@/utils/axiosInstance";
 import { TOKEN_TYPE } from "@/constants/api";
+import { setAuthenticationCookie } from "@/app/actions/auth";
 
 interface RefreshTokenRequest {
   refreshToken: string;
@@ -22,29 +23,12 @@ export const useRefreshToken = () => {
     logout();
   };
 
-  const onSuccess = (data: AuthResponse) => {
-    if (data?.accessToken) {
-      createCookieClient({
-        name: "accessToken",
-        value: data.accessToken,
-        maxAge: Math.floor((Date.parse(data.expiry) - Date.now()) / 1000),
-        secure: true,
-      });
+  const onSuccess = async (data: AuthResponse) => {
+    await setAuthenticationCookie(data);
 
-      axiosInstance.defaults.headers.common["Authorization"] =
-        `${TOKEN_TYPE} ${data.accessToken}`;
-    }
+    axiosInstance.defaults.headers.common["Authorization"] =
+      `${TOKEN_TYPE} ${data.accessToken}`;
 
-    if (data?.refreshToken) {
-      createCookieClient({
-        name: "refreshToken",
-        value: data.refreshToken,
-        maxAge: Math.floor((Date.parse(data.expiry) - Date.now()) / 1000),
-        secure: true,
-      });
-    }
-
-    // Refetch all queries or specify particular queries if needed
     queryClient.invalidateQueries();
   };
 

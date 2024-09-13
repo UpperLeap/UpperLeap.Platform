@@ -1,56 +1,42 @@
+import { getIronSession } from "iron-session";
 import { jwtDecode } from "jwt-decode";
 import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
+import { SessionData, sessionOptions } from "./ironSessionOptions";
 
-export function getSession() {
+export async function getSession() {
   const cookieStore = cookies();
-  const session = cookieStore.get('accessToken');
-  
-  if (!session?.value) return null;
-  console.log(session?.value)
+  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
 
-  return jwtDecode(session?.value);
+  if (!session?.accessToken) return null;
+
+  return jwtDecode(session?.accessToken);
 }
 
 export async function refreshSession(request: NextRequest) {
-  const session = getSession();
-  if(!session) return;
+  const session = await getSession();
+  if (!session) return;
+
+  const ironSession = await getIronSession<SessionData>(
+    cookies(),
+    sessionOptions,
+  );
 
   const cookieStore = cookies();
-  const refreshToken = cookieStore.get('refreshToken')
-  const accessToken = cookieStore.get('accessToken')
+  const refreshToken = ironSession.refreshToken;
+  const accessToken = ironSession.accessToken;
 
-  if(session?.exp || 0 < Date.now()) {
-    const response = await fetch(`${request.nextUrl.origin}/api/refresh-session`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken?.value}`,
-        refreshToken: refreshToken?.value || "",
-      }
-    })
-
-    if(response.ok) {
-      const data = await response.json();
-      const res = NextResponse.next();
-
-      res.cookies.set('accessToken', data.accessToken, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
-        maxAge: Math.floor((Date.parse(data.expiry) - Date.now()) / 1000),
-        path: "/"
-      })
-    
-      res.cookies.set('refreshToken', data.refreshToken, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
-        maxAge: Math.floor((Date.parse(data.expiry) - Date.now()) / 1000),
-        path: "/"
-      })
-    
-      return res;
-    }
+  if (session?.exp || 0 < Date.now()) {
+    const response = await fetch(
+      `${request.nextUrl.origin}/api/refresh-session`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+          refreshToken: refreshToken || "",
+        },
+      },
+    );
   }
 }

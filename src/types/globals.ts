@@ -8,3 +8,10 @@ export interface IParams {
     locale: string;
   };
 }
+
+export type AuthResponse = {
+  accessToken: string;
+  refreshToken: string;
+  type: string;
+  expiry: string;
+};

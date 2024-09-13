@@ -1,3 +1,64 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "env": { "browser": true, "es6": true, "node": true },
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:storybook/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended"
+  ],
+  "ignorePatterns": [
+    "dist",
+    ".eslintrc.cjs",
+    "node_modules",
+    "build",
+    "coverage",
+    "storybook-static",
+    "storybook-static-gh-pages",
+    "storybook-static-gh-pages-2"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react-refresh", "react", "jsx-a11y"],
+  "rules": {
+    // react rules
+    // "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
+    "react-hooks/exhaustive-deps": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/no-unresolved": "off",
+
+    // tanstack rules
+    "@tanstack/query/exhaustive-deps": "error",
+    "@tanstack/query/no-rest-destructuring": "warn",
+    "@tanstack/query/stable-query-client": "error",
+    // prettier rules
+    "indent": ["error", 2],
+    "linebreak-style": 1,
+    "quotes": ["error", "double"]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      },
+      "alias": {
+        "map": [["@", "./src"]]
+      },
+      "extensions": [".js", ".jsx", ".ts", ".tsx"]
+    }
+  }
 }

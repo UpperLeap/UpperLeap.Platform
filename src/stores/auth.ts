@@ -14,7 +14,6 @@ const accessToken = getCookieClient("accessToken");
 export const useAuthStore = create<AuthStore>()((set) => ({
   isLoggedIn: !!accessToken,
   user: null,
-  tenants: null,
   setAuth: (auth: Partial<AuthStore>) => set(auth),
   removeAuth: () => set({ isLoggedIn: false, user: null }),
 }));

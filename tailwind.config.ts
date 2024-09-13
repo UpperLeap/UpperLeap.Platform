@@ -11,13 +11,19 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      tablet: { max: "1024px" },
-      medium: { max: "1280px" },
-      mobile: { max: "768px" },
+      tablet: {
+        max: "1024px",
+      },
+      medium: {
+        max: "1280px",
+      },
+      mobile: {
+        max: "768px",
+      },
     },
     extend: {
       colors: {
-        "background-dark": "#040307",
+        "background-dark": "#09080d",
         "background-dark-secondary": "#181818",
         "background-light": "#F9F8FC",
         "background-light-secondary": "#f0f0f0",
@@ -56,6 +62,13 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        chart: {
+          "1": "hsl(var(--chart-1))",
+          "2": "hsl(var(--chart-2))",
+          "3": "hsl(var(--chart-3))",
+          "4": "hsl(var(--chart-4))",
+          "5": "hsl(var(--chart-5))",
+        },
       },
       maxWidth: {
         large: "1640px",
@@ -85,10 +98,15 @@ const config: Config = {
               "rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)",
           },
         },
+        "caret-blink": {
+          "0%, 70%, 100%": { opacity: "1" },
+          "20%, 50%": { opacity: "0" },
+        },
       },
       animation: {
         "custom-shimmer": "custom-shimmer 8s infinite",
         orbit: "orbit calc(var(--duration)*1s) linear infinite",
+        "caret-blink": "caret-blink 1.25s ease-out infinite",
       },
     },
   },

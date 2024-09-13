@@ -8,7 +8,7 @@ const ExploreGamesLink = () => {
 
   return (
     <Link
-      href="/games"
+      href="#games-list"
       className="bg-background-light active:scale-90 duration-300 dark:bg-background-dark no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  inline-block"
     >
       <span className="absolute inset-0 overflow-hidden rounded-full">

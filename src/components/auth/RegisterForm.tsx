@@ -6,6 +6,7 @@ import { Button } from "@nextui-org/button";
 import { FaArrowRightLong } from "react-icons/fa6";
 import useModalStore from "@/stores/auth_modal";
 import useLogin from "@/hooks/auth/useLogin";
+import Link from "next/link";
 
 const RegisterForm = () => {
   const t = useTranslations();
@@ -35,6 +36,16 @@ const RegisterForm = () => {
           setModalData({ payload: { ...payload, username: e.target.value } })
         }
       />
+      <div className="flex items-center gap-1 flex-wrap text-sm">
+        <span>{t("auth.byProceeding")}</span>
+        <Link href="/terms-of-service" className="text-primary hover:underline">
+          {t("footer.tos")}
+        </Link>
+        <span>&</span>
+        <Link href="/terms-of-service" className="text-primary hover:underline">
+          {t("footer.privacyPolicy")}
+        </Link>
+      </div>
       <Button
         radius="sm"
         color="secondary"

@@ -33,7 +33,6 @@ const GamesList = () => {
   return (
     <div
       className="max-w-medium mx-auto mt-10 arc-wrapper px-5"
-      id="games-list"
     >
       <div className="flex items-center gap-5 justify-around flex-wrap">
         {games.map((game, i) => (

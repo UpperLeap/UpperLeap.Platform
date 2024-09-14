@@ -7,6 +7,7 @@ const Arc = () => {
 
   return (
     <div
+      id="games-list"
       style={{
         transition: "all 1s cubic-bezier(0.65, 0, 0.35, 1)",
       }}

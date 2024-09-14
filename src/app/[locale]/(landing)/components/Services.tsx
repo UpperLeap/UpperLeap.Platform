@@ -8,7 +8,7 @@ const Services = () => {
 
   return (
     <section className="max-w-medium mx-auto my-52 px-5">
-      <h2 className="text-4xl text-foreground text-center max-w-2xl mx-auto mobile:text-2xl">
+      <h2 className="text-4xl text-foreground font-bold text-center max-w-2xl mx-auto mobile:text-2xl">
         {t("landing.servicesTitle")}
       </h2>
       <div className="grid grid-cols-2 grid-rows-2 gap-5 mt-10 mobile:grid-cols-1">

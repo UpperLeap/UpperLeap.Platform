@@ -8,10 +8,10 @@ const Cover = () => {
         <Image
           src="https://cdn.gameboost.com/games/league-of-legends/banner/katarina.webp"
           alt="Banner"
-          loading="lazy"
           className="object-cover w-full h-full cover-light-up"
           width={500}
           height={300}
+          priority
           style={{
             objectPosition: "0px 40%",
           }}

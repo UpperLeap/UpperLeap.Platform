@@ -32,10 +32,10 @@
 }
 
 .game-card-wrapper {
-  @apply relative w-[190px] aspect-[6/8] rounded-md overflow-hidden hover:scale-105 duration-300 hover:outline hover:brightness-105 outline-1 outline-offset-2 outline-gray-500 bg-cover;
+  @apply relative w-[190px] aspect-[3/4] rounded-md overflow-hidden hover:scale-105 duration-300 hover:outline hover:brightness-105 outline-1 outline-offset-2 outline-gray-500 bg-cover;
 }
 .game-logo {
-  @apply absolute bottom-0 duration-300 object-cover w-full h-full;
+  @apply absolute bottom-0 duration-300 object-cover;
 }
 .game-card-wrapper:hover .game-logo {
   @apply scale-110 duration-300;

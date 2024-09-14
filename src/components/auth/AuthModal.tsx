@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import {
   Modal,
   ModalContent,
-  ModalHeader,
   ModalBody,
   useDisclosure,
 } from "@nextui-org/modal";
@@ -30,6 +29,17 @@ export default function AuthModal() {
   useEffect(() => {
     setModalData({ openModal: onOpen, closeModal: onClose });
   }, []);
+
+  useEffect(() => {
+    if (isOpen) return;
+    setModalData({
+      payload: {
+        otp: "",
+        email: "",
+        username: "",
+      },
+    });
+  }, [isOpen]);
 
   return (
     <>
@@ -61,6 +71,10 @@ export default function AuthModal() {
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         className="bg-background border border-border card-shadow"
+        classNames={{
+          backdrop:
+            "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-20",
+        }}
       >
         <ModalContent className="duration-300 ease-in-out overflow-hidden">
           {(onClose) => (
@@ -71,7 +85,7 @@ export default function AuthModal() {
                 <ModalBody className="pb-4">
                   {currentTab !== "otp" && (
                     <div>
-                      <div className="flex items-center gap-5">
+                      <div className="flex items-center gap-5 mobile:flex-col">
                         <TwitchOauth />
                         <DiscordOauth />
                         <GoogleOauth />

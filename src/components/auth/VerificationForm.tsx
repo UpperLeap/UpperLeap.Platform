@@ -9,6 +9,7 @@ import useLogin from "@/hooks/auth/useLogin";
 import useModalStore from "@/stores/auth_modal";
 import { Button } from "@nextui-org/button";
 import { useTranslations } from "next-intl";
+import ResentOtp from "./ResentOtp";
 
 const VerificationForm = () => {
   const t = useTranslations();
@@ -36,6 +37,7 @@ const VerificationForm = () => {
           </InputOTPGroup>
         </InputOTP>
       </div>
+      <ResentOtp />
       <div className="flex items-center gap-2">
         <Button
           color="default"
@@ -56,7 +58,6 @@ const VerificationForm = () => {
           size="sm"
           radius="sm"
           isDisabled={!payload.email || payload.otp.length !== 6 || isPending}
-          isLoading={isPending}
           className="mt-10 w-full capitalize text-white"
           type="submit"
         >

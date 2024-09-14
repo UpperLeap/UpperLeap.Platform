@@ -5,12 +5,19 @@ import { NextRequest } from "next/server";
 import { SessionData, sessionOptions } from "./ironSessionOptions";
 
 export async function getSession() {
-  const cookieStore = cookies();
   const session = await getIronSession<SessionData>(cookies(), sessionOptions);
 
   if (!session?.accessToken) return null;
 
   return jwtDecode(session?.accessToken);
+}
+
+export async function gatIsLoggedIn() {
+  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
+
+  if (!session?.accessToken) return null;
+
+  return session?.isLoggedIn;
 }
 
 export async function refreshSession(request: NextRequest) {
@@ -22,12 +29,10 @@ export async function refreshSession(request: NextRequest) {
     sessionOptions,
   );
 
-  const cookieStore = cookies();
   const refreshToken = ironSession.refreshToken;
   const accessToken = ironSession.accessToken;
 
   if (session?.exp) {
-
     const currentTime = Math.floor(Date.now() / 1000);
     if (!(session.exp < currentTime)) return;
 

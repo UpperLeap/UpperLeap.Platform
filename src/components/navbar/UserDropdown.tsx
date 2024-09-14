@@ -8,27 +8,27 @@ import {
   DropdownTrigger,
 } from "@nextui-org/dropdown";
 import useUser from "@/hooks/user/useUser";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
-import dynamic from "next/dynamic";
-import { Skeleton } from "@nextui-org/skeleton";
-import { IoExitOutline } from "react-icons/io5";
+import { IoChatbubblesOutline, IoExitOutline } from "react-icons/io5";
 import { useLogout } from "@/hooks/auth/useLogout";
 import { useRouter } from "next/navigation";
 import UserAvatar from "../ui/UserAvatar";
-const ThemeSwitcher = dynamic(
-  () => import("../../components/navbar/ThemeSwitcher"),
-  {
-    ssr: false,
-    loading: () => <Skeleton className="w-10 h-10 rounded-full" />,
-  },
-);
+import { useTheme } from "next-themes";
+import { MdSunny } from "react-icons/md";
+import { FaMoon } from "react-icons/fa6";
+import { TbLayoutDashboard } from "react-icons/tb";
+import { IoSettingsOutline } from "react-icons/io5";
 
-const UserDropdown = () => {
+const UserDropdown = ({ isMobile = false }: { isMobile?: boolean }) => {
   const t = useTranslations();
   const router = useRouter();
   const { clearData: logout } = useLogout();
   const { data, isLoading } = useUser();
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   return (
     <Dropdown
@@ -36,11 +36,12 @@ const UserDropdown = () => {
       radius="sm"
       classNames={{
         base: "before:bg-default-200",
-        content: "p-0 border-small border-divider bg-background",
+        content:
+          "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black",
       }}
     >
       <DropdownTrigger>
-        <div>
+        <div className="flex items-center gap-2">
           <UserAvatar
             src={data?.imageUrl}
             width={40}
@@ -48,10 +49,12 @@ const UserDropdown = () => {
             username={data?.userName}
             className="w-10 aspect-square bg-secondary rounded-full mobile:w-9 flex items-center justify-center font-bold uppercase text-white"
           />
+          {isMobile && <p className="text-default-600">{data?.userName}</p>}
         </div>
       </DropdownTrigger>
       <DropdownMenu
-        className="p-3"
+        disabledKeys={["profile"]}
+        className="p-2"
         itemClasses={{
           base: [
             "rounded-md",
@@ -68,9 +71,10 @@ const UserDropdown = () => {
       >
         <DropdownSection aria-label="Profile & Actions" showDivider>
           <DropdownItem
-            href="/dashboard/profile"
+            isReadOnly
             key="profile"
-            className="h-14 gap-2"
+            className="h-14 gap-2 opacity-100"
+            textValue="Profile"
           >
             <div className="flex items-center gap-2">
               <UserAvatar
@@ -85,23 +89,37 @@ const UserDropdown = () => {
               </div>
             </div>
           </DropdownItem>
-          <DropdownItem href="/dashboard" key="dashboard">
+          <DropdownItem
+            href="/dashboard"
+            key="dashboard"
+            startContent={<TbLayoutDashboard className="text-lg" />}
+          >
             {t("navbar.dashboard")}
           </DropdownItem>
-          <DropdownItem href="/dashboard/settings" key="settings">
+          <DropdownItem
+            href="/dashboard/settings"
+            key="settings"
+            startContent={<IoSettingsOutline className="text-lg" />}
+          >
             {t("navbar.settings")}
           </DropdownItem>
         </DropdownSection>
 
         <DropdownSection aria-label="Preferences" showDivider>
-          <DropdownItem key="help_and_feedback" href="/contact-us">
+          <DropdownItem
+            key="help_and_feedback"
+            href="/contact-us"
+            startContent={<IoChatbubblesOutline className="text-lg" />}
+          >
             {t("navbar.help")}
           </DropdownItem>
           <DropdownItem
-            isReadOnly
             key="theme"
-            className="cursor-default"
-            endContent={<ThemeSwitcher />}
+            closeOnSelect={false}
+            onPress={toggleTheme}
+            startContent={
+              theme === "dark" ? <MdSunny className="text-lg" /> : <FaMoon />
+            }
           >
             {t("navbar.themeToggle")}
           </DropdownItem>
@@ -111,7 +129,7 @@ const UserDropdown = () => {
           <DropdownItem
             key="logout"
             className="text-danger hover:!text-danger"
-            startContent={<IoExitOutline className="text-xl" />}
+            startContent={<IoExitOutline className="text-lg" />}
             onPress={() => {
               logout();
               router.refresh();

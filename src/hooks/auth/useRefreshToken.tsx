@@ -8,7 +8,7 @@ import { AuthResponse } from "@/types/globals";
 import { createCookieClient } from "@/services/cookies/cookiesClient";
 import { axiosInstance } from "@/utils/axiosInstance";
 import { TOKEN_TYPE } from "@/constants/api";
-import { setAuthenticationCookie } from "@/app/actions/auth";
+import { setAuthenticationCookie } from "./auth";
 
 interface RefreshTokenRequest {
   refreshToken: string;

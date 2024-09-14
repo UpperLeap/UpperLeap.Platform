@@ -1,5 +1,5 @@
-import { getAuthenticationCookies } from "@/app/actions/auth";
 import { BASE_URL, TOKEN_TYPE } from "@/constants/api";
+import { getAuthenticationCookies } from "@/hooks/auth/auth";
 import axios from "axios";
 
 export const axiosInstance = axios.create({
@@ -13,4 +13,4 @@ export const setAuthHeader = async () => {
     axiosInstance.defaults.headers.common["Authorization"] =
       `${TOKEN_TYPE} ${accessToken}`;
   }
-}
+};

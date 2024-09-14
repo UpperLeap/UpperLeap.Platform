@@ -1,25 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { BASE_URL } from "@/constants/api";
 import { AuthResponse } from "@/types/globals";
-import { cookies } from "next/headers";
-import { deleteAuthenticationCookies } from "@/app/actions/auth";
-import { SessionData, sessionOptions } from "@/utils/ironSessionOptions";
-import { getIronSession } from "iron-session";
+import { deleteAuthenticationCookies } from "@/hooks/auth/auth";
 
 export async function GET(req: NextRequest) {
-  const cookieStore = cookies();
   const refreshToken = req.headers.get("refreshToken");
   const authorizationHeader = req.headers.get("Authorization");
 
-  // const session = await getIronSession<SessionData>(cookies(), sessionOptions);
-
-  console.log({
-    headerData: authorizationHeader,
-    bt: refreshToken,
-  });
-
   if (!refreshToken || !authorizationHeader) {
-    console.log("invalid session");
+    // console.log("invalid session");
 
     return NextResponse.json({ error: "Invalid Session" }, { status: 401 });
   }
@@ -36,7 +25,7 @@ export async function GET(req: NextRequest) {
   });
 
   if (!response.ok) {
-    console.log("logout");
+    // console.log("logout");
 
     await deleteAuthenticationCookies();
 

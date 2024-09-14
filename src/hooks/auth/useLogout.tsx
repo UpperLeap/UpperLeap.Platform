@@ -1,5 +1,6 @@
 "use client";
-import { deleteAuthenticationCookies } from "@/app/actions/auth";
+
+import { deleteAuthenticationCookies } from "./auth";
 
 export const useLogout = () => {
   const clearData = async () => {

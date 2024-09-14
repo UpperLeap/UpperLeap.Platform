@@ -11,7 +11,7 @@ import { TOKEN_TYPE } from "@/constants/api";
 import { AuthResponse } from "@/types/globals";
 import { useAuthStore } from "@/stores/auth";
 import { useRouter } from "next/navigation";
-import { setAuthenticationCookie } from "@/app/actions/auth";
+import { setAuthenticationCookie } from "./auth";
 
 const useLogin = (isOtp?: boolean) => {
   const t = useTranslations();

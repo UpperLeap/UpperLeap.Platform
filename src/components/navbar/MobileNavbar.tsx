@@ -43,7 +43,7 @@ const MobileNavbar = async () => {
             <LanguagePicker />
           </div>
           <ThemeSwitcher />
-          {isLoggedIn ? <UserDropdown /> : <AuthModal />}
+          {isLoggedIn ? <UserDropdown isMobile /> : <AuthModal />}
         </div>
       </SheetContent>
     </Sheet>

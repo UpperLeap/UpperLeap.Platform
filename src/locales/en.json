@@ -150,6 +150,11 @@
     "alreadyHaveAccount": "Already have an account?",
     "verify": "Verify",
     "sentCodeTo": "We've sent a code to ",
-    "loginSuccess": "logged in successfully"
+    "loginSuccess": "logged in successfully",
+    "didntReceiveCode": "Didn't receive the code?",
+    "resend": "Resend",
+    "resendAgainAfter": "Resend again after",
+    "byProceeding": "By proceeding, you agree to our",
+    "tos&pp": "Terms of Service & Privacy Policy"
   }
 }

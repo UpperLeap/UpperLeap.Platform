@@ -5,6 +5,7 @@ const withNextIntl = createNextIntlPlugin("./src/utils/i18n.ts");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -27,6 +28,12 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "c.tenor.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
         port: "",
         pathname: "/**",
       },

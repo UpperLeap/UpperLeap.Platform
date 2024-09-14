@@ -20,7 +20,7 @@ const useLogin = (isOtp?: boolean) => {
   const { setAuth } = useAuthStore();
 
   const onError = (error: AxiosError) => {
-    if (error?.response?.status === 403 && !isOtp) {
+    if (error?.response?.status === 403) {
       setModalData({ currentTab: "otp" });
     } else {
       toast.error(error?.message || t("errors.default"));
@@ -50,8 +50,8 @@ const useLogin = (isOtp?: boolean) => {
     },
   });
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleFormSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
+    if (e) e.preventDefault();
 
     mutate(payload);
   };

@@ -20,11 +20,12 @@ export default function Home() {
       <Hero />
       <Arc />
       <GamesList />
-      <div className="my-52 ">
+      <div className="my-52 relative">
+        <div className="h-full w-full bg-gradient-to-r from-background via-transparent to-background z-[1] absolute" />
         <VelocityScroll
           text={t("landing.velocityScroll")}
           default_velocity={1}
-          className="font-display text-center text-6xl font-bold tracking-[-0.02em] text-foreground drop-shadow-sm  md:text-7xl md:leading-[5rem]"
+          className="font-display text-center text-6xl font-bold tracking-[-0.02em] text-foreground drop-shadow-sm z-0  md:text-7xl md:leading-[5rem]"
         />
       </div>
       <Services />

@@ -11,7 +11,7 @@ export default function GameLayout({
   return (
     <section>
       <GameNav />
-      <div className="z-[1] relative">{children}</div>
+      <div className="z-[1] relative max-w-large mx-auto px-10 mt-10">{children}</div>
     </section>
   );
 }

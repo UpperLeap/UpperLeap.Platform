@@ -5,8 +5,8 @@ export const valorant = {
   name: "Valorant",
   ImageUrl: "https://cdn.gameboost.com/games/logos/valorant.png",
   logo: "https://cdn.gameboost.com/games/valorant/logo/icon.svg",
-  mainTitle: "valorant.mainTitle",
-  subTitle: "valorant.subTitle",
+  mainTitle: "gameProfile.valorant.mainTitle",
+  subTitle: "gameProfile.valorant.subTitle",
   tabs: [
     {
       name: "gameProfile.boosting",

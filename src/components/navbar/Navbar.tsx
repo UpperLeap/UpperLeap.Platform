@@ -22,7 +22,7 @@ const Navbar = async () => {
   return (
     <header className="z-10 mobile:px-5 px-10 py-4 sticky top-0 border-transparent select-none before:p-px nav-header w-full">
       <div className="flex items-center justify-between gap-5 relative z-[1] max-w-large mx-auto">
-        <div className="flex items-center gap-5 mobile:hidden max-w-[201px] w-full">
+        <div className="flex items-center gap-5 mobile:hidden max-w-[230px] w-full">
           {!isLoggedIn && <ThemeSwitcher />}
           <ExploreGamesLink />
         </div>
@@ -30,7 +30,7 @@ const Navbar = async () => {
         <Link href="/" className="max-w-[201px] w-full">
           <Logo />
         </Link>
-        <div className="flex items-center gap-5 mobile:hidden max-w-[201px] w-full justify-end">
+        <div className="flex items-center gap-5 mobile:hidden max-w-[210px] w-full justify-end">
           <LanguagePicker />
 
           {isLoggedIn ? <UserDropdown /> : <AuthModal />}

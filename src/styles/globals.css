@@ -44,6 +44,10 @@ html.lenis body {
   @apply absolute inset-0 rounded-br-xl rounded-bl-xl backdrop-blur-3xl bg-gray-100/20 dark:bg-[#1A1B20]/20 transition-all duration-200;
 }
 
+.game-nav-header:before {
+  @apply absolute inset-0 backdrop-blur-xl bg-gray-100/20 dark:bg-background/35 transition-all duration-200;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   background: var(--scrollbar);

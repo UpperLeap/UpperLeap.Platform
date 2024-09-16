@@ -33,6 +33,7 @@ export default function AuthModal() {
   useEffect(() => {
     if (isOpen) return;
     setModalData({
+      currentTab: "login",
       payload: {
         otp: "",
         email: "",
@@ -59,6 +60,7 @@ export default function AuthModal() {
         radius="sm"
         hideCloseButton
         shouldBlockScroll
+        isDismissable={currentTab !== "otp"}
         motionProps={{
           variants: {
             initial: { opacity: 0, scale: 1.1 },

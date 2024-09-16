@@ -50,7 +50,7 @@ const useLogin = (isOtp?: boolean) => {
     },
   });
 
-  const handleFormSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
     if (e) e.preventDefault();
 
     mutate(payload);

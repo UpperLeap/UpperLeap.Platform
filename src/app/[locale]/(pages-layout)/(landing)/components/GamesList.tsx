@@ -3,7 +3,7 @@ import { getGames } from "@/services/games";
 import Image from "next/image";
 import Link from "next/link";
 
-const GamesList = async () => {
+const GamesList = async ({ locale }: { locale: string }) => {
   let games;
 
   try {
@@ -19,7 +19,7 @@ const GamesList = async () => {
           <Link
             key={i}
             className="flex flex-col gap-4"
-            href={`/games/${game.id}`}
+            href={`/${locale}/games/${game.id}`}
           >
             <div className="game-card-wrapper">
               <Image

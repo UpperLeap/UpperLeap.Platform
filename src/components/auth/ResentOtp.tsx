@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 
 const ResentOtp = () => {
   const t = useTranslations();
-  const { handleFormSubmit, isPending } = useLogin(true);
+  const { handleFormSubmit, isPending, error } = useLogin(true);
   const [timer, setTimer] = useState(0);
 
   useEffect(() => {
@@ -18,10 +18,12 @@ const ResentOtp = () => {
     }
   }, [timer]);
 
-  const handleResend = () => {
+  const handleResend = async () => {
     handleFormSubmit();
-    setTimer(60);
+    setTimer(63);
   };
+
+  // const 
 
   return (
     <div className="flex items-center justify-center text-sm mt-5 gap-1 flex-wrap">

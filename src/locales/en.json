@@ -156,5 +156,15 @@
     "resendAgainAfter": "Resend again after",
     "byProceeding": "By proceeding, you agree to our",
     "tos&pp": "Terms of Service & Privacy Policy"
+  },
+  "gameProfile": {
+    "support": "24/7 Support",
+    "boosting": "Boosting",
+    "comingSoon": "Coming Soon",
+    "accounts": "Accounts",
+    "valorant": {
+      "mainTitle": "Valorant Services",
+      "subTitle": "Boost your Valorant rank with our expert boosters and reach the top of your gaming potential."
+    }
   }
 }

@@ -9,7 +9,7 @@ import Services from "./components/Services";
 import Faq from "./components/Faq";
 import GetStarted from "./components/GetStarted";
 
-export default function Home() {
+export default function Home({ params }: { params: { locale: string } }) {
   const t = useTranslations();
 
   return (
@@ -19,7 +19,7 @@ export default function Home() {
       </div>
       <Hero />
       <Arc />
-      <GamesList />
+      <GamesList locale={params.locale} />
       <div className="my-52 relative">
         <div className="h-full w-full bg-gradient-to-r from-background via-transparent to-background z-[1] absolute" />
         <VelocityScroll

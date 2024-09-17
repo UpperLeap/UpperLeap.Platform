@@ -164,7 +164,25 @@
     "accounts": "Accounts",
     "valorant": {
       "mainTitle": "Valorant Services",
-      "subTitle": "Boost your Valorant rank with our expert boosters and reach the top of your gaming potential."
-    }
+      "subTitle": "Boost your Valorant rank with our expert boosters and reach the top of your gaming potential.",
+      "disclaimer": "UpperLeap is not affiliated, endorsed, sponsored, or authorized by Riot Games, Inc., Valorant, or any of its subsidiaries or affiliates. Riot Games, Inc.’s official website can be found at: https://www.riotgames.com. The name Valorant, as well as related names, marks, emblems, and images are registered trademarks of their respective owners. Use of trademarks is covered by fair use principles under EU Regulation 2017/1001, Article 14.",
+      "boostingTitle": "Valorant Boosting",
+      "boostingSubTitle": "The best VLR Boosting you can get!",
+      "rankBoostTitle": "Valorant Rank Boost",
+      "rankBoostSubTitle": "Select a desired rank and get Boosted by a Radiant player."
+    },
+    "leagueOfLegends": {
+      "mainTitle": "League of Legends Services",
+      "subTitle": "Boost your League of Legends rank with our expert boosters and reach the top of your gaming potential."
+    },
+    "rankBoost": "Rank Boost",
+    "rankBoostTitle": "Rank Boost",
+    "rankBoostDescription": "Select a desired rank and get Boosted by a Radiant player.",
+    "winBoost": "Win Boost",
+    "winBoostDescription": "If only pay to win was a thing...or is it?",
+    "placementBoost": "Placement Boost",
+    "placementBoostDescription": "Ace the new Act, get a Radiant to play your Placements.",
+    "unratedMatches": "Unrated Matches",
+    "unratedMatchesDescription": "You've seen rent-a-girlfriend, now get ready for rent-a-Radiant."
   }
 }

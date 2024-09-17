@@ -12,7 +12,11 @@ export default async function middleware(
 ): Promise<NextResponse> {
   await refreshSession(request);
 
-  return intlMiddleware(request);
+  const response = intlMiddleware(request);
+
+  response.headers.set("current-path", request.nextUrl.pathname);
+
+  return response;
 }
 
 export const config = {

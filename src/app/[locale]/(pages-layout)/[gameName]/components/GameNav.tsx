@@ -20,7 +20,7 @@ const GameNav = () => {
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
     if (!previous) return;
-    if (latest > previous && latest > 150) {
+    if (latest > previous && latest > 100) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
@@ -35,12 +35,12 @@ const GameNav = () => {
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       animate={isScrolled ? "hidden" : "visible"}
-      className="sticky top-[72px] z-[5] mobile:px-5 px-10 border-transparent before:p-px game-nav-header w-full"
+      className="sticky top-[72px] mobile:top-[66px] z-[5] mobile:px-5 px-10 border-transparent before:p-px game-nav-header w-full"
     >
-      <nav className="flex items-center justify-between gap-5 relative z-[1] max-w-large mx-auto">
+      <nav className="flex items-center justify-between gap-5 relative z-[1] max-w-large mx-auto mobile:justify-center ">
         <Link
-          href={`/${locale}/games/${gameName}`}
-          className="flex items-center gap-3 py-3"
+          href={`/${locale}/${gameName}`}
+          className="flex items-center gap-3 py-3 mobile:hidden"
         >
           <Image
             src={gameData?.ImageUrl}
@@ -49,10 +49,12 @@ const GameNav = () => {
             height={35}
             className="object-cover"
           />
-          <h2 className="text-lg font-bold text-foreground">{gameData?.name}</h2>
+          <h2 className="text-lg font-bold text-foreground">
+            {gameData?.name}
+          </h2>
         </Link>
         <NavTabs />
-        <div className="py-3">
+        <div className="py-3 mobile:hidden">
           <Link
             href="/contact-us"
             className="flex items-center gap-2 bg-default px-3 text-sm py-[6px] text-foreground rounded-lg hover:bg-opacity-70 duration-300 active:scale-90"

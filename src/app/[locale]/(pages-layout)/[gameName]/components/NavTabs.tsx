@@ -3,12 +3,14 @@
 import { gamesData } from "@/data/gamesData";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { Tooltip } from "@nextui-org/tooltip";
+import { cn } from "@/utils/utils";
 
 const NavTabs = () => {
   const t = useTranslations();
   const { locale, gameName } = useParams();
+  const pathname = usePathname();
   const gameData = gamesData[gameName as keyof typeof gamesData];
 
   return (
@@ -22,13 +24,15 @@ const NavTabs = () => {
         >
           <Link
             aria-disabled={!tab.isActive}
-            href={
-              tab.isActive ? `/${locale}/games/${gameName}/${tab.path}` : ""
-            }
+            href={tab.isActive ? `/${locale}/${gameName}/${tab.path}` : ""}
             style={{
               opacity: !tab.isActive ? 0.5 : 1,
             }}
-            className="flex items-center gap-2 px-4 text-sm py-5 hover:text-foreground hover:bg-opacity-70 duration-300 transition-all hover:bg-gradient-to-t from-foreground-secondary/20 to-background-secondary/30"
+            className={cn(
+              "flex items-center gap-2 px-4 text-sm py-5 hover:text-foreground hover:bg-opacity-70 duration-300 transition-all hover:bg-gradient-to-t from-foreground-secondary/20 to-background-secondary/30",
+              pathname.includes(tab.path) &&
+                "text-foreground bg-opacity-70 bg-gradient-to-t",
+            )}
           >
             <span>
               <tab.icon className="text-lg" />

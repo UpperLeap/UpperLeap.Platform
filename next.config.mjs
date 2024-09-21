@@ -27,19 +27,13 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "c.tenor.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "placehold.co",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
         hostname: "media.valorant-api.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.upperleap.com",
         port: "",
         pathname: "/**",
       },

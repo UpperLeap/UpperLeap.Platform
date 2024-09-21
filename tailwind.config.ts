@@ -73,7 +73,7 @@ const config: Config = {
       maxWidth: {
         large: "1640px",
         medium: "1240px",
-        
+        wide: "1424px",
       },
       borderRadius: {
         lg: "var(--radius)",

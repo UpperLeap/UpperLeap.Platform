@@ -4,7 +4,7 @@
 
 * {
   @apply box-border;
-  font-family: "Inter", sans-serif;
+  /* font-family: "Manrope", sans-serif; */
 }
 
 body {
@@ -134,7 +134,7 @@ html.lenis body {
 
   .dark {
     --background: 252 26% 4%;
-    --background-secondary: 0 0% 9%;
+    --background-secondary: 0 0% 6.3%;
     --foreground: 0 100% 100%;
     --foreground-secondary: 204 3% 64%;
     --card: 240 10% 3.9%;

@@ -17,7 +17,7 @@ const DiscordOauth = () => {
       variant="bordered"
       size="sm"
       // onClick={() => redirect()}
-      className="w-full gap-3 px-2 py-5 text-base capitalize group text-[#6773f4] border-1"
+      className="w-full gap-3 px-2 py-5 text-base capitalize group hover:bg-[#6773f4] border-1 text-foreground hover:text-white"
     >
       <BsDiscord className="text-xl" />
       {/* {t("auth.discord")} */}

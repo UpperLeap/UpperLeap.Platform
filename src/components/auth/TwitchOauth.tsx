@@ -17,7 +17,7 @@ const TwitchOauth = () => {
       variant="bordered"
       // onPress={() => redirect()}
       size="sm"
-      className="w-full gap-3 px-2 py-5 text-base capitalize border-1 text-[#a970ff]"
+      className="w-full gap-3 px-2 py-5 text-base capitalize border-1 hover:bg-[#a970ff] hover:text-white"
     >
       <BsTwitch className="text-xl" />
       {/* {t("auth.twitch")} */}

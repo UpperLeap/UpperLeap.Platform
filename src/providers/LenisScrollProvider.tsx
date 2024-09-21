@@ -6,5 +6,6 @@ export default function LenisScrollProvider({
 }: {
   children: React.ReactNode;
 }) {
-  return <ReactLenis root>{children}</ReactLenis>;
+  return children;
+  // return <ReactLenis root>{children}</ReactLenis>;
 }

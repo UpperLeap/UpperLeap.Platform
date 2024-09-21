@@ -20,8 +20,13 @@ import RegisterForm from "./RegisterForm";
 import VerificationForm from "./VerificationForm";
 import "@/styles/auth.css";
 import AuthPageHeader from "./AuthPageHeader";
+import { PiUserCirclePlusDuotone } from "react-icons/pi";
 
-export default function AuthModal() {
+export default function AuthModal({
+  isGetStarted = false,
+}: {
+  isGetStarted?: boolean;
+}) {
   const t = useTranslations();
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const { setModalData, currentTab } = useModalStore();
@@ -45,16 +50,28 @@ export default function AuthModal() {
   return (
     <>
       <Button
-        radius="full"
+        radius="sm"
         aria-label="login"
         color="secondary"
+        size="md"
         className="text-white"
         onPress={onOpen}
       >
-        {t("navbar.login")}
-        <span>
-          <FaArrowRightLong />
-        </span>
+        {!isGetStarted ? (
+          <>
+            <span>{t("navbar.login")}</span>
+            <span>
+              <FaArrowRightLong />
+            </span>
+          </>
+        ) : (
+          <>
+            <span className="text-xl">
+              <PiUserCirclePlusDuotone />
+            </span>
+            <span>{t("navbar.login")}</span>
+          </>
+        )}
       </Button>
       <Modal
         radius="sm"

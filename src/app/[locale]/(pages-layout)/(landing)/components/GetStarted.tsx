@@ -1,10 +1,15 @@
+import AuthModal from "@/components/auth/AuthModal";
+import { gatIsLoggedIn } from "@/utils/auth";
+import { cn } from "@/utils/utils";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { FaArrowRightLong } from "react-icons/fa6";
+import { PiJoystickFill } from "react-icons/pi";
+import { PiUserCirclePlusDuotone } from "react-icons/pi";
 
-const GetStarted = () => {
+const GetStarted = async () => {
   const t = useTranslations();
+  const isLoggedIn = await gatIsLoggedIn();
 
   return (
     <section className="relative h-[70vh] mt-52">
@@ -29,19 +34,17 @@ const GetStarted = () => {
         <div className="flex items-center gap-5 mt-20">
           <Link
             href="#games-list"
-            className="flex items-center gap-2 bg-default px-4 py-2 text-foreground rounded-lg hover:bg-opacity-70 duration-300 active:scale-90"
+            className={cn(
+              "flex items-center gap-2 bg-default px-4 py-2 text-foreground rounded-lg hover:bg-opacity-70 duration-300 active:scale-90",
+              isLoggedIn && "bg-secondary",
+            )}
           >
+            <span className="text-lg">
+              <PiJoystickFill />
+            </span>
             <span>{t("navbar.exploreGames")}</span>
-            <span>
-              <FaArrowRightLong />
-            </span>
           </Link>
-          <button className="flex items-center gap-2 bg-secondary text-white px-4 py-2 text-foreground rounded-lg hover:bg-opacity-70 duration-300 active:scale-90">
-            <span>{t("navbar.login")}</span>
-            <span>
-              <FaArrowRightLong />
-            </span>
-          </button>
+          {!isLoggedIn && <AuthModal isGetStarted />}
         </div>
       </div>
     </section>

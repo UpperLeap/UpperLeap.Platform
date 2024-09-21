@@ -8,8 +8,12 @@ export default async function GamePage({
 }: {
   params: { gameName: string; locale: string };
 }) {
-  const gameData = gamesData[gameName as keyof typeof gamesData];
-  if (!gameData) {
+  let gameData;
+
+  try {
+    gameData = gamesData[gameName as keyof typeof gamesData];
+  } catch (error) {
+    console.error(error);
     notFound();
   }
 

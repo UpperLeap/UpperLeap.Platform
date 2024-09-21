@@ -9,7 +9,7 @@ import useLogin from "@/hooks/auth/useLogin";
 import useModalStore from "@/stores/auth_modal";
 import { Button } from "@nextui-org/button";
 import { useTranslations } from "next-intl";
-import ResentOtp from "./ResentOtp";
+import ResendOtp from "./ResendOtp";
 
 const VerificationForm = () => {
   const t = useTranslations();
@@ -37,7 +37,7 @@ const VerificationForm = () => {
           </InputOTPGroup>
         </InputOTP>
       </div>
-      <ResentOtp />
+      <ResendOtp />
       <div className="flex items-center gap-2">
         <Button
           color="default"

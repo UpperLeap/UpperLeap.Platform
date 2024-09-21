@@ -20,7 +20,7 @@ const LanguagePicker = () => {
         <Button
           variant="light"
           radius="full"
-          className="px-4 h-7 mobile:w-full"
+          className="p-4 mobile:w-full"
           isIconOnly
         >
           <span>

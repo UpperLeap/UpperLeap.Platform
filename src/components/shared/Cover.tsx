@@ -1,12 +1,26 @@
+"use client";
+
+import useCoverStore from "@/stores/cover";
 import Image from "next/image";
-import React from "react";
+import deadlockCover from "../../../public/deadlock-cover.jpg";
+
+const covers = {
+  "league-of-legends":
+    "https://cdn.gameboost.com/games/league-of-legends/banner/katarina.webp",
+  valorant: "https://cdn.gameboost.com/games/valorant/banner/neon.webp",
+  "counter-strike-2":
+    "https://blitz-cdn.blitz.gg/blitz/ui/img/game-bg/cs2-home-bg-centered.webp",
+  deadlock: deadlockCover,
+};
 
 const Cover = () => {
+  const { gameName } = useCoverStore();
+
   return (
     <div className="absolute z-[1] top-0 left-0 w-full">
       <div className="relative overflow-hidden h-[70vh]">
         <Image
-          src="https://cdn.gameboost.com/games/league-of-legends/banner/katarina.webp"
+          src={covers[gameName as keyof typeof covers]}
           alt="Banner"
           className="object-cover w-full h-full cover-light-up"
           width={500}

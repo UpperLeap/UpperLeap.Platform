@@ -1,6 +1,5 @@
 import { IoRocket } from "react-icons/io5";
 import { GiSpartanHelmet } from "react-icons/gi";
-import { IconType } from "react-icons/lib";
 
 export const valorant = {
   name: "Valorant",
@@ -26,6 +25,26 @@ export const valorant = {
     title: "gameProfile.valorant.rankBoostTitle",
     subTitle: "gameProfile.valorant.rankBoostSubTitle",
     image: "https://cdn.gameboost.com/boost-forms/icons/dark/VALRankBoost.svg",
+    icon: null,
+  },
+  "win-boost": {
+    title: "valorant.winBoostTitle",
+    subTitle: "valorant.winBoostSubTitle",
+    image: "https://cdn.gameboost.com/boost-forms/icons/dark/VALWinBoost.svg",
+    icon: null,
+  },
+  "placement-boost": {
+    title: "valorant.placementBoostTitle",
+    subTitle: "valorant.placementBoostSubTitle",
+    image:
+      "https://cdn.gameboost.com/boost-forms/icons/dark/VALPlacementsBoost.svg",
+    icon: null,
+  },
+  "unrated-boost": {
+    title: "valorant.unratedBoostTitle",
+    subTitle: "valorant.unratedBoostSubTitle",
+    image:
+      "https://cdn.gameboost.com/boost-forms/icons/dark/VALUnratedMatches.svg",
     icon: null,
   },
   boostingIcon: IoRocket,
@@ -74,10 +93,204 @@ export const valorant = {
     },
   ],
   disclaimer: "gameProfile.valorant.disclaimer",
+  ranks: [
+    {
+      name: "valorant.ranks.iron",
+      title: "Iron",
+      image: "https://cdn.gameboost.com/games/valorant/tiers/Iron.webp",
+      hiddenOn: null,
+      color: "#4e4e4e",
+      isDivisionsVisible: true,
+    },
+    {
+      name: "valorant.ranks.bronze",
+      title: "Bronze",
+      image: "https://cdn.gameboost.com/games/valorant/tiers/Bronze.webp",
+      hiddenOn: null,
+      color: "#79541a",
+      isDivisionsVisible: true,
+    },
+    {
+      name: "valorant.ranks.silver",
+      title: "Silver",
+      image: "https://cdn.gameboost.com/games/valorant/tiers/Silver.webp",
+      hiddenOn: null,
+      color: "#b8bdbb",
+      isDivisionsVisible: true,
+    },
+    {
+      name: "valorant.ranks.gold",
+      title: "Gold",
+      image: "https://cdn.gameboost.com/games/valorant/tiers/Gold.webp",
+      hiddenOn: null,
+      color: "#ebbd44",
+      isDivisionsVisible: true,
+    },
+    {
+      name: "valorant.ranks.platinum",
+      title: "Platinum",
+      image: "https://cdn.gameboost.com/games/valorant/tiers/Platinum.webp",
+      hiddenOn: null,
+      color: "#39a4b6",
+      isDivisionsVisible: true,
+    },
+    {
+      name: "valorant.ranks.diamond",
+      title: "Diamond",
+      image: "https://cdn.gameboost.com/games/valorant/tiers/Diamond.webp",
+      hiddenOn: null,
+      color: "#b362ca",
+      isDivisionsVisible: true,
+    },
+    {
+      name: "valorant.ranks.ascendant",
+      title: "Ascendant",
+      image: "https://cdn.gameboost.com/games/valorant/tiers/Ascendant.webp",
+      hiddenOn: null,
+      color: "#3a8a5f",
+      isDivisionsVisible: true,
+    },
+    {
+      name: "valorant.ranks.immortal",
+      title: "Immortal",
+      image: "https://cdn.gameboost.com/games/valorant/tiers/Immortal.webp",
+      hiddenOn: null,
+      color: "#8b163e",
+      isDivisionsVisible: true,
+    },
+    {
+      name: "valorant.ranks.radiant",
+      title: "Radiant",
+      image: "https://cdn.gameboost.com/games/valorant/tiers/Radiant.webp",
+      hiddenOn: ["rank-boost"],
+      color: "#b1b1af",
+      isDivisionsVisible: false,
+    },
+  ],
+  divisions: [
+    {
+      value: 1,
+      title: "1",
+    },
+    {
+      value: 2,
+      title: "2",
+    },
+    {
+      value: 3,
+      title: "3",
+    },
+  ],
+  options: {
+    currentPoints: {
+      label: "gameProfile.currentRr",
+      key: "currentPoints",
+      options: [
+        {
+          label: "valorant.currentRR.R20",
+          value: 0,
+        },
+        {
+          label: "valorant.currentRR.R40",
+          value: 1,
+        },
+        {
+          label: "valorant.currentRR.R60",
+          value: 2,
+        },
+        {
+          label: "valorant.currentRR.R80",
+          value: 3,
+        },
+        {
+          label: "valorant.currentRR.R100",
+          value: 4,
+        },
+      ],
+    },
+    server: {
+      label: "gameProfile.server",
+      key: "server",
+      options: [
+        {
+          label: "gameProfile.servers.eu",
+          value: 0,
+        },
+        {
+          label: "gameProfile.servers.na",
+          value: 1,
+        },
+      ],
+    },
+    gameMode: {
+      label: "gameProfile.gameMode",
+      key: "gameMode",
+      options: [
+        {
+          label: "gameProfile.unrated",
+          value: 0,
+        },
+        {
+          label: "gameProfile.featured",
+          value: 1,
+        },
+      ],
+    },
+  },
+  visibleOptions: {
+    "rank-boost": ["currentPoints", "server"],
+    "win-boost": ["server"],
+    "placement-boost": ["server"],
+    "unrated-boost": ["server", "gameMode"],
+  },
+  detailsBanner: {
+    "rank-boost": {
+      current: "rank",
+      desired: "rank",
+    },
+    "win-boost": {
+      current: "rank",
+      desired: "wins",
+    },
+    "placement-boost": {
+      current: "rank",
+      desired: "wins",
+    },
+    "unrated-boost": {
+      current: "unrated",
+      desired: "wins",
+    },
+  },
+  configurations: {
+    priorityBoost: {
+      label: "gameProfile.priorityBoost",
+      percentage: 25,
+    },
+    streamGames: {
+      label: "gameProfile.streamGames",
+      percentage: 20,
+    },
+    soloOnlyQueue: {
+      label: "gameProfile.soloOnlyQueue",
+      percentage: 60,
+    },
+  },
 };
 
 export type BoostingCategories = (typeof valorant.boostingCategories)[number];
 
 export type PageHeaderData = typeof valorant.boosting;
+
+export type Ranks = (typeof valorant.ranks)[number];
+
+export type Divisions = (typeof valorant.divisions)[number];
+
+export type AdditionalOptions = typeof valorant.options;
+
+export function getVisibleRanks(boostType: string): Ranks[] {
+  return valorant.ranks.filter(
+    (rank) => rank.hiddenOn === null || !rank.hiddenOn.includes(boostType),
+  );
+}
 
 export default valorant;

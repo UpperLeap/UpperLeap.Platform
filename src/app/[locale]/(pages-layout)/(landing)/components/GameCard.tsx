@@ -22,6 +22,8 @@ const GameCard = ({ game }: { game: BasicGame }) => {
       <div className="game-card-wrapper">
         <Image
           className="game-logo"
+          placeholder="blur"
+          blurDataURL={game.imageUrl}
           src={game.imageUrl}
           loading="lazy"
           alt={`${game.name} logo`}

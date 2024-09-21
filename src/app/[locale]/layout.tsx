@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "../../styles/globals.css";
 import Providers from "@/providers";
 import { IParams } from "@/types/globals";
 
-const dmSans = DM_Sans({ subsets: ["latin"] });
+const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "UpperLeap",
@@ -21,7 +21,7 @@ export default async function RootLayout({
 }: RootLayoutProps) {
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={dmSans.className} suppressHydrationWarning={true}>
+      <body className={manrope.className} suppressHydrationWarning={true}>
         <Providers>{children}</Providers>
       </body>
     </html>

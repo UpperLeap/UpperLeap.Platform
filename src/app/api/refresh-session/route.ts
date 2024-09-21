@@ -1,14 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { BASE_URL } from "@/constants/api";
 import { AuthResponse } from "@/types/globals";
-import { deleteAuthenticationCookies } from "@/hooks/auth/auth";
+import {
+  deleteAuthenticationCookies,
+  setAuthenticationCookie,
+} from "@/hooks/auth/auth";
 
-export async function GET(req: NextRequest) {
+export async function POST(req: NextRequest) {
   const refreshToken = req.headers.get("refreshToken");
   const authorizationHeader = req.headers.get("Authorization");
 
   if (!refreshToken || !authorizationHeader) {
-    // console.log("invalid session");
+    console.log("invalid session");
 
     return NextResponse.json({ error: "Invalid Session" }, { status: 401 });
   }
@@ -25,7 +28,7 @@ export async function GET(req: NextRequest) {
   });
 
   if (!response.ok) {
-    // console.log("logout");
+    console.log("logout");
 
     await deleteAuthenticationCookies();
 
@@ -38,21 +41,11 @@ export async function GET(req: NextRequest) {
   const data: AuthResponse = await response.json();
   const res = NextResponse.json({ message: "Session refreshed" });
 
-  res.cookies.set("accessToken", data.accessToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
-    maxAge: Math.floor((Date.parse(data.expiry) - Date.now()) / 1000),
-    path: "/",
-  });
+  console.log("Session refreshed");
 
-  res.cookies.set("refreshToken", data.refreshToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
-    maxAge: Math.floor((Date.parse(data.expiry) - Date.now()) / 1000),
-    path: "/",
-  });
+  if (data) {
+    await setAuthenticationCookie(data);
+  }
 
   return res;
 }

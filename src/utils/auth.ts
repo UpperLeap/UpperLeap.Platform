@@ -39,7 +39,7 @@ export async function refreshSession(request: NextRequest) {
     const response = await fetch(
       `${request.nextUrl.origin}/api/refresh-session`,
       {
-        method: "GET",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${accessToken}`,

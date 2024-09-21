@@ -11,6 +11,7 @@ type StoreState = {
   openModal: (() => void) | null;
   currentTab: "login" | "register" | "otp";
   payload: loginPayload;
+  errorStatus: number | null;
   setModalData: (modalData: Partial<StoreState>) => void;
 };
 
@@ -23,6 +24,7 @@ const useModalStore = create<StoreState>((set) => ({
     otp: "",
   },
   currentTab: "login",
+  errorStatus: null,
   setModalData: (modalData: Partial<StoreState>) => set(modalData),
 }));
 

@@ -20,6 +20,7 @@ const useLogin = (isOtp?: boolean) => {
   const { setAuth } = useAuthStore();
 
   const onError = (error: AxiosError) => {
+    setModalData({ errorStatus: error?.response?.status });
     if (error?.response?.status === 403) {
       setModalData({ currentTab: "otp" });
     } else {

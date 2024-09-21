@@ -36,6 +36,7 @@ const GameHeader = ({ gameName }: { gameName: string }) => {
             width={30}
             height={30}
             loading="lazy"
+            className="invert dark:invert-0 grayscale"
           />
         )}
         {pageData?.icon && (

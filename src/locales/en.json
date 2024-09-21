@@ -36,10 +36,12 @@
     "continue": "Continue",
     "yes": "Yes",
     "no": "No",
-    "search": "Search"
+    "search": "Search",
+    "free": "Free",
+    "apply": "Apply"
   },
   "navbar": {
-    "login": "Login",
+    "login": "Log in",
     "exploreGames": "Explore Games",
     "language": "Language",
     "english": "English",
@@ -155,7 +157,8 @@
     "resend": "Resend",
     "resendAgainAfter": "Resend again after",
     "byProceeding": "By proceeding, you agree to our",
-    "tos&pp": "Terms of Service & Privacy Policy"
+    "tos&pp": "Terms of Service & Privacy Policy",
+    "signUp": "Sign Up"
   },
   "gameProfile": {
     "support": "24/7 Support",
@@ -183,6 +186,66 @@
     "placementBoost": "Placement Boost",
     "placementBoostDescription": "Ace the new Act, get a Radiant to play your Placements.",
     "unratedMatches": "Unrated Matches",
-    "unratedMatchesDescription": "You've seen rent-a-girlfriend, now get ready for rent-a-Radiant."
+    "unratedMatchesDescription": "You've seen rent-a-girlfriend, now get ready for rent-a-Radiant.",
+    "currentRank": "Current Rank",
+    "currentRankDescription": "The rank and division you are currently at.",
+    "desiredRank": "Desired Rank",
+    "desiredRankDescription": "The rank and division you want to achieve.",
+    "server": "Server",
+    "currentRr": "Current RR",
+    "servers": {
+      "na": "North America",
+      "eu": "Europe",
+      "ap": "Asia Pacific",
+      "kr": "Korea",
+      "br": "Brazil"
+    },
+    "gameMode": "Game Mode",
+    "featured": "Featured",
+    "unrated": "Unrated",
+    "matchesAmount": "Matches Amount",
+    "winsAmount": "Wins Amount",
+    "matchesAmountDescription": "Select The number of matches you want to win.",
+    "matches": "Matches",
+    "wins": "Wins",
+    "checkout": "Checkout",
+    "addExtras": "Add the Extras to your boost",
+    "solo": "Solo",
+    "duo": "Duo",
+    "priorityBoost": "Priority Boost",
+    "streamGames": "Stream Games",
+    "soloOnlyQueue": "Solo Only Queue",
+    "agentsSelection": "Agents Selection",
+    "selectAgents": "Select your Agents",
+    "discountCode": "Discount Code",
+    "totalPrice": "Total Price",
+    "buyBoost": "Buy Boost",
+    "discountCodeApplied": "Congratulations! You've got a {discount}% discount with code: {code}"
+  },
+  "valorant": {
+    "winBoostTitle": "Win Boost",
+    "winBoostSubTitle": "If only pay to win was a thing...or is it?",
+    "unratedBoostTitle": "Unrated Boost",
+    "unratedBoostSubTitle": "You've seen rent-a-girlfriend, now get ready for rent-a-Radiant.",
+    "placementBoostTitle": "Placement Boost",
+    "placementBoostSubTitle": "Ace the new Act, get a Radiant to play your Placements.",
+    "currentRR": {
+      "R20": "0-20 RR",
+      "R40": "21-40 RR",
+      "R60": "41-60 RR",
+      "R80": "61-80 RR",
+      "R100": "81-100 RR"
+    },
+    "ranks": {
+      "iron": "Iron",
+      "bronze": "Bronze",
+      "silver": "Silver",
+      "gold": "Gold",
+      "platinum": "Platinum",
+      "diamond": "Diamond",
+      "ascendant": "Ascendant",
+      "immortal": "Immortal",
+      "radiant": "Radiant"
+    }
   }
 }

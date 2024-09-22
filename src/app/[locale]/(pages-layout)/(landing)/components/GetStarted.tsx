@@ -1,5 +1,5 @@
 import AuthModal from "@/components/auth/AuthModal";
-import { gatIsLoggedIn } from "@/utils/auth";
+import { getIsLoggedIn } from "@/utils/auth";
 import { cn } from "@/utils/utils";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -9,7 +9,7 @@ import { PiUserCirclePlusDuotone } from "react-icons/pi";
 
 const GetStarted = async () => {
   const t = useTranslations();
-  const isLoggedIn = await gatIsLoggedIn();
+  const isLoggedIn = await getIsLoggedIn();
 
   return (
     <section className="relative h-[70vh] mt-52">

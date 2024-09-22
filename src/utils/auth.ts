@@ -12,7 +12,7 @@ export async function getSession() {
   return jwtDecode(session?.accessToken);
 }
 
-export async function gatIsLoggedIn() {
+export async function getIsLoggedIn() {
   const session = await getIronSession<SessionData>(cookies(), sessionOptions);
 
   if (!session?.accessToken) return null;

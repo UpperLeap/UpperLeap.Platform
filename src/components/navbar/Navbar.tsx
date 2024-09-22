@@ -7,7 +7,7 @@ import LanguagePicker from "./LanguagePicker";
 import MobileNavbar from "./MobileNavbar";
 import AuthModal from "../auth/AuthModal";
 import UserDropdown from "./UserDropdown";
-import { gatIsLoggedIn } from "@/utils/auth";
+import { getIsLoggedIn } from "@/utils/auth";
 const ThemeSwitcher = dynamic(
   () => import("../../components/navbar/ThemeSwitcher"),
   {
@@ -17,7 +17,7 @@ const ThemeSwitcher = dynamic(
 );
 
 const Navbar = async () => {
-  const isLoggedIn = await gatIsLoggedIn();
+  const isLoggedIn = await getIsLoggedIn();
 
   return (
     <header className="z-10 mobile:px-5 px-10 py-4 sticky top-0 border-transparent select-none before:p-px nav-header w-full">

@@ -14,7 +14,7 @@ import { Skeleton } from "@nextui-org/skeleton";
 import dynamic from "next/dynamic";
 import AuthModal from "../auth/AuthModal";
 import UserDropdown from "./UserDropdown";
-import { gatIsLoggedIn } from "@/utils/auth";
+import { getIsLoggedIn } from "@/utils/auth";
 const ThemeSwitcher = dynamic(
   () => import("../../components/navbar/ThemeSwitcher"),
   {
@@ -24,7 +24,7 @@ const ThemeSwitcher = dynamic(
 );
 
 const MobileNavbar = async () => {
-  const isLoggedIn = await gatIsLoggedIn();
+  const isLoggedIn = await getIsLoggedIn();
 
   return (
     <Sheet>

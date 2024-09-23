@@ -6,8 +6,8 @@ import ExploreGamesLink from "./ExploreGamesLink";
 import LanguagePicker from "./LanguagePicker";
 import MobileNavbar from "./MobileNavbar";
 import AuthModal from "../auth/AuthModal";
-import UserDropdown from "./UserDropdown";
 import { getIsLoggedIn } from "@/utils/auth";
+import User from "./User";
 const ThemeSwitcher = dynamic(
   () => import("../../components/navbar/ThemeSwitcher"),
   {
@@ -33,7 +33,7 @@ const Navbar = async () => {
         <div className="flex items-center gap-5 mobile:hidden max-w-[210px] w-full justify-end">
           <LanguagePicker />
 
-          {isLoggedIn ? <UserDropdown /> : <AuthModal />}
+          {isLoggedIn ? <User /> : <AuthModal />}
         </div>
         <div className="hidden mobile:block">
           <MobileNavbar />

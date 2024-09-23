@@ -15,6 +15,7 @@ import dynamic from "next/dynamic";
 import AuthModal from "../auth/AuthModal";
 import UserDropdown from "./UserDropdown";
 import { getIsLoggedIn } from "@/utils/auth";
+import User from "./User";
 const ThemeSwitcher = dynamic(
   () => import("../../components/navbar/ThemeSwitcher"),
   {
@@ -43,7 +44,7 @@ const MobileNavbar = async () => {
             <LanguagePicker />
           </div>
           <ThemeSwitcher />
-          {isLoggedIn ? <UserDropdown isMobile /> : <AuthModal />}
+          {isLoggedIn ? <User isMobileView /> : <AuthModal />}
         </div>
       </SheetContent>
     </Sheet>

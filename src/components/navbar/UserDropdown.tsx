@@ -7,7 +7,6 @@ import {
   DropdownSection,
   DropdownTrigger,
 } from "@nextui-org/dropdown";
-import useUser from "@/hooks/user/useUser";
 import { useTranslations } from "next-intl";
 import { IoChatbubblesOutline, IoExitOutline } from "react-icons/io5";
 import { useLogout } from "@/hooks/auth/useLogout";
@@ -18,21 +17,36 @@ import { MdSunny } from "react-icons/md";
 import { FaMoon } from "react-icons/fa6";
 import { TbLayoutDashboard } from "react-icons/tb";
 import { IoSettingsOutline } from "react-icons/io5";
+import { User } from "@/types/user";
+import { useAuthStore } from "@/stores/auth";
+import { useEffect } from "react";
 
-const UserDropdown = ({ isMobile = false }: { isMobile?: boolean }) => {
+const UserDropdown = ({
+  isMobileView = false,
+  userData,
+}: {
+  isMobileView?: boolean;
+  userData: User | undefined;
+}) => {
   const t = useTranslations();
   const router = useRouter();
   const { clearData: logout } = useLogout();
-  const { data, isLoading } = useUser();
   const { theme, setTheme } = useTheme();
+  const { setAuth } = useAuthStore();
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
+  useEffect(() => {
+    if (userData) {
+      setAuth({ user: userData });
+    }
+  }, [userData]);
+
   return (
     <Dropdown
-      isDisabled={isLoading || !data}
+      isDisabled={!userData}
       radius="sm"
       classNames={{
         base: "before:bg-default-200",
@@ -43,13 +57,15 @@ const UserDropdown = ({ isMobile = false }: { isMobile?: boolean }) => {
       <DropdownTrigger>
         <div className="flex items-center gap-2">
           <UserAvatar
-            src={data?.imageUrl}
+            src={userData?.imageUrl}
             width={40}
             height={40}
-            username={data?.userName}
+            username={userData?.userName}
             className="w-10 aspect-square bg-secondary rounded-full mobile:w-9 flex items-center justify-center font-bold uppercase text-white"
           />
-          {isMobile && <p className="text-default-600">{data?.userName}</p>}
+          {isMobileView && (
+            <p className="text-default-600">{userData?.userName}</p>
+          )}
         </div>
       </DropdownTrigger>
       <DropdownMenu
@@ -78,14 +94,14 @@ const UserDropdown = ({ isMobile = false }: { isMobile?: boolean }) => {
           >
             <div className="flex items-center gap-2">
               <UserAvatar
-                src={data?.imageUrl}
+                src={userData?.imageUrl}
                 width={30}
                 height={30}
-                username={data?.userName}
+                username={userData?.userName}
                 className="w-8 aspect-square bg-secondary rounded-full mobile:w-9 flex items-center justify-center font-bold uppercase text-white"
               />
               <div>
-                <p className="text-default-600">{data?.userName}</p>
+                <p className="text-default-600">{userData?.userName}</p>
               </div>
             </div>
           </DropdownItem>

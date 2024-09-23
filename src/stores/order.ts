@@ -27,7 +27,9 @@ type OrderDataStore = {
     playWithBooster: boolean;
   };
   discountCode: string;
+  boostingType: number;
   desiredDivision: number;
+  paymentMethod: number;
   server: number;
   pointsGain: number;
   currentPoints: number;
@@ -36,9 +38,10 @@ type OrderDataStore = {
   winAmount: number;
   agents: string[];
   setOrderData: (orderData: Partial<OrderDataStore>) => void;
+  clearOrderData: () => void;
 };
 
-const useOrderDataStore = create<OrderDataStore>((set) => ({
+export const initialOrderState = {
   game: null,
   currentRank: {
     name: "",
@@ -65,14 +68,21 @@ const useOrderDataStore = create<OrderDataStore>((set) => ({
     playWithBooster: false,
   },
   discountCode: "",
+  boostingType: 0,
   server: 0,
   pointsGain: 0,
   currentPoints: 0,
   gameMode: 0,
+  paymentMethod: 0,
   queueType: 0,
   winAmount: 3,
   agents: [],
+};
+
+const useOrderDataStore = create<OrderDataStore>((set) => ({
+  ...initialOrderState,
   setOrderData: (orderData: Partial<OrderDataStore>) => set(orderData),
+  clearOrderData: () => set(initialOrderState),
 }));
 
 export default useOrderDataStore;

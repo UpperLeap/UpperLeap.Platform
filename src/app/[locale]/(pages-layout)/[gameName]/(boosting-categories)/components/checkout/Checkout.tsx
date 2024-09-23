@@ -5,14 +5,25 @@ import BoostDetailsBanner from "./BoostDetailsBanner";
 import PlayWithBooster from "./PlayWithBooster";
 import Configurations from "./Configurations";
 import Discount from "./Discount";
-import { Button } from "@nextui-org/button";
-import { FaArrowRightLong } from "react-icons/fa6";
 import useCalculate from "@/hooks/orders/useCalculate";
 import Price from "./Price";
+import CreateOrder from "./CreateOrder";
+import useOrderDataStore from "@/stores/order";
+import { usePathname } from "next/navigation";
+import { BoostingType } from "@/types/game";
+import { useEffect } from "react";
 
 const Checkout = () => {
   const t = useTranslations();
+  const pathname = usePathname().split("/").pop();
   const { isPending, priceData } = useCalculate();
+  const { setOrderData } = useOrderDataStore();
+
+  useEffect(() => {
+    setOrderData({
+      boostingType: BoostingType[pathname as keyof typeof BoostingType],
+    });
+  }, [pathname]);
 
   return (
     <div className="bg-background-secondary/70 rounded-lg border-1 border-foreground-secondary/10">
@@ -29,18 +40,7 @@ const Checkout = () => {
       <Discount priceData={priceData} isPending={isPending} />
       <div className="px-5 mt-7 mb-5 flex flex-col gap-3">
         <Price priceData={priceData} />
-
-        <Button
-          className="w-full text-white"
-          color="secondary"
-          radius="sm"
-          size="lg"
-        >
-          <span>{t("gameProfile.buyBoost")}</span>
-          <span>
-            <FaArrowRightLong />
-          </span>
-        </Button>
+        <CreateOrder isPending={isPending} />
       </div>
     </div>
   );

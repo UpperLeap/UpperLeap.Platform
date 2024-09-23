@@ -2,7 +2,6 @@ import useOrderDataStore from "@/stores/order";
 import { useEffect, useMemo, useState } from "react";
 import { useAction } from "../api/useAction";
 import { usePathname } from "next/navigation";
-import { BoostingType } from "@/types/game";
 
 export type PriceData = {
   total: number;
@@ -20,7 +19,7 @@ const useCalculate = () => {
   const orderPayload = useMemo(() => {
     return {
       currency: "usd",
-      method: 0,
+      method: orderData.paymentMethod,
       boostingDetails: {
         gameId: orderData.game?.id,
         region: orderData.server,
@@ -28,7 +27,7 @@ const useCalculate = () => {
           ...orderData.configuration,
           code: orderData.discountCode,
         },
-        type: BoostingType[pathname as keyof typeof BoostingType],
+        type: orderData.boostingType,
         currentRating: orderData.currentPoints,
         currentRank: orderData.currentRank?.title,
         desiredRank: orderData.desiredRank?.title,
@@ -65,7 +64,7 @@ const useCalculate = () => {
     mutate(orderPayload);
   }, [mutate, orderPayload]);
 
-  return { ...actions, isPending, priceData };
+  return { ...actions, isPending, priceData, orderPayload };
 };
 
 export default useCalculate;

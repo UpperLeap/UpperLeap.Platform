@@ -9,7 +9,11 @@ export async function getSession() {
 
   if (!session?.accessToken) return null;
 
-  return jwtDecode(session?.accessToken);
+  return {
+    ...jwtDecode(session?.accessToken),
+    accessToken: session?.accessToken,
+    refreshToken: session?.refreshToken,
+  };
 }
 
 export async function getIsLoggedIn() {

@@ -247,5 +247,28 @@
       "immortal": "Immortal",
       "radiant": "Radiant"
     }
+  },
+  "checkout": {
+    "paymentMethod": "Payment Method",
+    "amountDue": "Amount due",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "processorFee": "Processor Fee",
+    "total": "Total",
+    "payNow": "Pay Now",
+    "crypto": {
+      "name": "Crypto",
+      "description": "BTC · ETH · DGC · LTC · USDT · USDC and more!"
+    },
+    "lemon": {
+      "name": "Lemon",
+      "description": "Debit/Credit cards · Klarna · SEPA · Giropay · iDeal"
+    },
+    "boostingType": {
+      "rank-boost": "Rank Boost",
+      "win-boost": "Win Boost",
+      "placement-boost": "Placement Boost",
+      "unrated-boost": "Unrated Boost"
+    }
   }
 }

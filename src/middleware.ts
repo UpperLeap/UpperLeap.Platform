@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
+// import { refreshSession } from "./hooks/auth/auth";
 import { refreshSession } from "./utils/auth";
 
 const intlMiddleware = createMiddleware({

@@ -1,38 +1,24 @@
 "use client";
-import { getCookieClient } from "@/services/cookies/cookiesClient";
-import useRefreshStateStore from "@/stores/refresh_token";
+
 import { AxiosError } from "axios";
 import toast from "react-hot-toast";
-
-import { useLogout } from "../auth/useLogout";
-import { useRefreshToken } from "../auth/useRefreshToken";
 import { errorResponse } from "./types";
+import { usePathname, useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export const useError = () => {
-  const { mutate: refreshTokenMutate } = useRefreshToken();
-  const { clearData: logoutMutate } = useLogout();
-  const { isRefreshing, setIsRefreshing } = useRefreshStateStore();
+  const t = useTranslations();
+  const pathname = usePathname();
+  const router = useRouter();
 
-  const toastError = (error: AxiosError<errorResponse>) => {
-    if (error?.message) return toast.error(error?.message);
-
-    toast.error("An error occurred");
+  const refreshToken = async () => {
+    router.push("/api/refresh-session?redirectTo=" + pathname);
   };
 
   const errorHandler = (error: AxiosError<errorResponse>) => {
-    if (error?.response?.status === 401) {
-      const refreshToken = getCookieClient("refreshToken");
-      if (refreshToken && !isRefreshing) {
-        setIsRefreshing(true);
-        refreshTokenMutate({ refreshToken: refreshToken?.value });
-      } else if (!refreshToken && !isRefreshing) {
-        logoutMutate();
-      }
+    if (error?.response?.status === 401) return refreshToken();
 
-      return;
-    }
-
-    toastError(error);
+    toast.error(error?.message || t("errors.default"));
   };
 
   return { errorHandler };

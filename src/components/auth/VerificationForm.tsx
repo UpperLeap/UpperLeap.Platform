@@ -20,6 +20,7 @@ const VerificationForm = () => {
     <form onSubmit={(e) => handleFormSubmit(e)}>
       <div className="mx-auto w-fit">
         <InputOTP
+          autoFocus
           maxLength={6}
           className="text-foreground"
           value={payload.otp}

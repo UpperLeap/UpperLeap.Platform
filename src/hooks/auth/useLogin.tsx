@@ -2,7 +2,7 @@
 
 import { AxiosError } from "axios";
 import { useTranslations } from "next-intl";
-import React from "react";
+import React, { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useAction } from "../api/useAction";
 import useModalStore from "@/stores/auth_modal";
@@ -50,6 +50,12 @@ const useLogin = (isOtp?: boolean) => {
       ...(isOtp && { onSuccess }),
     },
   });
+
+  useEffect(() => {
+    if (payload.otp.length === 6 && isOtp && payload.email) {
+      mutate(payload);
+    }
+  }, [payload.otp]);
 
   const handleFormSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
     if (e) e.preventDefault();

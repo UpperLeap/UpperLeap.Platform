@@ -5,13 +5,18 @@ import {
   deleteAuthenticationCookies,
   setAuthenticationCookie,
 } from "@/hooks/auth/auth";
+import { getSession } from "@/utils/auth";
 
-export async function POST(req: NextRequest) {
-  const refreshToken = req.headers.get("refreshToken");
-  const authorizationHeader = req.headers.get("Authorization");
+export async function GET(request: NextRequest) {
+  const session = await getSession();
+  const refreshToken = session?.refreshToken;
+  const { searchParams } = new URL(request.url);
+  const redirectTo = searchParams.get("redirectTo") || "/";
+  const redirectUrl = new URL(redirectTo, request.url);
 
-  if (!refreshToken || !authorizationHeader) {
+  if (!refreshToken) {
     console.log("invalid session");
+    await deleteAuthenticationCookies();
 
     return NextResponse.json({ error: "Invalid Session" }, { status: 401 });
   }
@@ -20,7 +25,6 @@ export async function POST(req: NextRequest) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `${authorizationHeader}`,
     },
     body: JSON.stringify({
       refreshToken: refreshToken,
@@ -47,5 +51,5 @@ export async function POST(req: NextRequest) {
     await setAuthenticationCookie(data);
   }
 
-  return res;
+  return NextResponse.redirect(redirectUrl.toString());
 }

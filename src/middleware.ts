@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
-// import { refreshSession } from "./hooks/auth/auth";
-import { refreshSession } from "./utils/auth";
+import { getSession } from "./utils/auth";
 
 const intlMiddleware = createMiddleware({
   locales: ["en", "de"],
@@ -11,7 +10,19 @@ const intlMiddleware = createMiddleware({
 export default async function middleware(
   request: NextRequest,
 ): Promise<NextResponse> {
-  await refreshSession(request);
+  const session = await getSession();
+  const url = request.nextUrl;
+  console.log("middleware triggered");
+  
+
+  if (session?.exp && Date.now() >= session?.exp * 1000) {
+    console.log("session expired middleware");
+    const refreshUrl = new URL("/api/refresh-session", request.url);
+    refreshUrl.searchParams.set("redirectTo", url.pathname);
+    console.log(refreshUrl.toString());
+
+    return NextResponse.redirect(refreshUrl);
+  }
 
   const response = intlMiddleware(request);
 

@@ -68,3 +68,5 @@ const useCalculate = () => {
 };
 
 export default useCalculate;
+
+export type OrderPayload = ReturnType<typeof useCalculate>["orderPayload"];

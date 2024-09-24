@@ -1,27 +1,19 @@
 "use client";
 
-import useCalculate from "@/hooks/orders/useCalculate";
 import usePaymentDetails from "@/hooks/orders/usePaymentDetails";
-import useOrderDataStore, { initialOrderState } from "@/stores/order";
+import usePaymentUrl from "@/hooks/orders/usePaymentUrl";
 import { BoostingType } from "@/types/game";
 import { Button } from "@nextui-org/button";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
-
-type Detail = {
-  name: string;
-  label: string;
-  chip: string | null;
-  value: number | string;
-};
 
 const PaymentDetails = () => {
   const t = useTranslations();
   const { details, isPending, priceData, orderPayload, orderData } =
     usePaymentDetails();
+  const { mutate: getPaymentUrl, isPending: isPaymentUrlPending } =
+    usePaymentUrl();
 
   return (
     <div className="w-full max-w-lg mobile:max-w-full">
@@ -80,11 +72,12 @@ const PaymentDetails = () => {
         <p>${priceData?.total}</p>
       </div>
       <Button
-        isDisabled={isPending}
-        isLoading={isPending}
+        isDisabled={isPending || isPaymentUrlPending}
+        isLoading={isPending || isPaymentUrlPending}
         className="w-full text-foreground"
         color="secondary"
         radius="sm"
+        onClick={() => getPaymentUrl(orderPayload)}
       >
         <span>{t("checkout.payNow")}</span>
         <span>

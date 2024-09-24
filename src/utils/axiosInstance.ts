@@ -7,7 +7,7 @@ export const axiosInstance = axios.create({
 });
 
 export const setAuthHeader = async () => {
-  const accessToken = (await getAuthenticationCookies()).accessToken;
+  const accessToken = (await getAuthenticationCookies())?.accessToken;
 
   if (accessToken) {
     axiosInstance.defaults.headers.common["Authorization"] =

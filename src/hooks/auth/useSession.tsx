@@ -2,8 +2,21 @@
 
 import { useState, useEffect } from "react";
 
+type GetSessionData = {
+  accessToken: string;
+  refreshToken: string;
+  isLoggedIn: boolean;
+  iss?: string;
+  sub?: string;
+  aud?: string[] | string;
+  exp?: number;
+  nbf?: number;
+  iat?: number;
+  jti?: string;
+};
+
 export function useSession() {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
+  const [session, setSession] = useState<GetSessionData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -11,9 +24,9 @@ export function useSession() {
       try {
         const response = await fetch("/api/session");
         const data = await response.json();
-        setIsLoggedIn(data.isLoggedIn);
+        setSession(data);
       } catch (error) {
-        setIsLoggedIn(false);
+        setSession(null);
       } finally {
         setIsLoading(false);
       }
@@ -22,5 +35,5 @@ export function useSession() {
     fetchSessionStatus();
   }, []);
 
-  return { isLoggedIn, isLoading };
+  return { ...session, isLoading };
 }

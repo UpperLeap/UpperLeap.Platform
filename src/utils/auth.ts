@@ -12,6 +12,7 @@ export async function getSession() {
     ...jwtDecode(session?.accessToken),
     accessToken: session?.accessToken,
     refreshToken: session?.refreshToken,
+    isLoggedIn: session?.isLoggedIn,
   };
 }
 
@@ -22,4 +23,3 @@ export async function getIsLoggedIn() {
 
   return session?.isLoggedIn;
 }
-

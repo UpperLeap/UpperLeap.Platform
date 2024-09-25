@@ -43,7 +43,7 @@ export async function GET(request: NextRequest) {
   }
 
   const data: AuthResponse = await response.json();
-  const res = NextResponse.json({ message: "Session refreshed" });
+  // const res = NextResponse.json({ message: "Session refreshed" });
 
   console.log("Session refreshed");
 

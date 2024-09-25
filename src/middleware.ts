@@ -12,14 +12,10 @@ export default async function middleware(
 ): Promise<NextResponse> {
   const session = await getSession();
   const url = request.nextUrl;
-  console.log("middleware triggered");
-  
 
   if (session?.exp && Date.now() >= session?.exp * 1000) {
-    console.log("session expired middleware");
     const refreshUrl = new URL("/api/refresh-session", request.url);
     refreshUrl.searchParams.set("redirectTo", url.pathname);
-    console.log(refreshUrl.toString());
 
     return NextResponse.redirect(refreshUrl);
   }

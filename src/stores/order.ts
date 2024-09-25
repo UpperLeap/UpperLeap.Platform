@@ -1,7 +1,7 @@
 import { BasicGame } from "@/types/game";
 import { create } from "zustand";
 
-type OrderDataStore = {
+export type OrderDataStore = {
   game: BasicGame | null;
   currentRank: {
     name: string;

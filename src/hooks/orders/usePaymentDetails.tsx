@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import useCalculate from "./useCalculate";
 import useOrderDataStore, { initialOrderState } from "@/stores/order";
 
-type Detail = {
+export type Detail = {
   name: string;
   label: string;
   chip: string | null;

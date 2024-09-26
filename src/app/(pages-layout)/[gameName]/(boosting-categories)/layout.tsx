@@ -3,14 +3,14 @@ import BoostingNav from "./components/BoostingNav";
 
 export default function BoostingCategoriesLayout({
   children,
-  params: { gameName, locale },
+  params: { gameName },
 }: {
   children: React.ReactNode;
-  params: { gameName: string; locale: string };
+  params: { gameName: string; };
 }) {
   return (
     <>
-      <BoostingNav gameName={gameName} locale={locale} />
+      <BoostingNav gameName={gameName}  />
       {children}
     </>
   );

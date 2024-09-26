@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-import "../../styles/globals.css";
+import "@/styles/globals.css";
 import Providers from "@/providers";
-import { IParams } from "@/types/globals";
+import { getLocale } from "next-intl/server";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -11,14 +11,13 @@ export const metadata: Metadata = {
   description: "",
 };
 
-interface RootLayoutProps extends IParams {
-  children: React.ReactNode;
-}
-
 export default async function RootLayout({
   children,
-  params: { locale },
-}: RootLayoutProps) {
+}: {
+  children: React.ReactNode;
+}) {
+  const locale = await getLocale();
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={manrope.className} suppressHydrationWarning={true}>

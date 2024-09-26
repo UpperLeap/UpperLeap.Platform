@@ -9,7 +9,7 @@ import { cn } from "@/utils/utils";
 
 const NavTabs = () => {
   const t = useTranslations();
-  const { locale, gameName } = useParams();
+  const { gameName } = useParams();
   const pathname = usePathname();
   const gameData = gamesData[gameName as keyof typeof gamesData];
 
@@ -24,7 +24,7 @@ const NavTabs = () => {
         >
           <Link
             aria-disabled={!tab.isActive}
-            href={tab.isActive ? `/${locale}/${gameName}/${tab.path}` : ""}
+            href={tab.isActive ? `/${gameName}/${tab.path}` : ""}
             style={{
               opacity: !tab.isActive ? 0.5 : 1,
             }}

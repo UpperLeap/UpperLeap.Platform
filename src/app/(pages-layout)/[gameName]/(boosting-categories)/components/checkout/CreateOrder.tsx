@@ -9,7 +9,6 @@ import { FaArrowRightLong } from "react-icons/fa6";
 const CreateOrder = ({ isPending }: { isPending: boolean }) => {
   const t = useTranslations();
   const router = useRouter();
-  const { locale } = useParams();
   const { openModal } = useModalStore();
   const { isLoggedIn, isLoading } = useSession();
 
@@ -24,7 +23,7 @@ const CreateOrder = ({ isPending }: { isPending: boolean }) => {
         if (!isLoggedIn) {
           openModal?.();
         } else {
-          router.push(`/${locale}/checkout`);
+          router.push(`/checkout`);
         }
       }}
     >

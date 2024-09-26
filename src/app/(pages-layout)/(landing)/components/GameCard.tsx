@@ -4,17 +4,15 @@ import useCoverStore from "@/stores/cover";
 import { BasicGame } from "@/types/game";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 
 const GameCard = ({ game }: { game: BasicGame }) => {
-  const { locale } = useParams();
   const { setGameName } = useCoverStore();
   const gameSlug = game.name.replaceAll(" ", "-").toLowerCase();
 
   return (
     <Link
       className="flex flex-col gap-4"
-      href={`/${locale}/${gameSlug}`}
+      href={`/${gameSlug}`}
       onMouseEnter={() => {
         setGameName(gameSlug);
       }}

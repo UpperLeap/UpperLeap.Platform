@@ -2,9 +2,9 @@ import { gamesData } from "@/data/gamesData";
 import BoostingList from "../components/BoostingList";
 
 export default function BoostingPage({
-  params: { gameName, locale },
+  params: { gameName },
 }: {
-  params: { gameName: string; locale: string };
+  params: { gameName: string };
 }) {
   const gameData = gamesData[gameName as keyof typeof gamesData];
 
@@ -13,7 +13,6 @@ export default function BoostingPage({
       <BoostingList
         boostingCategories={gameData?.boostingCategories}
         gameName={gameName}
-        locale={locale}
       />
     </div>
   );

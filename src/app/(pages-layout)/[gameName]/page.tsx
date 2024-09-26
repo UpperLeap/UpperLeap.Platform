@@ -4,9 +4,9 @@ import { gamesData } from "@/data/gamesData";
 import BoostingList from "./components/BoostingList";
 
 export default async function GamePage({
-  params: { gameName, locale },
+  params: { gameName },
 }: {
-  params: { gameName: string; locale: string };
+  params: { gameName: string; };
 }) {
   let gameData;
 
@@ -27,7 +27,6 @@ export default async function GamePage({
       <BoostingList
         boostingCategories={gameData?.boostingCategories}
         gameName={gameName}
-        locale={locale}
       />
     </div>
   );

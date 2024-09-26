@@ -13,7 +13,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 const GameNav = () => {
   const t = useTranslations();
   const { scrollY } = useScroll();
-  const { gameName, locale } = useParams();
+  const { gameName } = useParams();
   const gameData = gamesData[gameName as keyof typeof gamesData];
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -39,7 +39,7 @@ const GameNav = () => {
     >
       <nav className="flex items-center justify-between gap-5 relative z-[1] max-w-large mx-auto mobile:justify-center ">
         <Link
-          href={`/${locale}/${gameName}`}
+          href={`/${gameName}`}
           className="flex items-center gap-3 py-3 mobile:hidden"
         >
           <Image

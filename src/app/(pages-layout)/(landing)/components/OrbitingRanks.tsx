@@ -1,8 +1,8 @@
 import OrbitingCircles from "@/components/ui/orbiting-circles";
-import radiant from "../../../../../../public/Radiant.png";
-import immortal from "../../../../../../public/Immortal_3.png";
-import challenger from "../../../../../../public/Challenger.png";
-import grandmaster from "../../../../../../public/Grandmaster.png";
+import radiant from "../../../../../public/Radiant.png";
+import immortal from "../../../../../public/Immortal_3.png";
+import challenger from "../../../../../public/Challenger.png";
+import grandmaster from "../../../../../public/Grandmaster.png";
 import Image from "next/image";
 
 const OrbitingRanks = () => {

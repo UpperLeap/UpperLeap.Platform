@@ -6,11 +6,9 @@ import Link from "next/link";
 const BoostingList = ({
   boostingCategories,
   gameName,
-  locale,
 }: {
   boostingCategories: BoostingCategories[];
   gameName: string;
-  locale: string;
 }) => {
   const t = useTranslations();
 
@@ -19,7 +17,7 @@ const BoostingList = ({
       {boostingCategories?.map((category) => (
         <Link
           key={category?.path}
-          href={`/${locale}/${gameName}/${category?.path}`}
+          href={`/${gameName}/${category?.path}`}
           className="p-5 border-1 active:scale-95 hover:ring-2 hover:ring-foreground-secondary/20 duration-300 border-foreground-secondary/20 rounded-lg w-60 h-64 relative flex flex-col justify-end"
         >
           <Image

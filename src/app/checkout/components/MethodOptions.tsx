@@ -3,7 +3,7 @@
 import useOrderDataStore from "@/stores/order";
 import { useTranslations } from "next-intl";
 import React from "react";
-import lemonLogo from "../../../../../public/lemon_squeezy_logo.jpeg";
+import lemonLogo from "../../../../public/lemon_squeezy_logo.jpeg";
 import { FaCheckCircle, FaRegCircle } from "react-icons/fa";
 import Image from "next/image";
 import { cn } from "@/utils/utils";

@@ -36,7 +36,7 @@ const GetStarted = async () => {
             href="#games-list"
             className={cn(
               "flex items-center gap-2 bg-default px-4 py-2 text-foreground rounded-lg hover:bg-opacity-70 duration-300 active:scale-90",
-              isLoggedIn && "bg-secondary",
+              isLoggedIn && "bg-secondary text-white",
             )}
           >
             <span className="text-lg">

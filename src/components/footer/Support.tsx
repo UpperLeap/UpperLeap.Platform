@@ -36,7 +36,7 @@ const Support = () => {
           href="https://discord.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 bg-[#6773f4] px-3 py-2 text-foreground rounded-lg hover:bg-opacity-70 duration-300 active:scale-90"
+          className="flex items-center gap-2 bg-[#6773f4] px-3 py-2 text-white rounded-lg hover:bg-opacity-70 duration-300 active:scale-90"
         >
           <span>
             <FaDiscord className="text-xl" />

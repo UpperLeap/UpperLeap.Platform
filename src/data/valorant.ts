@@ -265,14 +265,17 @@ export const valorant = {
     priorityBoost: {
       label: "gameProfile.priorityBoost",
       percentage: 25,
+      tooltip: "gameProfile.priorityBoostTooltip",
     },
     streamGames: {
       label: "gameProfile.streamGames",
       percentage: 20,
+      tooltip: "gameProfile.streamGamesTooltip",
     },
     soloOnlyQueue: {
       label: "gameProfile.soloOnlyQueue",
       percentage: 60,
+      tooltip: "gameProfile.soloOnlyQueueTooltip",
     },
   },
 };

@@ -48,6 +48,10 @@ html.lenis body {
   @apply absolute inset-0 backdrop-blur-xl bg-gray-100/20 dark:bg-background/35 transition-all duration-200;
 }
 
+.ellipsis {
+  @apply overflow-hidden overflow-ellipsis whitespace-nowrap;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   background: var(--scrollbar);

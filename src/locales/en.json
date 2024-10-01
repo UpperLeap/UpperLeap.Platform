@@ -38,7 +38,17 @@
     "no": "No",
     "search": "Search",
     "free": "Free",
-    "apply": "Apply"
+    "apply": "Apply",
+    "ago": "ago",
+    "timeUnits": {
+      "seconds": "seconds",
+      "minutes": "minutes",
+      "hours": "hours",
+      "days": "days",
+      "weeks": "weeks",
+      "months": "months",
+      "years": "years"
+    }
   },
   "navbar": {
     "login": "Log in",
@@ -277,5 +287,40 @@
       "placement-boost": "Placement Boost",
       "unrated-boost": "Unrated Boost"
     }
+  },
+  "dashboard": {
+    "transactions": {
+      "title": "Transactions",
+      "subTitle": "View all your transactions here."
+    },
+    "settings": {
+      "title": "Settings",
+      "subTitle": "View all your settings here."
+    },
+    "orders": {
+      "title": "Orders",
+      "subTitle": "View all your orders here."
+    },
+    "sortBy": "Sort by",
+    "sortOrder": "Sort order",
+    "status": "Status",
+    "pending": "Pending",
+    "inProgress": "In Progress",
+    "completed": "Completed",
+    "latest": "Latest",
+    "oldest": "Oldest",
+    "search": "Search",
+    "cheapest": "Cheapest",
+    "expensive": "Expensive",
+    "order": "Order",
+    "id": "ID",
+    "price": "Price",
+    "lastUpdated": "Last Updated",
+    "action": "Action",
+    "payNow": "Pay Now",
+    "view": "View",
+    "noOrders": "No orders found",
+    "noOrdersDescription": "You haven't placed any orders yet. Go ahead and explore our services to get started.",
+    "pageSize": "Page Size"
   }
 }

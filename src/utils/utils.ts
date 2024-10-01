@@ -45,3 +45,26 @@ export function timeCounter(
     return { amount: seconds.toString(), duration: "seconds" };
   }
 }
+
+export function formatDate(
+  dateString: string,
+  locale: string = "en-US",
+): string {
+  const date = new Date(dateString);
+
+  const options: Intl.DateTimeFormatOptions = {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  };
+
+  const formattedDate = date.toLocaleDateString(locale, options);
+
+  const day = date.getDate();
+  let suffix = "th";
+  if (day === 1 || day === 21 || day === 31) suffix = "st";
+  else if (day === 2 || day === 22) suffix = "nd";
+  else if (day === 3 || day === 23) suffix = "rd";
+
+  return formattedDate.replace(/\d+/, day + suffix);
+}

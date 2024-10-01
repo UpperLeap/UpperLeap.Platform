@@ -37,7 +37,7 @@ const GameNav = () => {
       animate={isScrolled ? "hidden" : "visible"}
       className="sticky top-[72px] mobile:top-[66px] z-[5] mobile:px-5 px-10 border-transparent before:p-px game-nav-header w-full"
     >
-      <nav className="flex items-center justify-between gap-5 relative z-[1] max-w-large mx-auto mobile:justify-center ">
+      <nav className="flex items-center justify-between gap-5 relative z-[1] max-w-large mx-auto mobile:justify-center">
         <Link
           href={`/${gameName}`}
           className="flex items-center gap-3 py-3 mobile:hidden"

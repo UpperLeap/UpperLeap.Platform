@@ -54,7 +54,7 @@ const UserDropdown = ({
           "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black",
       }}
     >
-      <DropdownTrigger>
+      <DropdownTrigger className="cursor-pointer hover:opacity-80 duration-300 active:scale-90">
         <div className="flex items-center gap-2">
           <UserAvatar
             src={userData?.imageUrl}
@@ -106,7 +106,7 @@ const UserDropdown = ({
             </div>
           </DropdownItem>
           <DropdownItem
-            href="/dashboard"
+            href="/dashboard/orders"
             key="dashboard"
             startContent={<TbLayoutDashboard className="text-lg" />}
           >

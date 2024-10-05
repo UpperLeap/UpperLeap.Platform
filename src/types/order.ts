@@ -1,3 +1,6 @@
+import { BasicGame } from "./game";
+import { User } from "./user";
+
 export type OrdersResponse = {
   items: Order[];
   pageIndex: number;
@@ -14,6 +17,19 @@ export type PriceData = {
   couponCode: string;
 };
 
+export enum Region {
+  "eu",
+  "na",
+}
+
+export enum CurrentRating {
+  "0-20",
+  "21-40",
+  "41-60",
+  "61-80",
+  "81-100",
+}
+
 export type BoostConfiguration = {
   priorityBoost: boolean;
   streamGames: boolean;
@@ -25,8 +41,46 @@ export type BoostConfiguration = {
 export type BoostingDetails = {
   gameId: string;
   boosterId: string;
-  region: number; // todo: add enum
+  region: Region;
   configuration: BoostConfiguration;
+  type: number; // todo: add enum
+  mode: number; // todo: add enum
+  currentRating: CurrentRating; // todo: add enum
+  currentRank: string;
+  desiredRank: string;
+  currentDivision: number;
+  desiredDivision: number;
+  winAmount: number;
+  valorantAgents: string[];
+  vpnCountry: string;
+  booster: User;
+  game: BasicGame;
+};
+
+export type OrderTransaction = {
+  id: string;
+  walletId: string;
+  orderId: string;
+  token: string;
+  service: string;
+  amount: number;
+  completed: boolean;
+  createdDate: string;
+  updatedDate: string;
+  order: string;
+};
+
+export type Credential = {
+  id: string;
+  orderId: string;
+  username: string;
+  value: string;
+  password: string;
+  isTwoFactorEnabled: boolean;
+  createdByUserId: string;
+  updatedByUserId: string;
+  createdDate: string;
+  updatedDate: string;
 };
 
 export type Order = {
@@ -41,18 +95,7 @@ export type Order = {
   method: number; // todo: add enum
   createdDate: string;
   updatedDate: string;
-  transaction: unknown; // todo: add type
-  credential: unknown; // todo: add type
+  transaction: OrderTransaction;
+  credential: Credential;
   boostingDetails: BoostingDetails;
-  type: number; // todo: add enum
-  mode: number; // todo: add enum
-  currentRating: number; // todo: add enum
-  currentRank: string;
-  desiredRank: string;
-  currentDivision: number;
-  desiredDivision: number;
-  winAmount: number;
-  valorantAgents: string[];
-  vpnCountry: string;
-  booster: unknown; // todo: add type
 };

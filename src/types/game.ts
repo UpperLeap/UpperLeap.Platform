@@ -8,6 +8,7 @@ export enum BoostingType {
 export type BasicGame = {
   id: string;
   name: string;
+  iconUrl: string;
   imageUrl: string;
   isVisible: boolean;
   isDisabled: boolean;

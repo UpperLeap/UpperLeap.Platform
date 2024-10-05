@@ -1,5 +1,7 @@
 import { IoRocket } from "react-icons/io5";
 import { GiSpartanHelmet } from "react-icons/gi";
+import { CurrentRating, Order, Region } from "@/types/order";
+import { BoostingType } from "@/types/game";
 
 export const valorant = {
   name: "Valorant",
@@ -296,4 +298,95 @@ export function getVisibleRanks(boostType: string): Ranks[] {
   );
 }
 
+export function getBoostData(order: Order) {
+  return [
+    {
+      title: "orders.startTier",
+      image: valorant.ranks.find(
+        (rank) => rank.title === order.boostingDetails.currentRank,
+      )?.image,
+      value: order.boostingDetails.currentRank,
+    },
+    {
+      title: "orders.startDivision",
+      image: null,
+      value: order.boostingDetails.currentDivision,
+    },
+    {
+      title: "orders.endTier",
+      image: valorant.ranks.find(
+        (rank) => rank.title === order.boostingDetails.desiredRank,
+      )?.image,
+      value: order.boostingDetails.desiredRank,
+    },
+    {
+      title: "orders.endDivision",
+      image: null,
+      value: order.boostingDetails.desiredDivision,
+    },
+    {
+      title: "orders.rankRating",
+      value: CurrentRating[order.boostingDetails.currentRating],
+    },
+  ];
+}
+
+export function getBoostOptions(order: Order) {
+  const options = Object.entries(order?.boostingDetails?.configuration)?.map(
+    ([key, value]) => {
+      return {
+        title: key,
+        value: value,
+      };
+    },
+  );
+
+  const filteredOptions = options.filter(
+    (option) =>
+      option.value &&
+      option.title !== "boostingDetailId" &&
+      option.title !== "id",
+  );
+
+  if (order.boostingDetails.vpnCountry) {
+    filteredOptions.push({
+      title: "orderVpn",
+      value: order.boostingDetails.vpnCountry,
+    });
+  }
+
+  if (order.boostingDetails.valorantAgents) {
+    filteredOptions.push({
+      title: "agentsSelection",
+      value: order.boostingDetails.valorantAgents.join(", "),
+    });
+  }
+
+  return filteredOptions;
+}
+
+export function getBoostInformation(order: Order) {
+  return [
+    {
+      title: "orders.title",
+      value: order.name,
+    },
+    {
+      title: "orders.game",
+      value: order.boostingDetails.game.name,
+    },
+    {
+      title: "orders.type",
+      value: BoostingType[order.boostingDetails.type],
+    },
+    {
+      title: "orders.server",
+      value: Region[order.boostingDetails.region],
+    },
+    {
+      title: "orders.price",
+      value: `$${order.price.total}`,
+    },
+  ];
+}
 export default valorant;

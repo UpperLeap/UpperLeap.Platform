@@ -15,7 +15,7 @@ const OrdersRow = ({ order }: { order: Order }) => {
       <td className="ellipsis w-[150px] flex-grow px-4 text-foreground">
         <Link
           className="flex items-center gap-2"
-          href={`dashboard/orders/${order.id}`}
+          href={`/dashboard/orders/${order.id}`}
         >
           <Image
             src="https://cdn.gameboost.com/games/logos/valorant.png"
@@ -50,7 +50,7 @@ const OrdersRow = ({ order }: { order: Order }) => {
         {order.completed ? (
           <Link
             className="flex items-center gap-2 bg-default-200 dark:bg-default-100 px-2 py-1.5 rounded-md text-sm hover:opacity-80 active:scale-90 select-none duration-300"
-            href={`dashboard/orders/${order.id}`}
+            href={`/dashboard/orders/${order.id}`}
           >
             <span>{t("dashboard.view")}</span>
             <span>

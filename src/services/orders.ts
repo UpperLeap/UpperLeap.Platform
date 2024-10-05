@@ -18,10 +18,34 @@ export async function getOrders() {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || "Failed to fetch user", {
+    throw new Error(data.message || "Failed to fetch orders", {
       cause: data,
     });
   }
 
   return data as OrdersResponse;
+}
+
+export async function getOrderById(orderId: string) {
+  const session = await getSession();
+  if (!session?.accessToken) return;
+  const accessToken = session?.accessToken;
+
+  const response = await fetch(`${BASE_URL}/orders/${orderId}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || "Failed to fetch order", {
+      cause: data,
+    });
+  }
+
+  return data as Order;
 }

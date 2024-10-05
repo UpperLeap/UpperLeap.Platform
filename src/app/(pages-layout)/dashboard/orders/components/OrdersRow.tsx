@@ -36,7 +36,7 @@ const OrdersRow = ({ order }: { order: Order }) => {
       <td className="ellipsis w-[150px] flex-grow px-4">
         <OrderStatusChip
           isCompleted={order.completed}
-          hasBooster={!!order.booster}
+          hasBooster={!!order.boostingDetails.booster}
         />
       </td>
       <td className="ellipsis w-[150px] flex-grow px-4">

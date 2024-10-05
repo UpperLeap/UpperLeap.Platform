@@ -8,7 +8,7 @@ const ExploreGamesLink = () => {
   const t = useTranslations();
 
   return (
-    <Link href="#games-list">
+    <Link href="/#games-list">
       <ShinyButton
         text={t("navbar.exploreGames")}
         className="bg-background whitespace-nowrap"

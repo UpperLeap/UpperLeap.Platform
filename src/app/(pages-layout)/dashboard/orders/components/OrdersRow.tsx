@@ -18,6 +18,7 @@ const OrdersRow = ({ order }: { order: Order }) => {
           href={`/dashboard/orders/${order.id}`}
         >
           <Image
+            // src={order?.boostingDetails?.game?.iconUrl}
             src="https://cdn.gameboost.com/games/logos/valorant.png"
             alt={order?.name}
             width={35}
@@ -47,7 +48,7 @@ const OrdersRow = ({ order }: { order: Order }) => {
         {/* {`${timeCounter(order.updatedDate).amount} ${t(`common.timeUnits.${timeCounter(order.updatedDate).duration}`)} ${t("common.ago")}`} */}
       </td>
       <td className="ellipsis w-[100px] flex-grow px-4 text-center flex items-center justify-center">
-        {order.completed ? (
+        {order.transaction.completed ? (
           <Link
             className="flex items-center gap-2 bg-default-200 dark:bg-default-100 px-2 py-1.5 rounded-md text-sm hover:opacity-80 active:scale-90 select-none duration-300"
             href={`/dashboard/orders/${order.id}`}

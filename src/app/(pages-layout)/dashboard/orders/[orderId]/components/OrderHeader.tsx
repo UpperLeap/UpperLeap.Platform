@@ -6,7 +6,7 @@ const OrderHeader = ({ order }: { order: Order }) => {
   return (
     <div className="flex items-center gap-3">
       <Image
-        src="https://cdn.gameboost.com/games/logos/valorant.png"
+        src={order?.boostingDetails?.game?.iconUrl}
         alt={order?.name}
         width={50}
         height={50}

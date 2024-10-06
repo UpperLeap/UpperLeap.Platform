@@ -1,0 +1,126 @@
+[
+  {
+    "iso": "us",
+    "language": "english"
+  },
+  {
+    "iso": "cn",
+    "language": "chinese"
+  },
+  {
+    "iso": "es",
+    "language": "spanish"
+  },
+  {
+    "iso": "in",
+    "language": "hindi"
+  },
+  {
+    "iso": "ru",
+    "language": "russian"
+  },
+  {
+    "iso": "pt",
+    "language": "portuguese"
+  },
+  {
+    "iso": "fr",
+    "language": "french"
+  },
+  {
+    "iso": "de",
+    "language": "german"
+  },
+  {
+    "iso": "jp",
+    "language": "japanese"
+  },
+  {
+    "iso": "kr",
+    "language": "korean"
+  },
+  {
+    "iso": "it",
+    "language": "italian"
+  },
+  {
+    "iso": "ar",
+    "language": "arabic"
+  },
+  {
+    "iso": "th",
+    "language": "thai"
+  },
+  {
+    "iso": "tr",
+    "language": "turkish"
+  },
+  {
+    "iso": "vn",
+    "language": "vietnamese"
+  },
+  {
+    "iso": "ir",
+    "language": "persian"
+  },
+  {
+    "iso": "pl",
+    "language": "polish"
+  },
+  {
+    "iso": "nl",
+    "language": "dutch"
+  },
+  {
+    "iso": "gr",
+    "language": "greek"
+  },
+  {
+    "iso": "id",
+    "language": "indonesian"
+  },
+  {
+    "iso": "ph",
+    "language": "filipino"
+  },
+  {
+    "iso": "ua",
+    "language": "ukrainian"
+  },
+  {
+    "iso": "ro",
+    "language": "romanian"
+  },
+  {
+    "iso": "hu",
+    "language": "hungarian"
+  },
+  {
+    "iso": "se",
+    "language": "swedish"
+  },
+  {
+    "iso": "no",
+    "language": "norwegian"
+  },
+  {
+    "iso": "dk",
+    "language": "danish"
+  },
+  {
+    "iso": "fi",
+    "language": "finnish"
+  },
+  {
+    "iso": "cz",
+    "language": "czech"
+  },
+  {
+    "iso": "sk",
+    "language": "slovak"
+  },
+  {
+    "iso": "bg",
+    "language": "bulgarian"
+  }
+]

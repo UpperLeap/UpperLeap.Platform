@@ -370,5 +370,19 @@
     "editCredentials": "Edit Credentials",
     "credentialsUpdatedSuccessfully": "Credentials updated successfully",
     "twoFactorAuthWarning": "Two Factor Authentication is not supported at the moment, please disable it before adding your credentials."
+  },
+  "transactions": {
+    "storeCredit": "Store Credit",
+    "transactionsHistory": "Transactions History",
+    "paymentMethod": "Method",
+    "id": "ID",
+    "service": "Service",
+    "status": "Status",
+    "order": "Order",
+    "orderId": "Order ID",
+    "price": "Price",
+    "lastUpdated": "Last Updated",
+    "noTransactions": "No transactions found",
+    "noTransactionsDescription": "You haven't made any transactions yet. Go ahead and explore our services to get started."
   }
 }

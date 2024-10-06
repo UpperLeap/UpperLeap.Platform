@@ -14,8 +14,6 @@ export default async function SettingsPage() {
     console.log(error);
   }
 
-  console.log(user);
-
   if (user) {
     return (
       <>

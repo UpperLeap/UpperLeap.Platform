@@ -14,7 +14,7 @@ const Orders = ({ initialOrders }: { initialOrders: OrdersResponse }) => {
   const t = useTranslations();
   const searchParams = useSearchParams();
 
-  const { data, isLoading, isError, isSuccess, refetch } =
+  const { data, isLoading, isError, isSuccess } =
     useGet<OrdersResponse>({
       endpoint: `/orders?${searchParams.toString()}`,
       queryKey: ["orders", searchParams.toString()],

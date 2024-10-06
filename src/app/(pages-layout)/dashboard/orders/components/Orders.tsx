@@ -2,7 +2,7 @@
 
 import AsyncDataWrapper from "@/components/shared/AsyncDataWrapper";
 import { useGet } from "@/hooks/api/useGet";
-import { Order, OrdersResponse } from "@/types/order";
+import { OrdersResponse } from "@/types/order";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { BsCartX } from "react-icons/bs";
@@ -10,14 +10,19 @@ import OrdersTable from "./OrdersTable";
 import TablePagination from "./filters/TablePagination";
 import PageLimit from "./filters/PageLimit";
 
-const Orders = () => {
+const Orders = ({ initialOrders }: { initialOrders: OrdersResponse }) => {
   const t = useTranslations();
   const searchParams = useSearchParams();
 
-  const { data, isLoading, isError, isSuccess } = useGet<OrdersResponse>({
-    endpoint: `/orders?${searchParams.toString()}`,
-    queryKey: ["orders", searchParams.toString()],
-  });
+  const { data, isLoading, isError, isSuccess, refetch } =
+    useGet<OrdersResponse>({
+      endpoint: `/orders?${searchParams.toString()}`,
+      queryKey: ["orders", searchParams.toString()],
+      queryOptions: {
+        staleTime: 0,
+        initialData: initialOrders,
+      },
+    });
 
   return (
     <>

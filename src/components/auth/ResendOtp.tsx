@@ -5,7 +5,11 @@ import useModalStore from "@/stores/auth_modal";
 import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 
-const ResendOtp = () => {
+const ResendOtp = ({
+  setIsResendDisabled,
+}: {
+  setIsResendDisabled: (isDisabled: boolean) => void;
+}) => {
   const t = useTranslations();
   const { errorStatus } = useModalStore();
   const { handleFormSubmit, isPending } = useLogin(true);
@@ -13,10 +17,16 @@ const ResendOtp = () => {
 
   useEffect(() => {
     if (timer > 0 && errorStatus === 403) {
+      setIsResendDisabled(true);
       const interval = setInterval(() => {
         setTimer((prevTimer) => prevTimer - 1);
       }, 1000);
-      return () => clearInterval(interval);
+      return () => {
+        clearInterval(interval);
+        setIsResendDisabled(false);
+      };
+    } else {
+      setIsResendDisabled(false);
     }
   }, [timer, errorStatus]);
 

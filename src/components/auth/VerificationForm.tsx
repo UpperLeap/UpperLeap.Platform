@@ -10,11 +10,13 @@ import useModalStore from "@/stores/auth_modal";
 import { Button } from "@nextui-org/button";
 import { useTranslations } from "next-intl";
 import ResendOtp from "./ResendOtp";
+import { useState } from "react";
 
 const VerificationForm = () => {
   const t = useTranslations();
   const { setModalData, payload } = useModalStore();
   const { handleFormSubmit, isPending } = useLogin(true);
+  const [isResendDisabled, setIsResendDisabled] = useState(false);
 
   return (
     <form onSubmit={(e) => handleFormSubmit(e)}>
@@ -38,7 +40,7 @@ const VerificationForm = () => {
           </InputOTPGroup>
         </InputOTP>
       </div>
-      <ResendOtp />
+      <ResendOtp setIsResendDisabled={setIsResendDisabled} />
       <div className="flex items-center gap-2">
         <Button
           color="default"
@@ -49,6 +51,10 @@ const VerificationForm = () => {
           onPress={() =>
             setModalData({
               currentTab: "login",
+              payload: {
+                ...payload,
+                otp: "",
+              },
             })
           }
         >
@@ -58,7 +64,12 @@ const VerificationForm = () => {
           color="secondary"
           size="sm"
           radius="sm"
-          isDisabled={!payload.email || payload.otp.length !== 6 || isPending}
+          isDisabled={
+            !payload.email ||
+            payload.otp.length !== 6 ||
+            isPending ||
+            isResendDisabled
+          }
           className="mt-10 w-full capitalize text-white"
           type="submit"
         >

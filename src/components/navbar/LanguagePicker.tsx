@@ -1,5 +1,6 @@
 "use client";
 
+import { setUserLocale } from "@/services/locale";
 import { Button } from "@nextui-org/button";
 import {
   Dropdown,
@@ -31,7 +32,9 @@ const LanguagePicker = () => {
       <DropdownMenu aria-label="Language switcher">
         <DropdownItem
           key="en"
-          href="/en"
+          onPress={() => {
+            setUserLocale("en");
+          }}
           startContent={
             <Image
               src="https://flagcdn.com/w20/us.webp"
@@ -47,7 +50,9 @@ const LanguagePicker = () => {
         </DropdownItem>
         <DropdownItem
           key="de"
-          href="/de"
+          onPress={() => {
+            setUserLocale("de");
+          }}
           startContent={
             <Image
               src="https://flagcdn.com/w20/de.webp"

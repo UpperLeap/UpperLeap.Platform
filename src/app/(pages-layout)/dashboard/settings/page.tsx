@@ -4,6 +4,7 @@ import DashboardHeader from "../components/DashboardHeader";
 import StoreCredit from "../transactions/components/StoreCredit";
 import UserInformation from "./components/UserInformation";
 import DeleteAccount from "./components/DeleteAccount";
+import RequestError from "@/components/shared/RequestError";
 
 export default async function SettingsPage() {
   let user: User | undefined;
@@ -11,7 +12,7 @@ export default async function SettingsPage() {
   try {
     user = await getUser();
   } catch (error) {
-    console.log(error);
+    return <RequestError />;
   }
 
   if (user) {

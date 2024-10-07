@@ -15,7 +15,7 @@ const UserProfile = () => {
         width={40}
         height={40}
         username={user?.userName}
-        className="w-10 h-10 aspect-square bg-secondary rounded-md mobile:w-9 flex items-center justify-center font-bold uppercase text-white"
+        className="w-10 h-10 bg-secondary rounded-md mobile:w-9 flex items-center justify-center font-bold uppercase text-white"
       />
       <span className="text-sm font-bold capitalize text-foreground">
         {user?.userName}

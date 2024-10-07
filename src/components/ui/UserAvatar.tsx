@@ -27,7 +27,7 @@ const UserAvatar = ({
           alt={`${username}-image`}
           width={width}
           height={height}
-          className="rounded-full object-cover w-full h-full"
+          className={cn("rounded-full object-cover w-full h-full", className)}
         />
       ) : (
         <p>{username && username[0]}</p>

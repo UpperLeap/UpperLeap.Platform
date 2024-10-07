@@ -401,9 +401,12 @@
     "imageUploadedSuccess": "Your picture has been updated successfully.",
     "avatar": "Avatar",
     "emailIsUnchangeable": "You can't change your email address, if you have any issue with your account please contact us.",
-    "bio": "Bio",
-    "bioPlaceholder": "Write a short bio about yourself.",
+    "bio": "Biography",
+    "bioPlaceholder": "Write a short biography about yourself.",
     "selectLanguage": "Select Language",
-    "profileUpdatedSuccessfully": "Profile updated successfully"
+    "selectLanguagesPlaceholder": "Select languages you are fluent in",
+    "profileUpdatedSuccessfully": "Profile updated successfully",
+    "usernameIsUnchangeable": "You will be able to change your username again in ",
+    "userNameIsChangeableEvery": "username is only changeable once every 30 days"
   }
 }

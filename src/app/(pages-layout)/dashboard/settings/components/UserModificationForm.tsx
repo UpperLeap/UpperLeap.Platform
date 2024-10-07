@@ -5,19 +5,27 @@ import { useTranslations } from "next-intl";
 import LanguagesSelect from "./LanguagesSelect";
 import { UserData } from "@/hooks/user/useModifyUser";
 import { Dispatch, SetStateAction } from "react";
+import { User } from "@/types/user";
+import { formatDate } from "@/utils/utils";
+import { languagesPrefixes } from "@/i18n/config";
 
 const UserModificationForm = ({
-  email,
+  user,
   userData,
   setUserData,
   handleSubmit,
 }: {
-  email: string;
+  user: User;
   userData: UserData;
   setUserData: Dispatch<SetStateAction<UserData>>;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }) => {
   const t = useTranslations();
+  const nextChangeDate = new Date(user.lastUserNameChangeDate);
+  nextChangeDate.setDate(nextChangeDate.getDate() + 30);
+  const isUsernameDisabled = user.lastUserNameChangeDate
+    ? nextChangeDate > new Date()
+    : false;
 
   return (
     <form
@@ -33,7 +41,7 @@ const UserModificationForm = ({
           id="email"
           type="email"
           disabled
-          value={email}
+          value={user.email}
           name="email"
           placeholder={t("settings.email")}
         />
@@ -41,7 +49,7 @@ const UserModificationForm = ({
           {t("settings.emailIsUnchangeable")}
         </p>
       </div>
-      <div>
+      <div className={isUsernameDisabled ? "opacity-50" : "opacity-100"}>
         <label
           htmlFor="username"
           className="text-foreground text-sm mb-1 block"
@@ -52,12 +60,28 @@ const UserModificationForm = ({
           type="text"
           id="username"
           name="username"
+          disabled={isUsernameDisabled}
           value={userData.userName}
           onChange={(e) =>
             setUserData({ ...userData, userName: e.target.value })
           }
           placeholder={t("settings.username")}
         />
+        <p className="text-foreground-secondary text-xs font-semibold mt-1">
+          <span>
+            {isUsernameDisabled
+              ? t("settings.usernameIsUnchangeable")
+              : t("settings.userNameIsChangeableEvery")}
+          </span>
+          {isUsernameDisabled && (
+            <span>
+              {formatDate(
+                nextChangeDate?.toISOString(),
+                languagesPrefixes["en-US" as keyof typeof languagesPrefixes],
+              )}
+            </span>
+          )}
+        </p>
       </div>
       <div className="w-full">
         <label htmlFor="bio" className="text-foreground text-sm mb-1 block">

@@ -43,7 +43,7 @@ const ProfileModification = ({ user }: { user: User }) => {
             <div className="flex flex-col gap-5 mt-10">
               <UserImage user={user} />
               <UserModificationForm
-                email={user.email}
+                user={user}
                 userData={userData}
                 setUserData={setUserData}
                 handleSubmit={handleSubmit}

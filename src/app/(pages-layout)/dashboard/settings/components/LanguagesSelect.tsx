@@ -18,11 +18,11 @@ const LanguagesSelect = ({
 
   return (
     <Select
-      aria-label={t("settings.selectLanguage")}
+      label={t("settings.selectLanguage")}
       labelPlacement="outside"
       variant="bordered"
       fullWidth
-      placeholder={t("settings.selectLanguage")}
+      placeholder={t("settings.selectLanguagesPlaceholder")}
       radius="sm"
       selectionMode="multiple"
       defaultSelectedKeys={userData.languages}

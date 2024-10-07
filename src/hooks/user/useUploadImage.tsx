@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useAction } from "../api/useAction";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import { User } from "@/types/user";
 
 const useUploadImage = () => {
   const t = useTranslations();
@@ -13,9 +14,9 @@ const useUploadImage = () => {
     method: "PUT",
     endpoint: "/authentication/me/image",
     mutationOptions: {
-      onSuccess: (img: string) => {
+      onSuccess: (data: User) => {
         toast.success(t("settings.imageUploadedSuccess"));
-        setNewImage(img);
+        setNewImage(data.imageUrl + "?t=" + Date.now());
       },
     },
   });
@@ -34,11 +35,11 @@ const useUploadImage = () => {
     }
   };
 
-    return {
-      uploadImage,
-      isPending,
-      newImage,
-    };
+  return {
+    uploadImage,
+    isPending,
+    newImage,
+  };
 };
 
 export default useUploadImage;

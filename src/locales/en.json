@@ -74,11 +74,11 @@
     "legal": "Legal",
     "tos": "Terms of Service",
     "privacyPolicy": "Privacy Policy",
-    "cookiePolicy": "Cookie Policy",
+    "cookiePolicy": "Cookies Policy",
     "support": "Support",
     "supportDescription": "We're here to help. Our expert support team is at your service whenever you need anything.",
     "ourCommunity": "Our Community",
-    "chatWithUs": "Chat with us",
+    "chatWithUs": "Get in touch",
     "rightsReserved": "All rights reserved",
     "status": "Status"
   },
@@ -412,5 +412,36 @@
     "profileUpdatedSuccessfully": "Profile updated successfully",
     "usernameIsUnchangeable": "You will be able to change your username again in ",
     "userNameIsChangeableEvery": "username is only changeable once every 30 days"
+  },
+  "cms": {
+    "aboutUs": "About Us",
+    "aboutUsDescription": "We are a team of gamers who are passionate about helping others achieve their gaming goals. We offer a wide range of services to help you with your gaming needs.",
+    "lastUpdated": "Last Updated",
+    "termsOfService": "Terms of Service",
+    "termsOfServiceDescription": "Welcome to UpperLeap! These Terms of Service govern your relationship with us.",
+    "privacyPolicy": "Privacy Policy",
+    "privacyPolicyDescription": "This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from us.",
+    "cookiesPolicy": "Cookies Policy",
+    "cookiesPolicyDescription": "This Cookies Policy describes the types of cookies and similar technologies we use on our website and how we use them.",
+    "getInTouch": "Get In Touch",
+    "getInTouchDescription": "Have a question or feedback? We'd love to hear from you! Use the methods below to get in touch with us.",
+    "email": {
+      "title": "Email Us",
+      "description": "Send us an email directly",
+      "anchor": "Contact us"
+    },
+    "workWithUs": {
+      "title": "Work With Us",
+      "description": "Become a booster and start working with us.",
+      "anchor": "Apply now"
+    },
+    "joinCommunity": {
+      "title": "Join Our Community",
+      "description": "Discover our discord server.",
+      "anchor": "Join now"
+    },
+    "messageUs": "Message Us",
+    "messageUsDescription": "We'll get back to within 24 hours."
+    
   }
 }

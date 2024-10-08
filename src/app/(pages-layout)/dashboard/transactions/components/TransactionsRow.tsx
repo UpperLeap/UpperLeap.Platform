@@ -8,7 +8,9 @@ const TransactionsRow = ({ transaction }: { transaction: Transaction }) => {
 
   return (
     <tr className="border-b-1 border-foreground-secondary/10 flex w-full min-w-fit items-center py-3 last:border-b-0 text-sm">
-      <td className="ellipsis w-[100px] flex-grow px-4">Lemon</td>
+      <td className="ellipsis w-[100px] flex-grow px-4">
+        {t(`transactions.paymentMethodEnum.${transaction?.paymentMethod}`)}
+      </td>
       <td className="ellipsis w-[150px] flex-grow px-4">
         #{transaction?.id?.slice(0, 12)}
       </td>

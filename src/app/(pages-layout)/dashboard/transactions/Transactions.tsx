@@ -29,16 +29,20 @@ const Transactions = ({ walletData }: { walletData: Wallet }) => {
         isLoading={isLoading}
         isError={isError}
         isSuccess={isSuccess}
-        isEmpty={data && data?.transactions?.length === 0}
+        isEmpty={data && data?.paginatedTransactions?.items?.length === 0}
         placeholderIcon={<IoSwapVertical />}
         placeholderTitle={t("transactions.noTransactions")}
         placeholderDescription={t("transactions.noTransactionsDescription")}
       >
-        {data && <TransactionsTable transactions={data.transactions} />}
+        {data && (
+          <TransactionsTable transactions={data?.paginatedTransactions?.items} />
+        )}
       </AsyncDataWrapper>
       <div className="flex items-center justify-between">
         <PageLimit />
-        <TablePagination totalPages={1} />
+        <TablePagination
+          totalPages={data?.paginatedTransactions?.totalPages || 1}
+        />
       </div>
     </>
   );

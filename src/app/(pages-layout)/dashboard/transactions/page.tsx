@@ -16,8 +16,6 @@ export default async function TransactionsPage() {
     return <RequestError />;
   }
 
-  console.log(walletData);
-
   if (walletData) {
     return (
       <>

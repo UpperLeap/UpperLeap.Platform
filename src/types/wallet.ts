@@ -1,5 +1,10 @@
 // import { Order } from "./order";
 
+export enum PaymentMethod {
+  "lemon",
+  "crypto",
+}
+
 export type Transaction = {
   id: string;
   walletId: string;
@@ -10,7 +15,16 @@ export type Transaction = {
   completed: boolean;
   createdDate: string;
   updatedDate: string;
+  paymentMethod: PaymentMethod;
   order: null; // Order
+};
+
+export type PaginatedTransactions = {
+  items: Transaction[];
+  pageIndex: number;
+  totalPages: number;
+  hasPreviousPage: boolean;
+  hasNextPage: boolean;
 };
 
 export type Wallet = {
@@ -19,4 +33,5 @@ export type Wallet = {
   balance: number;
   updatedDate: string;
   transactions: Transaction[];
+  paginatedTransactions: PaginatedTransactions;
 };

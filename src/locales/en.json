@@ -383,7 +383,11 @@
     "price": "Price",
     "lastUpdated": "Last Updated",
     "noTransactions": "No transactions found",
-    "noTransactionsDescription": "You haven't made any transactions yet. Go ahead and explore our services to get started."
+    "noTransactionsDescription": "You haven't made any transactions yet. Go ahead and explore our services to get started.",
+    "paymentMethodEnum": {
+      "0": "Lemon",
+      "1": "Crypto"
+    }
   },
   "settings": {
     "userInformation": "User Information",

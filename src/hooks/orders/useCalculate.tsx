@@ -2,6 +2,7 @@ import useOrderDataStore from "@/stores/order";
 import { useEffect, useMemo, useState } from "react";
 import { useAction } from "../api/useAction";
 import { usePathname } from "next/navigation";
+import { BoostingType } from "@/types/game";
 
 export type PriceData = {
   total: number;
@@ -55,7 +56,7 @@ const useCalculate = () => {
     if (!orderData?.game) return;
     if (
       pathname === "unrated-boost" &&
-      orderPayload?.boostingDetails?.winAmount
+      orderPayload?.boostingDetails.type === BoostingType["unrated-boost"]
     ) {
       mutate(orderPayload);
     }

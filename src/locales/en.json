@@ -441,7 +441,17 @@
       "anchor": "Join now"
     },
     "messageUs": "Message Us",
-    "messageUsDescription": "We'll get back to within 24 hours."
-    
+    "messageUsDescription": "We'll get back to within 24 hours.",
+    "blogs": "Blogs",
+    "blogsDescription": "Discover our latest blogs and articles.",
+    "newsletter": "Newsletter",
+    "newsletterDescription": "Subscribe to our newsletter to get the latest news and updates about our services.",
+    "subscribe": "Subscribe",
+    "emailPlaceholder": "Enter your email address",
+    "newsletterSubscribed": "You've been subscribed to our newsletter successfully.",
+    "shareOnX": "Share on X",
+    "checkOutThisArticle": "Check out this article from UpperLeap!",
+    "copyLink": "Copy Link",
+    "copiedToClipboard": "Copied to clipboard"
   }
 }

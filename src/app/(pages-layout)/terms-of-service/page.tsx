@@ -1,6 +1,6 @@
+import MdxLayout from "@/components/shared/MdxLayout";
 import { termsOfService } from "@/data/cms-markdown";
 import { useTranslations } from "next-intl";
-import { MDXRemote } from "next-mdx-remote/rsc";
 
 export default function TermsOfServicePage() {
   const t = useTranslations();
@@ -16,7 +16,7 @@ export default function TermsOfServicePage() {
         <p className="max-w-4xl mt-2">{t("cms.termsOfServiceDescription")}</p>
       </div>
       <div className="mt-10">
-        <MDXRemote source={termsOfService} />
+        <MdxLayout source={termsOfService} />
       </div>
     </section>
   );

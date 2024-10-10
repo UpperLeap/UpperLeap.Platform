@@ -1,6 +1,6 @@
+import MdxLayout from "@/components/shared/MdxLayout";
 import { privacyPolicy } from "@/data/cms-markdown";
 import { useTranslations } from "next-intl";
-import { MDXRemote } from "next-mdx-remote/rsc";
 
 export default function PrivacyPolicyPage() {
   const t = useTranslations();
@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
         <p className="max-w-4xl mt-2">{t("cms.privacyPolicyDescription")}</p>
       </div>
       <div className="mt-10">
-        <MDXRemote source={privacyPolicy} />
+        <MdxLayout source={privacyPolicy} />
       </div>
     </section>
   );

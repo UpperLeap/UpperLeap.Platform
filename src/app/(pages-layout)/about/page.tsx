@@ -1,11 +1,9 @@
+import MdxLayout from "@/components/shared/MdxLayout";
 import { about } from "@/data/cms-markdown";
 import { useTranslations } from "next-intl";
-import { MDXRemote } from "next-mdx-remote/rsc";
 
 export default function AboutPage() {
   const t = useTranslations();
-
-  // const components = {
   //   h1: (props: any) => (
   //     <h1 className="text-3xl font-bold text-foreground" {...props} />
   //   ),
@@ -33,7 +31,7 @@ export default function AboutPage() {
         <p className="max-w-4xl mt-2">{t("cms.aboutUsDescription")}</p>
       </div>
       <div className="mt-10">
-        <MDXRemote source={about} />
+        <MdxLayout source={about} />
       </div>
     </section>
   );

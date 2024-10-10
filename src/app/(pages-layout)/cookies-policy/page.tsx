@@ -1,6 +1,6 @@
+import MdxLayout from "@/components/shared/MdxLayout";
 import { cookiesPolicy } from "@/data/cms-markdown";
 import { useTranslations } from "next-intl";
-import { MDXRemote } from "next-mdx-remote/rsc";
 
 export default function CookiesPolicyPage() {
   const t = useTranslations();
@@ -16,7 +16,7 @@ export default function CookiesPolicyPage() {
         <p className="max-w-4xl mt-2">{t("cms.cookiesPolicyDescription")}</p>
       </div>
       <div className="mt-10">
-        <MDXRemote source={cookiesPolicy} />
+        <MdxLayout source={cookiesPolicy} />
       </div>
     </section>
   );

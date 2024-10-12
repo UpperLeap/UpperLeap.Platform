@@ -26,7 +26,7 @@ export default async function OrderPage({
 
   // console.log(order);
 
-  if (order) {
+  if (order && order?.boostingDetails) {
     return (
       <div className="flex flex-col gap-10">
         <div className="flex items-center justify-between mobile:flex-col mobile:gap-5">
@@ -46,5 +46,7 @@ export default async function OrderPage({
         </div>
       </div>
     );
+  } else {
+    return <RequestError />;
   }
 }

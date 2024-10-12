@@ -29,7 +29,7 @@ const MdxLayout = ({ source }: { source: string }) => {
     ),
 
     a: ({ children, ...props }: any) => (
-      <a className="text-primary underline font-semibold" {...props}>
+      <a className="text-primary font-semibold" {...props}>
         {children}
       </a>
     ),

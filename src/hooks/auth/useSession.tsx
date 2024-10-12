@@ -1,22 +1,10 @@
 "use client";
 
+import { JwtPayload } from "jwt-decode";
 import { useState, useEffect } from "react";
 
-type GetSessionData = {
-  accessToken: string;
-  refreshToken: string;
-  isLoggedIn: boolean;
-  iss?: string;
-  sub?: string;
-  aud?: string[] | string;
-  exp?: number;
-  nbf?: number;
-  iat?: number;
-  jti?: string;
-};
-
 export function useSession() {
-  const [session, setSession] = useState<GetSessionData | null>(null);
+  const [session, setSession] = useState<JwtPayload | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

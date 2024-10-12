@@ -299,36 +299,51 @@ export function getVisibleRanks(boostType: string): Ranks[] {
 }
 
 export function getBoostData(order: Order) {
+  const isWinsDependent =
+    order.boostingDetails.type !== BoostingType["rank-boost"];
+  const isUnratedBoost =
+    order.boostingDetails.type === BoostingType["unrated-boost"];
+
   return [
-    {
+    !isUnratedBoost && {
       title: "orders.startTier",
       image: valorant.ranks.find(
-        (rank) => rank.title === order.boostingDetails.currentRank,
+        (rank) => rank.title === order.boostingDetails?.currentRank,
       )?.image,
-      value: order.boostingDetails.currentRank,
+      value: order.boostingDetails?.currentRank,
     },
-    {
+    !isUnratedBoost && {
       title: "orders.startDivision",
       image: null,
-      value: order.boostingDetails.currentDivision,
+      value: order.boostingDetails?.currentDivision,
     },
-    {
+    !isWinsDependent && {
       title: "orders.endTier",
       image: valorant.ranks.find(
-        (rank) => rank.title === order.boostingDetails.desiredRank,
+        (rank) => rank.title === order.boostingDetails?.desiredRank,
       )?.image,
-      value: order.boostingDetails.desiredRank,
+      value: order.boostingDetails?.desiredRank,
     },
-    {
+    !isWinsDependent && {
       title: "orders.endDivision",
       image: null,
-      value: order.boostingDetails.desiredDivision,
+      value: order.boostingDetails?.desiredDivision,
     },
-    {
+    !isWinsDependent && {
       title: "orders.rankRating",
-      value: CurrentRating[order.boostingDetails.currentRating],
+      value: CurrentRating[order.boostingDetails?.currentRating],
+      image: null,
     },
-  ];
+    isWinsDependent && {
+      title: "orders.winsAmount",
+      value: order.boostingDetails?.winAmount,
+      image: null,
+    },
+  ].filter(Boolean) as {
+    title: string;
+    value: string | number;
+    image: string | null;
+  }[];
 }
 
 export function getBoostOptions(order: Order) {
@@ -355,7 +370,7 @@ export function getBoostOptions(order: Order) {
     });
   }
 
-  if (order.boostingDetails.valorantAgents) {
+  if (order.boostingDetails.valorantAgents.length) {
     filteredOptions.push({
       title: "agentsSelection",
       value: order.boostingDetails.valorantAgents.join(", "),

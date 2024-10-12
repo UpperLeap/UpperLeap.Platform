@@ -6,12 +6,16 @@ import Image from "next/image";
 import BlogAuthor from "./components/BlogAuthor";
 import ShareBlog from "./components/ShareBlog";
 import MdxLayout from "@/components/shared/MdxLayout";
+import Link from "next/link";
+import { IoIosArrowBack } from "react-icons/io";
+import { getTranslations } from "next-intl/server";
 
 export default async function BlogPage({
   params,
 }: {
   params: { blogSlug: string };
 }) {
+  const t = await getTranslations();
   const blog = await getBlogBySlug(params.blogSlug);
 
   if (!blog) {
@@ -24,7 +28,16 @@ export default async function BlogPage({
 
   return (
     <section className="min-h-[63vh] relative z-[1] max-w-[1100px] mx-auto px-5 py-10">
-      <p>{formatDate(blog.createdDate, "en-US")}</p>
+      <Link
+        href="/blogs"
+        className="flex items-center w-fit gap-2 px-1 py-1 mb-5 text-sm rounded-lg hover:bg-foreground-secondary/20 duration-300 active:scale-90"
+      >
+        <span>
+          <IoIosArrowBack />
+        </span>
+        <span>{t("cms.backToBlogs")}</span>
+      </Link>
+      <p className="px-1">{formatDate(blog.createdDate, "en-US")}</p>
       <BlogAuthor blog={blog} />
       <h1 className="text-3xl font-bold mt-7 text-foreground">{blog.title}</h1>
       {blog.coverUrl && (

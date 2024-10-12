@@ -303,6 +303,10 @@
       "title": "Orders",
       "subTitle": "View all your orders here."
     },
+    "claimOrders": {
+      "title": "Claim Orders",
+      "subTitle": "View all upcoming orders that you can claim here."
+    },
     "sortBy": "Sort by",
     "sortOrder": "Sort order",
     "status": "Status",
@@ -369,7 +373,8 @@
     "addCredentials": "Add Credentials",
     "editCredentials": "Edit Credentials",
     "credentialsUpdatedSuccessfully": "Credentials updated successfully",
-    "twoFactorAuthWarning": "Two Factor Authentication is not supported at the moment, please disable it before adding your credentials."
+    "twoFactorAuthWarning": "Two Factor Authentication is not supported at the moment, please disable it before adding your credentials.",
+    "winsAmount": "Wins Amount"
   },
   "transactions": {
     "storeCredit": "Store Credit",
@@ -454,5 +459,11 @@
     "copyLink": "Copy Link",
     "copiedToClipboard": "Copied to clipboard",
     "backToBlogs": "Back to blogs"
+  },
+  "claimOrders": {
+    "claim": "Claim",
+    "claimOrder": "Claim Order",
+    "claimDescription": "Are you sure you want to claim",
+    "orderClaimedSuccessfully": "Order claimed successfully"
   }
 }

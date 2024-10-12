@@ -49,3 +49,24 @@ export async function getOrderById(orderId: string) {
 
   return data as Order;
 }
+
+export async function getBoostingOrders() {
+  const session = await getSession();
+  if (!session?.accessToken || !session?.role?.includes("booster")) return null;
+  const accessToken = session?.accessToken;
+
+  const response = await fetch(`${BASE_URL}/orders/boosting`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  if (!response.ok) return null;
+
+  const data = await response?.json();
+
+  return data as OrdersResponse;
+}
+

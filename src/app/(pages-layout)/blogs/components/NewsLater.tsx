@@ -33,27 +33,29 @@ const NewsLater = () => {
       <p className="text-sm text-foreground-secondary mt-3 mb-4">
         {t("cms.newsletterDescription")}
       </p>
-      <form className="flex items-center gap-1" onSubmit={handleSubmit}>
-        <Input
-          type="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder={t("cms.emailPlaceholder")}
-          className="flex-grow"
-        />
-        <Button
-          type="submit"
-          isLoading={isPending}
-          isDisabled={isPending || !email}
-          radius="sm"
-          size="sm"
-          className="h-9 !px-4"
-          color="secondary"
-        >
-          {t("cms.subscribe")}
-        </Button>
-      </form>
+      {!isSuccess && (
+        <form className="flex items-center gap-1" onSubmit={handleSubmit}>
+          <Input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder={t("cms.emailPlaceholder")}
+            className="flex-grow"
+          />
+          <Button
+            type="submit"
+            isLoading={isPending}
+            isDisabled={isPending || !email}
+            radius="sm"
+            size="sm"
+            className="h-9 !px-4 text-white"
+            color="secondary"
+          >
+            {t("cms.subscribe")}
+          </Button>
+        </form>
+      )}
       {isSuccess && (
         <p className="bg-green-500/20 relative font-semibold border-1 border-green-500/70 text-green-500 p-1 rounded-md text-center flex items-center justify-center text-sm">
           {t("cms.newsletterSubscribed")}

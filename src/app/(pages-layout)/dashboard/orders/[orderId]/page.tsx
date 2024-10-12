@@ -9,12 +9,14 @@ import BoostOptions from "./components/order-data/BoostOptions";
 import BoostInformation from "./components/order-data/BoostInformation";
 import BoosterDetails from "./components/order-data/BoosterDetails";
 import OrderCredentialsCard from "./components/order-data/OrderCredentialsCard";
+import { getSession } from "@/utils/auth";
 
 export default async function OrderPage({
   params: { orderId },
 }: {
   params: { orderId: string };
 }) {
+  const session = await getSession();
   let order: Order | undefined;
 
   try {
@@ -27,6 +29,10 @@ export default async function OrderPage({
   // console.log(order);
 
   if (order && order?.boostingDetails) {
+    const isOrderOwner = session?.nameid === order?.userId;
+    const isOrderBooster =
+      session?.nameid === order?.boostingDetails?.boosterId;
+
     return (
       <div className="flex flex-col gap-10">
         <div className="flex items-center justify-between mobile:flex-col mobile:gap-5">
@@ -41,7 +47,7 @@ export default async function OrderPage({
           </div>
           <div className="col-span-1 flex flex-col gap-5">
             <BoosterDetails boosterData={order?.boostingDetails?.booster} />
-            <OrderCredentialsCard />
+            {(isOrderOwner || isOrderBooster) && <OrderCredentialsCard />}
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
   return (
     <Link
       href={`/blogs/${blog.slug}`}
-      className="p-5 backdrop-blur-3xl bg-gray-100/40 dark:bg-[#1A1B20]/40 rounded-lg w-full block"
+      className="p-5 backdrop-blur-3xl bg-gray-200/40 dark:bg-[#1A1B20]/40 rounded-lg w-full block"
     >
       <p className="text-lg font-bold text-foreground mb-2">{blog.title}</p>
       <Image

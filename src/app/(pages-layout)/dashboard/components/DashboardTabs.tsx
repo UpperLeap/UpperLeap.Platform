@@ -7,12 +7,28 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BsCart4 } from "react-icons/bs";
 import { IoSettings, IoSwapVertical } from "react-icons/io5";
+import { GiCardPickup } from "react-icons/gi";
+import { useSession } from "@/hooks/auth/useSession";
+
+type Tab = {
+  name: string;
+  path: string;
+  icon: React.ReactNode;
+  isActive: boolean;
+};
 
 const DashboardTabs = () => {
   const t = useTranslations();
   const pathname = usePathname();
+  const session = useSession();
 
-  const tabs = [
+  const tabs: Tab[] = [
+    session?.role?.includes("booster") && {
+      name: t("dashboard.claimOrders.title"),
+      path: "/dashboard/claim-orders",
+      icon: <GiCardPickup />,
+      isActive: true,
+    },
     {
       name: t("dashboard.orders.title"),
       path: "/dashboard/orders",
@@ -31,7 +47,7 @@ const DashboardTabs = () => {
       icon: <IoSettings />,
       isActive: true,
     },
-  ];
+  ].filter(Boolean) as Tab[];
 
   return (
     <div className="flex items-center">

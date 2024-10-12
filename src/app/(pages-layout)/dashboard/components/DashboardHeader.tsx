@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { BsCart4 } from "react-icons/bs";
 import { IoSettings, IoSwapVertical } from "react-icons/io5";
+import { GiCardPickup } from "react-icons/gi";
 
 const DashboardHeader = ({ page }: { page: string }) => {
   const t = useTranslations();
@@ -9,6 +10,7 @@ const DashboardHeader = ({ page }: { page: string }) => {
     orders: <BsCart4 />,
     transactions: <IoSwapVertical />,
     settings: <IoSettings />,
+    claimOrders: <GiCardPickup />,
   };
 
   return (

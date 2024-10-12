@@ -33,17 +33,11 @@ const OrderCard = ({ order }: { order: Order }) => {
       <div className="flex flex-col">
         <div className="flex items-center justify-between p-4 border-b-1 border-foreground-secondary/10">
           <p className="text-foreground">{t(`orders.type`)}</p>
-          <p>
-            Rank-boost
-            {/* {BoostingType[order.boostingDetails.type]} */}
-          </p>
+          <p>{BoostingType[order.boostingDetails.type]}</p>
         </div>
         <div className="flex items-center justify-between p-4 border-b-1 border-foreground-secondary/10">
           <p className="text-foreground">{t(`orders.server`)}</p>
-          <p>
-            Eu
-            {/* {Region[order.boostingDetails.region]} */}
-          </p>
+          <p>{Region[order.boostingDetails.region]}</p>
         </div>
       </div>
       <div className="flex items-center justify-end p-4">

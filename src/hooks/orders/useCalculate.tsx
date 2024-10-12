@@ -55,7 +55,7 @@ const useCalculate = () => {
   useEffect(() => {
     if (!orderData?.game) return;
     if (
-      pathname === "unrated-boost" &&
+      (pathname === "unrated-boost" || pathname === "checkout") &&
       orderPayload?.boostingDetails.type === BoostingType["unrated-boost"]
     ) {
       mutate(orderPayload);

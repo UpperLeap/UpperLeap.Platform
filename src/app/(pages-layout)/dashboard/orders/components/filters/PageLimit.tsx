@@ -7,6 +7,10 @@ const PageLimit = () => {
   const [pageSize, setPageSize] = useQueryState("pageSize", {
     defaultValue: "10",
   });
+  const [_, setPage] = useQueryState(
+    "pageIndex",
+    parseAsInteger.withDefault(1),
+  );
 
   return (
     <Select
@@ -24,6 +28,7 @@ const PageLimit = () => {
       onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
         const value = e.target.value;
         setPageSize(value ? value : null);
+        setPage(1);
       }}
     >
       <SelectItem key="5">5</SelectItem>

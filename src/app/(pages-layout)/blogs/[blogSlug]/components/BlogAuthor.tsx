@@ -15,9 +15,9 @@ const BlogAuthor = ({ blog }: { blog: Blog }) => {
         <p className="text-base font-medium text-foreground">
           {blog.author.userName}
         </p>
-        <p className="text-xs text-foreground-secondary">
+        {/* <p className="text-xs text-foreground-secondary">
           #{blog.author.id.slice(0, 12)}
-        </p>
+        </p> */}
       </div>
     </div>
   );

@@ -61,13 +61,13 @@ export async function getBoostingOrders() {
     return null;
   const accessToken = session?.accessToken;
 
-  const response = await fetch(`${BASE_URL}/orders/boosting`, {
+  const response = await fetch(`${BASE_URL}/boosting/orders`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${accessToken}`,
     },
-  });
+  });  
 
   if (!response.ok) return null;
 

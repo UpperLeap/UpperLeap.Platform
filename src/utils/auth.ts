@@ -17,6 +17,9 @@ export type GetSessionData = {
   accessToken?: string;
   refreshToken?: string;
   isLoggedIn?: boolean;
+  "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"?:
+    | string
+    | string[];
 };
 
 export async function getSession(): Promise<GetSessionData | null> {

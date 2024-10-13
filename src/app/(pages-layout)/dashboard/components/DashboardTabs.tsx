@@ -23,7 +23,9 @@ const DashboardTabs = () => {
   const session = useSession();
 
   const tabs: Tab[] = [
-    session?.role?.includes("booster") && {
+    session?.[
+      "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+    ]?.includes("Booster") && {
       name: t("dashboard.claimOrders.title"),
       path: "/dashboard/claim-orders",
       icon: <GiCardPickup />,

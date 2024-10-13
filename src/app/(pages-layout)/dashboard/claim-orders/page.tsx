@@ -10,7 +10,11 @@ export default async function ClaimOrdersPage() {
   const session = await getSession();
   const orders: OrdersResponse | null = await getBoostingOrders();
 
-  if (!session?.role?.includes("booster")) {
+  if (
+    !session?.[
+      "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+    ]?.includes("Booster")
+  ) {
     redirect("/dashboard/orders");
   }
 

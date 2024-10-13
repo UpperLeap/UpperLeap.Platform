@@ -52,7 +52,13 @@ export async function getOrderById(orderId: string) {
 
 export async function getBoostingOrders() {
   const session = await getSession();
-  if (!session?.accessToken || !session?.role?.includes("booster")) return null;
+  if (
+    !session?.accessToken ||
+    !session?.[
+      "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+    ]?.includes("Booster")
+  )
+    return null;
   const accessToken = session?.accessToken;
 
   const response = await fetch(`${BASE_URL}/orders/boosting`, {
@@ -69,4 +75,3 @@ export async function getBoostingOrders() {
 
   return data as OrdersResponse;
 }
-

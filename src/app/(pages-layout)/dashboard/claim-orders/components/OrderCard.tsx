@@ -4,17 +4,13 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { BoostingType } from "@/types/game";
 import ClaimOrderModal from "./ClaimOrderModal";
-import Link from "next/link";
 
 const OrderCard = ({ order }: { order: Order }) => {
   const t = useTranslations();
 
   return (
     <div className="bg-background-secondary/70 border-2 border-foreground-secondary/10 rounded-lg ">
-      <Link
-        href={`/dashboard/orders/${order.id}`}
-        className="p-4 flex justify-between items-center border-b-2 border-foreground-secondary/10"
-      >
+      <div className="p-4 flex justify-between items-center border-b-2 border-foreground-secondary/10">
         <div className="flex items-center gap-2">
           <Image
             src={
@@ -29,15 +25,17 @@ const OrderCard = ({ order }: { order: Order }) => {
           <p className="font-semibold text-foreground">{order.name}</p>
         </div>
         <p className="text-foreground font-semibold">${order.price.subtotal}</p>
-      </Link>
+      </div>
       <div className="flex flex-col">
         <div className="flex items-center justify-between p-4 border-b-1 border-foreground-secondary/10">
           <p className="text-foreground">{t(`orders.type`)}</p>
-          <p>{BoostingType[order.boostingDetails.type]}</p>
+          <p className="capitalize">
+            {BoostingType[order.boostingDetails.type]}
+          </p>
         </div>
         <div className="flex items-center justify-between p-4 border-b-1 border-foreground-secondary/10">
           <p className="text-foreground">{t(`orders.server`)}</p>
-          <p>{Region[order.boostingDetails.region]}</p>
+          <p className="capitalize">{Region[order.boostingDetails.region]}</p>
         </div>
       </div>
       <div className="flex items-center justify-end p-4">

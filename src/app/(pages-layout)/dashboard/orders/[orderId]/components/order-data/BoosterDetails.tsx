@@ -21,7 +21,7 @@ const BoosterDetails = ({ boosterData }: { boosterData: User | null }) => {
       )}
       {boosterData && (
         <Link
-          href={`/dashboard/users/${boosterData?.id}`}
+          href={`/dashboard/booster/${boosterData?.userName}`}
           className="flex items-center gap-2 justify-between flex-wrap"
         >
           <div className="flex items-center gap-2">

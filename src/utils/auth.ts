@@ -3,7 +3,23 @@ import { jwtDecode } from "jwt-decode";
 import { cookies } from "next/headers";
 import { SessionData, sessionOptions } from "./ironSessionOptions";
 
-export async function getSession() {
+export type GetSessionData = {
+  iss?: string;
+  sub?: string;
+  aud?: string[] | string;
+  exp?: number;
+  nbf?: number;
+  iat?: number;
+  jti?: string;
+  nameid?: string;
+  email?: string;
+  role?: string | string[];
+  accessToken?: string;
+  refreshToken?: string;
+  isLoggedIn?: boolean;
+};
+
+export async function getSession(): Promise<GetSessionData | null> {
   const session = await getIronSession<SessionData>(cookies(), sessionOptions);
 
   if (!session?.accessToken) return null;

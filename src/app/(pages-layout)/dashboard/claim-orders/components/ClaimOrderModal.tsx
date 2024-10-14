@@ -34,6 +34,7 @@ const ClaimOrderModal = ({
     mutationOptions: {
       onSuccess: (data: Order) => {
         toast.success(t("claimOrders.orderClaimedSuccessfully"));
+        onClose();
         router.push(`/dashboard/orders/${data.id}`);
       },
     },

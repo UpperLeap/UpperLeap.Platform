@@ -465,5 +465,13 @@
     "claimOrder": "Claim Order",
     "claimDescription": "Are you sure you want to claim",
     "orderClaimedSuccessfully": "Order claimed successfully"
+  },
+  "booster": {
+    "about": "About",
+    "languages": "Languages",
+    "tipBooster": "Tip Booster",
+    "tip": "Tip",
+    "tipBoosterDescription": "If you enjoyed the service, wanna help your booster out? You can do so by tipping them here.",
+    "customAmount": "Custom Amount"
   }
 }

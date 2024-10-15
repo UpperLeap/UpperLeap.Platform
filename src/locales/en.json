@@ -21,7 +21,8 @@
     "maximumSizeIs5mb": "Maximum size is 5mb",
     "requestError": "An error occurred while processing your request, please try again later",
     "backToHome": "Back to home",
-    "accountNotVerified": "Your account is not verified, please verify your email"
+    "accountNotVerified": "Your account is not verified, please verify your email",
+    "notFoundPage": "The page you are looking for does not exist "
   },
   "common": {
     "save": "Save",

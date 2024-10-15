@@ -23,6 +23,9 @@ export default function NotFound() {
         >
           {t("errors.backToHome")}
         </Link>
+        <Link href="https://status.upperleap.com/" className="hover:underline mt-5 text-primary">
+          {t("footer.status")}
+        </Link>
       </div>
       <RetroGrid />
     </div>

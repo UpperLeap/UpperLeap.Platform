@@ -103,11 +103,16 @@ const config: Config = {
           "0%, 70%, 100%": { opacity: "1" },
           "20%, 50%": { opacity: "0" },
         },
+        grid: {
+          "0%": { transform: "translateY(-50%)" },
+          "100%": { transform: "translateY(0)" },
+        },
       },
       animation: {
         "custom-shimmer": "custom-shimmer 8s infinite",
         orbit: "orbit calc(var(--duration)*1s) linear infinite",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
+        grid: "grid 25s linear infinite",
       },
     },
   },

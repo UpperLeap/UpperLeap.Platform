@@ -6,14 +6,13 @@ import BoostingList from "./components/BoostingList";
 export default async function GamePage({
   params: { gameName },
 }: {
-  params: { gameName: string; };
+  params: { gameName: string };
 }) {
   let gameData;
 
   try {
     gameData = gamesData[gameName as keyof typeof gamesData];
   } catch (error) {
-    console.error(error);
     notFound();
   }
 

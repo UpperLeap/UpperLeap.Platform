@@ -7,10 +7,9 @@ export default function NotFound() {
   const t = useTranslations();
 
   return (
-    <div className="relative left-0 top-0 z-50 flex h-dvh w-full overflow-hidden bg-background">
+    <div className="fixed left-0 top-0 z-50 flex h-dvh w-full overflow-hidden bg-background">
       <div className="relative z-[1] flex flex-col items-center justify-center w-full h-full">
         <Logo className="max-w-52 w-48 mb-10" />
-        {/* bg-gradient-to-b from-primary to-secondary */}
         <h1 className="pointer-events-none text-foreground text-center text-5xl font-extrabold">
           404
         </h1>

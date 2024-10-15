@@ -11,15 +11,19 @@ const GamesList = async () => {
     return <RequestError />;
   }
 
-  return (
-    <div className="max-w-medium mx-auto mt-10 arc-wrapper px-5">
-      <div className="flex items-center gap-5 justify-around flex-wrap">
-        {games.map((game) => (
-          <GameCard key={game.id} game={game} />
-        ))}
+  if (games) {
+    return (
+      <div className="max-w-medium mx-auto mt-10 arc-wrapper px-5">
+        <div className="flex items-center gap-5 justify-around flex-wrap">
+          {games
+            .filter((game) => game.isVisible)
+            .map((game) => (
+              <GameCard key={game.id} game={game} />
+            ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default GamesList;

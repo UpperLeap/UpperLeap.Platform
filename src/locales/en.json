@@ -237,7 +237,12 @@
     "discountCode": "Discount Code",
     "totalPrice": "Total Price",
     "buyBoost": "Buy Boost",
-    "discountCodeApplied": "Congratulations! You've got a {discount}% discount with code: {code}"
+    "discountCodeApplied": "Congratulations! You've got a {discount}% discount with code: {code}",
+    "servicesAreComingSoon": "Services are coming soon",
+    "comingSoonDescription": "Our team is working hard to bring you the best services. We'll be launching soon, and when we do, we'll shake up the industry with unbeatable prices, expert boosters, and the best customer service.",
+    "getNotifiedDescription": "To get a notification when our services are live, sign up with your email.",
+    "getNotified": "Get Notified",
+    "emailUsage": "We'll only use your email to notify you about our services release."
   },
   "valorant": {
     "winBoostTitle": "Win Boost",

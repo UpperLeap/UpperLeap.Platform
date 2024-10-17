@@ -7,6 +7,7 @@ import GameHeader from "./components/GameHeader";
 import { notFound } from "next/navigation";
 import { getGame } from "@/services/games";
 import GameData from "./components/GameData";
+import GameComingSoon from "./components/GameComingSoon";
 
 export default async function GameLayout({
   children,
@@ -26,10 +27,16 @@ export default async function GameLayout({
   return (
     <>
       <GameData game={game} />
-      <GameNav />
+      <GameNav isTabsDisabled={game.isUpcoming || game.isDisabled} />
       <div className="z-[1] relative max-w-wide mx-auto px-10 mt-10 mobile:px-5 flex flex-col gap-14">
-        <GameHeader gameName={gameName} />
-        {children}
+        {game.isUpcoming ? (
+          <GameComingSoon game={game} />
+        ) : (
+          <>
+            <GameHeader gameName={gameName} />
+            {children}
+          </>
+        )}
       </div>
       <Services />
       <Faq />

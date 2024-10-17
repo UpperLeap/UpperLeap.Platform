@@ -10,7 +10,7 @@ import { useTranslations } from "next-intl";
 import NavTabs from "./NavTabs";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
-const GameNav = () => {
+const GameNav = ({ isTabsDisabled }: { isTabsDisabled: boolean }) => {
   const t = useTranslations();
   const { scrollY } = useScroll();
   const { gameName } = useParams();
@@ -53,7 +53,7 @@ const GameNav = () => {
             {gameData?.name}
           </h2>
         </Link>
-        <NavTabs />
+        {!isTabsDisabled && <NavTabs />}
         <div className="py-3 mobile:hidden">
           <Link
             href="/contact-us"

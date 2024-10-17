@@ -6,6 +6,12 @@ import { getBlogs } from "@/services/blogs";
 import RequestError from "@/components/shared/RequestError";
 import { getTranslations } from "next-intl/server";
 import BlogCard from "./components/BlogCard";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blogs",
+  description: "Discover our latest blogs and articles.",
+};
 
 export default async function BlogsPage() {
   const t = await getTranslations();

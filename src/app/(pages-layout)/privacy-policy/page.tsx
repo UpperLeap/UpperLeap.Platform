@@ -1,6 +1,13 @@
 import MdxLayout from "@/components/shared/MdxLayout";
 import { privacyPolicy } from "@/data/cms-markdown";
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from us.",
+};
 
 export default function PrivacyPolicyPage() {
   const t = useTranslations();

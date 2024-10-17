@@ -1,23 +1,16 @@
 import MdxLayout from "@/components/shared/MdxLayout";
 import { about } from "@/data/cms-markdown";
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
+
+export const metadata: Metadata = {
+  title: "About us",
+  description:
+    "We are a team of gamers who are passionate about helping others achieve their gaming goals. We offer a wide range of services to help you with your gaming needs.",
+};
 
 export default function AboutPage() {
   const t = useTranslations();
-  //   h1: (props: any) => (
-  //     <h1 className="text-3xl font-bold text-foreground" {...props} />
-  //   ),
-  //   h2: (props: any) => (
-  //     <h2 className="text-2xl font-bold text-foreground" {...props} />
-  //   ),
-  //   h3: (props: any) => (
-  //     <h3 className="text-xl font-bold text-foreground" {...props} />
-  //   ),
-
-  //   p: (props: any) => (
-  //     <p className="" {...props} />
-  //   ),
-  // };
 
   return (
     <section className="min-h-[63vh] relative z-[1] max-w-medium mx-auto px-5 py-10">

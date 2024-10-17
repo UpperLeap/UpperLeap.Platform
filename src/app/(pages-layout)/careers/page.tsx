@@ -1,5 +1,11 @@
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Work with us",
+  description: "Become a booster and start working with us.",
+};
 
 export default function CareersPage() {
   const t = useTranslations();

@@ -1,6 +1,13 @@
 import MdxLayout from "@/components/shared/MdxLayout";
 import { termsOfService } from "@/data/cms-markdown";
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
+
+export const metadata: Metadata = {
+  title: "Terms of services",
+  description:
+    "Welcome to UpperLeap! These Terms of Service govern your relationship with us.",
+};
 
 export default function TermsOfServicePage() {
   const t = useTranslations();

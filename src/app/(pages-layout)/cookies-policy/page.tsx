@@ -1,6 +1,13 @@
 import MdxLayout from "@/components/shared/MdxLayout";
 import { cookiesPolicy } from "@/data/cms-markdown";
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
+
+export const metadata: Metadata = {
+  title: "Cookies policy",
+  description:
+    "This Cookies Policy describes the types of cookies and similar technologies we use on our website and how we use them.",
+};
 
 export default function CookiesPolicyPage() {
   const t = useTranslations();

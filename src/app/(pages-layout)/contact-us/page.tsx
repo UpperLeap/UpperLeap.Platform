@@ -1,6 +1,12 @@
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import ContactMethods from "./components/ContactMethods";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Have a question or feedback? We'd love to hear from you! Use the methods below to get in touch with us.",
+};
 
 export default function ContactUsPage() {
   const t = useTranslations();

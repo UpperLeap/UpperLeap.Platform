@@ -2,6 +2,12 @@ import PaymentMethod from "./components/PaymentMethod";
 import PaymentDetails from "./components/PaymentDetails";
 import { getIsLoggedIn } from "@/utils/auth";
 import { redirect } from "next/navigation";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Checkout",
+  description: "Checkout page",
+};
 
 export default async function CheckoutPage() {
   const isLoggedIn = await getIsLoggedIn();

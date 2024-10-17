@@ -1,5 +1,19 @@
+import { Metadata } from "next";
 import Checkout from "../components/checkout/Checkout";
 import MatchesAmount from "../components/MatchesAmount";
+
+export function generateMetadata({
+  params: { gameName },
+}: {
+  params: { gameName: string };
+}): Metadata {
+  const gameNameCapitalized =
+    gameName.charAt(0).toUpperCase() + gameName.slice(1);
+  return {
+    title: `${gameNameCapitalized} Unrated Boost Service`,
+    description: `Unrated Boost Service for ${gameNameCapitalized}`,
+  };
+}
 
 export default function UnratedBoostPage() {
   return (

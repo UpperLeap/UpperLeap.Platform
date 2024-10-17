@@ -9,6 +9,25 @@ import MdxLayout from "@/components/shared/MdxLayout";
 import Link from "next/link";
 import { IoIosArrowBack } from "react-icons/io";
 import { getTranslations } from "next-intl/server";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params: { blogSlug },
+}: {
+  params: { blogSlug: string };
+}): Promise<Metadata> {
+  const blog = await getBlogBySlug(blogSlug);
+
+  if (!blog) {
+    notFound();
+  }
+
+  return {
+    title: blog.title,
+    description: `${blog.title} blog written by ${blog.author.userName}`,
+  };
+}
 
 export default async function BlogPage({
   params,

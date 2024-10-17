@@ -8,6 +8,12 @@ import { VelocityScroll } from "@/components/ui/VelocityScroll";
 import Services from "./components/Services";
 import Faq from "./components/Faq";
 import GetStarted from "./components/GetStarted";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home Page",
+  description: "",
+};
 
 export default function Home() {
   const t = useTranslations();

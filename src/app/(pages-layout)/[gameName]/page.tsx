@@ -2,6 +2,20 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { gamesData } from "@/data/gamesData";
 import BoostingList from "./components/BoostingList";
+import { Metadata } from "next";
+
+export function generateMetadata({
+  params: { gameName },
+}: {
+  params: { gameName: string };
+}): Metadata {
+  const gameNameCapitalized =
+    gameName?.charAt(0)?.toUpperCase() + gameName?.slice(1);
+  return {
+    title: `${gameNameCapitalized} Services`,
+    description: `Services for ${gameNameCapitalized}`,
+  };
+}
 
 export default async function GamePage({
   params: { gameName },

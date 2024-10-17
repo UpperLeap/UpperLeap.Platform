@@ -1,6 +1,20 @@
+import { Metadata } from "next";
 import Checkout from "../components/checkout/Checkout";
 import MatchesAmount from "../components/MatchesAmount";
 import RankPicker from "../components/RankPicker";
+
+export function generateMetadata({
+  params: { gameName },
+}: {
+  params: { gameName: string };
+}): Metadata {
+  const gameNameCapitalized =
+    gameName.charAt(0).toUpperCase() + gameName.slice(1);
+  return {
+    title: `${gameNameCapitalized} Win Boost Service`,
+    description: `Win Boost Service for ${gameNameCapitalized}`,
+  };
+}
 
 export default function WinBoostPage() {
   return (

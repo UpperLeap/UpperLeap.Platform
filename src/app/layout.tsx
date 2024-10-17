@@ -7,8 +7,11 @@ import { getLocale } from "next-intl/server";
 const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "UpperLeap",
-  description: "",
+  title: {
+    template: "%s | UpperLeap",
+    default: "UpperLeap",
+  },
+  description: " ",
 };
 
 export default async function RootLayout({

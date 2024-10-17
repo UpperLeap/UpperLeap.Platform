@@ -2,7 +2,7 @@ import React from "react";
 import { Order, Region } from "@/types/order";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { BoostingType } from "@/types/game";
+import { BoostingType } from "@/types/order";
 import ClaimOrderModal from "./ClaimOrderModal";
 
 const OrderCard = ({ order }: { order: Order }) => {

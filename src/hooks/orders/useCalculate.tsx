@@ -2,7 +2,7 @@ import useOrderDataStore from "@/stores/order";
 import { useEffect, useMemo, useState } from "react";
 import { useAction } from "../api/useAction";
 import { usePathname } from "next/navigation";
-import { BoostingType } from "@/types/game";
+import { BoostingType } from "@/types/order";
 
 export type PriceData = {
   total: number;

@@ -1,6 +1,6 @@
 import { OrderPayload, PriceData } from "@/hooks/orders/useCalculate";
-import useOrderDataStore, { OrderDataStore } from "@/stores/order";
-import { BoostingType } from "@/types/game";
+import useOrderDataStore from "@/stores/order";
+import { BoostingType } from "@/types/order";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";

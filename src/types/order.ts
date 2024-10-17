@@ -1,5 +1,6 @@
 import { BasicGame } from "./game";
 import { User } from "./user";
+import { PaymentMethod } from "./wallet";
 
 export type OrdersResponse = {
   items: Order[];
@@ -30,6 +31,13 @@ export enum CurrentRating {
   "81-100",
 }
 
+export enum BoostingType {
+  "rank-boost" = 0,
+  "win-boost" = 1,
+  "placement-boost" = 2,
+  "unrated-boost" = 3,
+}
+
 export type BoostConfiguration = {
   priorityBoost: boolean;
   streamGames: boolean;
@@ -43,9 +51,9 @@ export type BoostingDetails = {
   boosterId: string;
   region: Region;
   configuration: BoostConfiguration;
-  type: number; // todo: add enum
+  type: BoostingType;
   mode: number; // todo: add enum
-  currentRating: CurrentRating; // todo: add enum
+  currentRating: CurrentRating;
   currentRank: string;
   desiredRank: string;
   currentDivision: number;
@@ -92,7 +100,7 @@ export type Order = {
   currency: string;
   completed: boolean;
   price: PriceData;
-  method: number; // todo: add enum
+  method: PaymentMethod;
   createdDate: string;
   updatedDate: string;
   transaction: OrderTransaction;

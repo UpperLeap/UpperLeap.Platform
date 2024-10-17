@@ -10,7 +10,7 @@ import Price from "./Price";
 import CreateOrder from "./CreateOrder";
 import useOrderDataStore from "@/stores/order";
 import { usePathname } from "next/navigation";
-import { BoostingType } from "@/types/game";
+import { BoostingType } from "@/types/order";
 import { useEffect } from "react";
 
 const Checkout = () => {

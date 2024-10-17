@@ -1,7 +1,7 @@
 import { IoRocket } from "react-icons/io5";
 import { GiSpartanHelmet } from "react-icons/gi";
 import { CurrentRating, Order, Region } from "@/types/order";
-import { BoostingType } from "@/types/game";
+import { BoostingType } from "@/types/order";
 
 export const valorant = {
   name: "Valorant",

@@ -14,16 +14,16 @@ export async function GET(request: NextRequest) {
   const redirectTo = searchParams.get("redirectTo") || "/";
   const redirectUrl = new URL(redirectTo, request.url);
 
-  // Add this check to prevent redirecting back to the refresh-session route
-  if (redirectUrl.pathname.startsWith('/api/refresh-session')) {
-    redirectUrl.pathname = '/';
+  if (redirectUrl.pathname.startsWith("/api/refresh-session")) {
+    redirectUrl.pathname = "/";
   }
 
   if (!refreshToken) {
     console.log("invalid session");
     await deleteAuthenticationCookies();
 
-    return NextResponse.json({ error: "Invalid Session" }, { status: 401 });
+    // return NextResponse.json({ error: "Invalid Session" }, { status: 401 });
+    return NextResponse.redirect("/");
   }
 
   const response = await fetch(`${BASE_URL}/authentication/refresh`, {
@@ -41,10 +41,11 @@ export async function GET(request: NextRequest) {
 
     await deleteAuthenticationCookies();
 
-    return NextResponse.json(
-      { error: "Failed to refresh session" },
-      { status: 401 },
-    );
+    // return NextResponse.json(
+    //   { error: "Failed to refresh session" },
+    //   { status: 401 },
+    // );
+    return NextResponse.redirect("/");
   }
 
   const data: AuthResponse = await response.json();

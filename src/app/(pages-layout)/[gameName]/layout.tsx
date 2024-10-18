@@ -28,7 +28,7 @@ export default async function GameLayout({
     <>
       <GameData game={game} />
       <GameNav isTabsDisabled={game.isUpcoming || game.isDisabled} />
-      <div className="z-[1] relative max-w-wide mx-auto px-10 mt-10 mobile:px-5 flex flex-col gap-14">
+      <div className="z-[1] relative max-w-wide mx-auto px-10 mt-10 mobile:px-5 flex flex-col gap-14 min-h-[33vh]">
         {game.isUpcoming ? (
           <GameComingSoon game={game} />
         ) : (

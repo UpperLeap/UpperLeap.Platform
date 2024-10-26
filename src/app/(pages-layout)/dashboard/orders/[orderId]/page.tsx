@@ -10,6 +10,7 @@ import BoostInformation from "./components/order-data/BoostInformation";
 import BoosterDetails from "./components/order-data/BoosterDetails";
 import OrderCredentialsCard from "./components/order-data/OrderCredentialsCard";
 import { getSession } from "@/utils/auth";
+import ChatHub from "./components/order-chat/ChatHub";
 
 export default async function OrderPage({
   params: { orderId },
@@ -22,7 +23,6 @@ export default async function OrderPage({
   try {
     order = await getOrderById(orderId);
   } catch (error) {
-    console.error(error);
     return <RequestError />;
   }
 
@@ -32,6 +32,10 @@ export default async function OrderPage({
     const isOrderOwner = session?.nameid === order?.userId;
     const isOrderBooster =
       session?.nameid === order?.boostingDetails?.boosterId;
+    const isChatVisible =
+      (isOrderOwner || isOrderBooster) &&
+      order?.boostingDetails?.boosterId &&
+      !order.completed;
 
     return (
       <div className="flex flex-col gap-10">
@@ -41,6 +45,7 @@ export default async function OrderPage({
         </div>
         <div className="grid grid-cols-3 mobile:grid-cols-1 mobile:gap-x-0 gap-5">
           <div className="col-span-2 flex flex-col gap-5">
+            {isChatVisible && <ChatHub />}
             <BoostData order={order} />
             <BoostOptions order={order} />
             <BoostInformation order={order} />

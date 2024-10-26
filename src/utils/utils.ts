@@ -68,3 +68,21 @@ export function formatDate(
 
   return formattedDate.replace(/\d+/, day + suffix);
 }
+
+export function getHourAndMinutes(dateString: string) {
+  const date = new Date(dateString);
+
+  let hours = date.getHours();
+  const minutes = date.getMinutes();
+
+  const isPm = hours >= 12;
+
+  // Convert to 12-hour format
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+
+  // Pad minutes to be 2 digits
+  const minutesStr = minutes < 10 ? `0${minutes}` : `${minutes}`;
+
+  return `${hours}:${minutesStr} ${isPm ? "pm" : "am"}`;
+}

@@ -16,7 +16,8 @@ const GameCard = ({ game }: { game: BasicGame }) => {
   return (
     <Tooltip
       radius="sm"
-      content={game.isUpcoming && t("gameProfile.comingSoon")}
+      isDisabled={!game.isUpcoming}
+      content={t("gameProfile.comingSoon")}
     >
       <Link
         className={cn(

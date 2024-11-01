@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Modal,
@@ -7,38 +7,42 @@ import {
   ModalBody,
   ModalFooter,
   useDisclosure,
-} from "@nextui-org/modal";
-import { Tooltip } from "@nextui-org/tooltip";
-import { useTranslations } from "next-intl";
-import { RiEdit2Line } from "react-icons/ri";
-import CountrySelect from "./CountrySelect";
-import { Button } from "@nextui-org/button";
-import { useAction } from "@/hooks/api/useAction";
-import { useParams } from "next/navigation";
-import { useState } from "react";
-import toast from "react-hot-toast";
+} from "@nextui-org/modal"
+import { Tooltip } from "@nextui-org/tooltip"
+import { useTranslations } from "next-intl"
+import { RiEdit2Line } from "react-icons/ri"
+import CountrySelect from "./CountrySelect"
+import { Button } from "@nextui-org/button"
+import { useAction } from "@/hooks/api/useAction"
+import { useParams } from "next/navigation"
+import { useState, useCallback } from "react"
+import toast from "react-hot-toast"
 
-const EditOrder = ({ orderVpn }: { orderVpn: string | null }) => {
-  const t = useTranslations();
-  const { orderId } = useParams();
-  const [country, setCountry] = useState<string>(orderVpn || "");
-  const { isOpen, onOpenChange, onOpen, onClose } = useDisclosure();
+export default function EditOrder({ orderVpn }: { orderVpn: string | null }) {
+  const t = useTranslations()
+  const { orderId } = useParams()
+  const [country, setCountry] = useState<string>(orderVpn || "")
+  const { isOpen, onOpenChange, onOpen, onClose } = useDisclosure()
 
   const { mutate, isPending } = useAction({
     method: "PUT",
     endpoint: `/orders/${orderId}/vpn`,
     mutationOptions: {
       onSuccess: () => {
-        toast.success(t("orders.vpnAddedSuccessfully"));
-        onClose();
+        toast.success(t("orders.vpnAddedSuccessfully"))
+        onClose()
       },
     },
-  });
+  })
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    mutate({ country, orderId });
-  };
+  const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (country) {
+      mutate({ orderId, vpnCountry: country })
+    } else {
+      toast.error(t("orders.selectCountryError"))
+    }
+  }, [country, mutate, orderId, t])
 
   return (
     <>
@@ -91,7 +95,7 @@ const EditOrder = ({ orderVpn }: { orderVpn: string | null }) => {
               color="primary"
               type="submit"
               isLoading={isPending}
-              isDisabled={isPending}
+              isDisabled={isPending || !country}
               form="edit-order-form"
             >
               {t("common.save")}
@@ -100,7 +104,5 @@ const EditOrder = ({ orderVpn }: { orderVpn: string | null }) => {
         </ModalContent>
       </Modal>
     </>
-  );
-};
-
-export default EditOrder;
+  )
+}

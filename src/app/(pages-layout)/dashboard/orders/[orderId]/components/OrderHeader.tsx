@@ -5,13 +5,13 @@ import Image from "next/image";
 const OrderHeader = ({ order }: { order: Order }) => {
   return (
     <div className="flex items-center gap-3">
-      <Image
+      {order?.boostingDetails?.game?.iconUrl ? <Image
         src={order?.boostingDetails?.game?.iconUrl}
         alt={order?.name}
         width={50}
         height={50}
         className="object-cover"
-      />
+      /> : null}
       <div>
         <h1 className="text-xl font-semibold text-foreground">{order?.name}</h1>
         <div className="text-sm text-foreground-secondary flex items-center gap-1">

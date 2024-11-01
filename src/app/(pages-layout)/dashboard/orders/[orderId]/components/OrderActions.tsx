@@ -3,7 +3,7 @@ import React from "react";
 import CompletePayment from "./order-actions/CompletePayment";
 import { getSession } from "@/utils/auth";
 import EditOrder from "./order-actions/EditOrder";
-import CompleteOrder from "./order-actions/CompleteOrder";
+import CompleteOrderModal from "./order-actions/CompleteOrderModal";
 // import CancelOrderModal from "./CancelOrderModal";
 
 const OrderActions = async ({ order }: { order: Order }) => {
@@ -13,7 +13,7 @@ const OrderActions = async ({ order }: { order: Order }) => {
 
   return (
     <div className="flex items-center gap-2">
-      {isOrderBooster && <CompleteOrder />}
+      {isOrderBooster && <CompleteOrderModal order={order} />}
       {!order?.transaction?.completed && isOrderOwner && (
         <CompletePayment paymentUrl={order?.paymentUrl} />
       )}

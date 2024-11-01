@@ -35,6 +35,7 @@ const LanguagesSelect = ({
       {languages.map((language) => (
         <SelectItem
           key={`${language?.iso}-${language?.language}`}
+          className="capitalize"
           startContent={
             <Image
               src={`https://flagcdn.com/w20/${language?.iso.toLowerCase()}.webp`}

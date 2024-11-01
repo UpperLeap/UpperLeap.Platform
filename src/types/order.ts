@@ -10,6 +10,13 @@ export type OrdersResponse = {
   hasNextPage: boolean;
 };
 
+export type Message = {
+  id: string;
+  message: string;
+  createdAt: string;
+  senderId: string;
+};
+
 export type PriceData = {
   total: number;
   subtotal: number;

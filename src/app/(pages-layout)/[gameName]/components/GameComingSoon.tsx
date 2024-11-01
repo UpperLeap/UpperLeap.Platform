@@ -5,7 +5,6 @@ import GetNotifiedForm from "./GetNotifiedForm";
 import { IoGameControllerOutline } from "react-icons/io5";
 const GameComingSoon = ({ game }: { game: BasicGame }) => {
   const t = useTranslations();
-  console.log(game);
 
   return (
     <div className="max-w-2xl">

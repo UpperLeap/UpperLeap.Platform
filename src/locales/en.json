@@ -336,7 +336,9 @@
     "pageSize": "Page Size"
   },
   "orders": {
+    "complete": "Complete",
     "completeOrder": "Complete Order",
+    "completeOrderDescription": "Are you sure you want to complete this order? This action cannot be undone.",
     "completePayment": "Complete Payment",
     "deleteOrder": "Delete Order",
     "deleteOrderDescription": "Are you sure you want to delete this order? This action cannot be undone.",
@@ -380,7 +382,9 @@
     "editCredentials": "Edit Credentials",
     "credentialsUpdatedSuccessfully": "Credentials updated successfully",
     "twoFactorAuthWarning": "Two Factor Authentication is not supported at the moment, please disable it before adding your credentials.",
-    "winsAmount": "Wins Amount"
+    "winsAmount": "Wins Amount",
+    "chatHub": "Chat Hub",
+    "typeMessage": "Type a message"
   },
   "transactions": {
     "storeCredit": "Store Credit",

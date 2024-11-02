@@ -12,7 +12,7 @@ const GetNotifiedForm = () => {
 
   const { mutate, isPending } = useAction({
     method: "POST",
-    endpoint: "/notify",
+    endpoint: "/newsletter/subscribe",
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

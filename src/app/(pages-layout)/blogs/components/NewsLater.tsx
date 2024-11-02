@@ -14,7 +14,7 @@ const NewsLater = () => {
 
   const { mutate, isPending, isSuccess } = useAction({
     method: "POST",
-    endpoint: "/api/newsletter",
+    endpoint: "/newsletter/subscribe",
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

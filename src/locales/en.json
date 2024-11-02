@@ -171,7 +171,8 @@
     "resendAgainAfter": "Resend again after",
     "byProceeding": "By proceeding, you agree to our",
     "tos&pp": "Terms of Service & Privacy Policy",
-    "signUp": "Sign Up"
+    "signUp": "Sign Up",
+    "invalidToken": "The token you provided is invalid or expired. Please try again."
   },
   "gameProfile": {
     "support": "24/7 Support",

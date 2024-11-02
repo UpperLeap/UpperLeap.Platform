@@ -19,17 +19,11 @@ const AuthenticateUser = ({ platform }: { platform: OauthPlatform }) => {
   const token = useSearchParams().get("code");
 
   useEffect(() => {
-    console.log("test");
-  }, []);
-
-  useEffect(() => {
     if (isPending) return;
-
     if (!token) {
       toast.error(t("auth.invalidToken"));
       redirect("/");
     }
-    console.log(OAuthPlatformEnum[platform as keyof typeof OAuthPlatformEnum]);
 
     mutate({
       token,

@@ -6,17 +6,17 @@ import { BsDiscord } from "react-icons/bs";
 const DiscordOauth = () => {
   const t = useTranslations();
   const clientId = DISCORD_CLIENT_ID;
-  const redirectUri = "https://--.com/callback/discord";
+  const redirectUri = "http://localhost:3000/callback/discord";
 
   const redirect = () => {
-    location.href = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=openid+email+identify`;
+    location.href = `https://discord.com/oauth2/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=identify+email+openid`;
   };
 
   return (
     <Button
       variant="bordered"
       size="sm"
-      // onClick={() => redirect()}
+      onClick={() => redirect()}
       className="w-full gap-3 px-2 py-5 text-base capitalize group hover:bg-[#6773f4] border-1 text-foreground hover:text-white"
     >
       <BsDiscord className="text-xl" />

@@ -9,7 +9,7 @@ export const DISCORD_CLIENT_ID =
 
 export const IRON_SESSION_SECRET = process.env.NEXT_IRON_SESSION_SECRET;
 
+export const TWITCH_CLIENT_ID =
+  process.env.TWITCH_CLIENT_ID || process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID;
 
 export const TOKEN_TYPE = "Bearer";
-
-

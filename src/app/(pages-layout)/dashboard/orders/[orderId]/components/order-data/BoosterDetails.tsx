@@ -6,7 +6,13 @@ import Link from "next/link";
 import { FaUserLarge } from "react-icons/fa6";
 import { MdVerified } from "react-icons/md";
 
-const BoosterDetails = ({ boosterData }: { boosterData: User | null }) => {
+const BoosterDetails = ({
+  boosterData,
+  isPaid,
+}: {
+  boosterData: User | null;
+  isPaid: boolean;
+}) => {
   const t = useTranslations();
 
   return (
@@ -16,7 +22,11 @@ const BoosterDetails = ({ boosterData }: { boosterData: User | null }) => {
           size="sm"
           icon={<FaUserLarge />}
           title={t("orders.noBoosterFound")}
-          description={t("orders.noBoosterFoundDescription")}
+          description={
+            isPaid
+              ? t("orders.noBoosterFoundDescriptionPaid")
+              : t("orders.noBoosterFoundDescriptionNotPaid")
+          }
         />
       )}
       {boosterData && (

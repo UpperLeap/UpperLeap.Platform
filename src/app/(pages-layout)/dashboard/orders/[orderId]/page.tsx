@@ -51,7 +51,7 @@ export default async function OrderPage({
             <BoostInformation order={order} />
           </div>
           <div className="col-span-1 flex flex-col gap-5">
-            <BoosterDetails boosterData={order?.boostingDetails?.booster} />
+            <BoosterDetails boosterData={order?.boostingDetails?.booster} isPaid={order.transaction.completed} />
             {(isOrderOwner || isOrderBooster) && <OrderCredentialsCard />}
           </div>
         </div>

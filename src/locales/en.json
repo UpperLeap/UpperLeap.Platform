@@ -369,7 +369,8 @@
     "title": "Title",
     "boostId": "Boost ID",
     "noBoosterFound": "No booster found",
-    "noBoosterFoundDescription": "Once your order is paid, the assigned booster will be displayed here.",
+    "noBoosterFoundDescriptionNotPaid": "Once your order is paid, the assigned booster will be displayed here.",
+    "noBoosterFoundDescriptionPaid": "Once a booster is assigned to your order, they will be displayed here.",
     "verifiedBooster": "Verified Booster",
     "noCredentialsProvided": "No credentials provided",
     "noCredentialsProvidedDescription": "Add the credentials for your account to complete the order.",
@@ -403,7 +404,14 @@
     "paymentMethodEnum": {
       "0": "Lemon",
       "1": "Crypto"
-    }
+    },
+    "requestWithdraw": "Request Withdraw",
+    "withdrawalRequest": "Withdrawal Request",
+    "amount": "Amount",
+    "amountPlaceholder": "Enter the amount you want to withdraw",
+    "minimumWithdrawal": "Minimum withdrawal amount is $50",
+    "withdrawSuccess": "Withdrawal request sent successfully",
+    "withdraw": "Withdraw"
   },
   "settings": {
     "userInformation": "User Information",

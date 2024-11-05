@@ -7,6 +7,8 @@ import RequestError from "@/components/shared/RequestError";
 import { getTranslations } from "next-intl/server";
 import BlogCard from "./components/BlogCard";
 import { Metadata } from "next";
+import Placeholder from "@/components/shared/Placeholder";
+import { TbNewsOff } from "react-icons/tb";
 
 export const metadata: Metadata = {
   title: "Blogs",
@@ -37,11 +39,21 @@ export default async function BlogsPage() {
           <p className="max-w-4xl mt-2">{t("cms.blogsDescription")}</p>
         </div>
         <div className="mt-20 grid grid-cols-3 gap-5 mobile:grid-cols-1 mobile:gap-x-0 mobile:gap-5">
-          <div className="col-span-2 grid grid-cols-2 gap-5 mobile:grid-cols-1">
-            {blogs.map((blog, index) => (
-              <BlogCard key={blog.id} blog={blog} />
-            ))}
-          </div>
+          {blogs.length > 0 ? (
+            <div className="col-span-2 grid grid-cols-2 gap-5 mobile:grid-cols-1">
+              {blogs.map((blog, index) => (
+                <BlogCard key={blog.id} blog={blog} />
+              ))}
+            </div>
+          ) : (
+            <div className="col-span-2 mobile:grid-cols-1">
+              <Placeholder
+                icon={<TbNewsOff />}
+                title={t("cms.noBlogs")}
+                description={t("cms.noBlogsDescription")}
+              />
+            </div>
+          )}
           <div className="col-span-1">
             <NewsLater />
           </div>

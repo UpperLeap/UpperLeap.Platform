@@ -8,6 +8,7 @@ export type Blog = {
   views: number;
   createdDate: string;
   updatedDate: string;
+  tags: string[];
   author: {
     id: string;
     userName: string;

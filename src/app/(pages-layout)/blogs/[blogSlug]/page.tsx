@@ -68,6 +68,16 @@ export default async function BlogPage({
           className="w-full aspect-[16/8] rounded-lg border-1 border-foreground-secondary/20 object-cover mt-5"
         />
       )}
+      <div className="flex items-center gap-2 border-y-1 border-foreground-secondary/20 py-2 mt-5">
+        {blog.tags.map((tag) => (
+          <span
+            key={tag}
+            className="text-sm px-2 py-1 rounded-lg bg-foreground-secondary/10"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
       <div className="my-10">
         <MdxLayout source={blog.content} />
       </div>

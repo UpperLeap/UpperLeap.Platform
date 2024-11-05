@@ -22,7 +22,7 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
       <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
         {blog.content.slice(0, 200)}
       </p>
-      <div className="flex justify-between items-center mt-5">
+      <div className="flex justify-between items-center my-5">
         <p className="text-sm text-gray-500 dark:text-gray-400">
           {formatDate(blog.createdDate, "en-US")}
         </p>
@@ -33,6 +33,16 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
           username={blog?.author?.userName}
           className="w-8 h-8"
         />
+      </div>
+      <div className="flex items-center gap-2 border-y-1 border-foreground-secondary/20 py-2 mt-5">
+        {blog.tags.map((tag) => (
+          <span
+            key={tag}
+            className="text-xs px-2 py-1 rounded-lg bg-foreground-secondary/10"
+          >
+            {tag}
+          </span>
+        ))}
       </div>
     </Link>
   );

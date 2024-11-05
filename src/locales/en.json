@@ -51,7 +51,8 @@
       "weeks": "weeks",
       "months": "months",
       "years": "years"
-    }
+    },
+    "report": "Report"
   },
   "navbar": {
     "login": "Log in",
@@ -386,7 +387,13 @@
     "twoFactorAuthWarning": "Two Factor Authentication is not supported at the moment, please disable it before adding your credentials.",
     "winsAmount": "Wins Amount",
     "chatHub": "Chat Hub",
-    "typeMessage": "Type a message"
+    "typeMessage": "Type a message",
+    "reportOrder": "Report Order",
+    "reportOrderDescription": "Please describe the issue you are experiencing with this order.",
+    "reportDescription": "Description",
+    "email": "Email",
+    "emailPlaceholder": "Enter the email you want us to contact you at",
+    "reportOrderSuccess": "Report sent successfully"
   },
   "transactions": {
     "storeCredit": "Store Credit",
@@ -477,7 +484,9 @@
     "checkOutThisArticle": "Check out this article from UpperLeap!",
     "copyLink": "Copy Link",
     "copiedToClipboard": "Copied to clipboard",
-    "backToBlogs": "Back to blogs"
+    "backToBlogs": "Back to blogs",
+    "noBlogs": "No blogs found",
+    "noBlogsDescription": "We don't have any blogs yet. Check back soon for updates!"
   },
   "claimOrders": {
     "claim": "Claim",

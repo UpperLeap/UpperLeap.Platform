@@ -31,7 +31,7 @@ const PaymentDetails = () => {
       <Button
         isDisabled={isPending || isPaymentUrlPending}
         isLoading={isPending || isPaymentUrlPending}
-        className="w-full text-foreground"
+        className="w-full text-white"
         color="secondary"
         radius="sm"
         onClick={() => getPaymentUrl(orderPayload)}

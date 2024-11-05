@@ -104,7 +104,7 @@ const AddCredentialsSheet = ({
             radius="sm"
             isDisabled={!isSaveEnabled}
             isLoading={isPending}
-            className="mt-5 w-fit self-end"
+            className="mt-5 w-fit self-end text-white"
             form="credentials-form"
             type="submit"
           >

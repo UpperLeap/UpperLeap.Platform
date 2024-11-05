@@ -106,6 +106,7 @@ const WithdrawModal = ({
               radius="sm"
               form="withdraw-form"
               type="submit"
+              className="text-white"
               isDisabled={isPending || balance < 50 || amount < 50}
               isLoading={isPending}
             >

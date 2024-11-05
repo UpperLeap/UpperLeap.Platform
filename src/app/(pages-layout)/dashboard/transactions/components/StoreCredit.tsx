@@ -1,9 +1,9 @@
-import { useTranslations } from "next-intl";
 import WithdrawModal from "./WithdrawModal";
 import { getSession } from "@/utils/auth";
+import { getTranslations } from "next-intl/server";
 
 const StoreCredit = async ({ balance }: { balance: number }) => {
-  const t = useTranslations();
+  const t = await getTranslations();
   const session = await getSession();
   const isBooster =
     session?.[

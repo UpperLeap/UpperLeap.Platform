@@ -4,6 +4,7 @@ import CompletePayment from "./order-actions/CompletePayment";
 import { getSession } from "@/utils/auth";
 import EditOrder from "./order-actions/EditOrder";
 import CompleteOrderModal from "./order-actions/CompleteOrderModal";
+import ReportOrderModal from "./order-actions/ReportOrderModal";
 // import CancelOrderModal from "./CancelOrderModal";
 
 const OrderActions = async ({ order }: { order: Order }) => {
@@ -20,6 +21,7 @@ const OrderActions = async ({ order }: { order: Order }) => {
       {isOrderOwner && (
         <EditOrder orderVpn={order?.boostingDetails?.vpnCountry} />
       )}
+      {isOrderOwner && <ReportOrderModal order={order} />}
       {/* {isOrderOwner && <CancelOrderModal order={order} />} */}
     </div>
   );

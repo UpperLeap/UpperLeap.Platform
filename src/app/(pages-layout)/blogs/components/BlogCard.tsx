@@ -34,7 +34,7 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
           className="w-8 h-8"
         />
       </div>
-      <div className="flex items-center gap-2 border-y-1 border-foreground-secondary/20 py-2 mt-5">
+      <div className="flex items-center flex-wrap gap-2 border-t-1 border-foreground-secondary/20 pt-2 mt-5">
         {blog.tags.map((tag) => (
           <span
             key={tag}

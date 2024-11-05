@@ -68,7 +68,7 @@ export default async function BlogPage({
           className="w-full aspect-[16/8] rounded-lg border-1 border-foreground-secondary/20 object-cover mt-5"
         />
       )}
-      <div className="flex items-center gap-2 border-y-1 border-foreground-secondary/20 py-2 mt-5">
+      <div className="flex items-center flex-wrap gap-2 border-b-1 border-foreground-secondary/20 pb-2 mt-5">
         {blog.tags.map((tag) => (
           <span
             key={tag}

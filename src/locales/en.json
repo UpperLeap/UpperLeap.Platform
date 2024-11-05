@@ -391,8 +391,9 @@
     "reportOrder": "Report Order",
     "reportOrderDescription": "Please describe the issue you are experiencing with this order.",
     "reportDescription": "Description",
-    "email": "Email",
-    "emailPlaceholder": "Enter the email you want us to contact you at",
+    "contactInfo": "Contact Info",
+    "contactInfoPlaceholder": "Enter the method you want us to contact you at",
+    "contactInfoDescription": "ex: email, discord username, X handle, etc.",
     "reportOrderSuccess": "Report sent successfully"
   },
   "transactions": {

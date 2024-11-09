@@ -1,7 +1,7 @@
 import RequestError from "@/components/shared/RequestError";
 import { getOrderById } from "@/services/orders";
 import { Order } from "@/types/order";
-import React from "react";
+import React, { Suspense } from "react";
 import OrderHeader from "./components/OrderHeader";
 import OrderActions from "./components/OrderActions";
 import BoostData from "./components/order-data/BoostData";
@@ -33,9 +33,7 @@ export default async function OrderPage({
     const isOrderBooster =
       session?.nameid === order?.boostingDetails?.boosterId;
     const isChatVisible =
-      (isOrderOwner || isOrderBooster) &&
-      order?.boostingDetails?.boosterId &&
-      !order.completed;
+      (isOrderOwner || isOrderBooster) && order.transaction.completed;
 
     return (
       <div className="flex flex-col gap-10">
@@ -45,13 +43,16 @@ export default async function OrderPage({
         </div>
         <div className="grid grid-cols-3 mobile:grid-cols-1 mobile:gap-x-0 gap-5">
           <div className="col-span-2 flex flex-col gap-5">
-            {isChatVisible && <ChatHub />}
+            {isChatVisible && <ChatHub orderId={orderId} />}
             <BoostData order={order} />
             <BoostOptions order={order} />
             <BoostInformation order={order} />
           </div>
           <div className="col-span-1 flex flex-col gap-5">
-            <BoosterDetails boosterData={order?.boostingDetails?.booster} isPaid={order.transaction.completed} />
+            <BoosterDetails
+              boosterData={order?.boostingDetails?.booster}
+              isPaid={order.transaction.completed}
+            />
             {(isOrderOwner || isOrderBooster) && <OrderCredentialsCard />}
           </div>
         </div>

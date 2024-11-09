@@ -1,32 +1,23 @@
-import { useTranslations } from "next-intl";
-import React from "react";
 import MessagesList from "./MessagesList";
 import ChatInputs from "./ChatInputs";
+import { getTranslations } from "next-intl/server";
+import { getChatDataById } from "@/services/chat";
+import { getSession } from "@/utils/auth";
 
-const ChatHub = () => {
-  const t = useTranslations();
+const ChatHub = async ({ orderId }: { orderId: string }) => {
+  const t = await getTranslations();
+  const chat = await getChatDataById(orderId);
+  const session = await getSession();
 
-  const messages = [
-    {
-      id: "1",
-      message: "Hello, how are you?",
-      createdAt: new Date().toISOString(),
-      senderId: "1",
-    },
-    {
-      id: "2",
-      message: "I'm fine, thank you!",
-      createdAt: new Date().toISOString(),
-      senderId: "2",
-    },
-  ];
+  if (!chat || !session?.nameid) return null;
 
   return (
     <div className="bg-background-secondary/70 border-1 border-foreground-secondary/10 rounded-lg">
       <h2 className="text-foreground font-semibold py-3 px-5 border-b-1 border-foreground-secondary/20">
         {t("orders.chatHub")}
       </h2>
-      <MessagesList messages={messages} />
+
+      <MessagesList initialChatData={chat} userId={session.nameid} />
       <ChatInputs />
     </div>
   );

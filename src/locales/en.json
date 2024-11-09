@@ -52,7 +52,8 @@
       "months": "months",
       "years": "years"
     },
-    "report": "Report"
+    "report": "Report",
+    "maximumSizeIs5mb": "Maximum size is 5mb"
   },
   "navbar": {
     "login": "Log in",

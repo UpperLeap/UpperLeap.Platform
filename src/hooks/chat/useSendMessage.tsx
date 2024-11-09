@@ -12,7 +12,7 @@ import { Message } from "@/types/chat";
 const useSendMessage = () => {
   const t = useTranslations();
   const { orderId } = useParams();
-  const { setChatData, messages } = useChatDataStore();
+  const { setChatData, messages, loadingMessagesIds } = useChatDataStore();
   const { user } = useAuthStore();
   const [message, setMessage] = useState("");
   const [file, setFile] = useState<File | null>(null);
@@ -23,6 +23,21 @@ const useSendMessage = () => {
     method: "POST",
     mutationOptions: {
       onSuccess: () => setMessage(""),
+      onError: () => {
+        setChatData({
+          messages: messages.filter(
+            (message) =>
+              message.id !==
+              `${orderId}-${user?.id}-${new Date().getTime()}-text`,
+          ),
+        });
+      },
+      onSettled: () => {
+        setChatData({
+          isPending: false,
+          loadingMessagesIds: [],
+        });
+      },
     },
   });
 
@@ -30,7 +45,25 @@ const useSendMessage = () => {
     method: "POST",
     endpoint: `/chats/${orderId}/image`,
     mutationOptions: {
-      onSuccess: () => setFile(null),
+      onSuccess: () => {
+        setFile(null);
+        setImage(null);
+      },
+      onError: () => {
+        setChatData({
+          messages: messages.filter(
+            (message) =>
+              message.id !==
+              `${orderId}-${user?.id}-${new Date().getTime()}-image`,
+          ),
+        });
+      },
+      onSettled: () => {
+        setChatData({
+          isPending: false,
+          loadingMessagesIds: [],
+        });
+      },
     },
   });
 
@@ -55,13 +88,29 @@ const useSendMessage = () => {
   const isLoading = isSendingMessage || isUploadingImage;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    if (!message.trim() && !file && !image) return;
     e.preventDefault();
+    if (!message.trim() && !file && !image) return;
+
     if (file && image) {
+      const newMessage = {
+        content: image,
+        isImage: true,
+        fromUserName: user?.userName,
+        userId: user?.id,
+        timestamp: new Date().toISOString(),
+        imageUrl: user?.imageUrl,
+        id: `${orderId}-${user?.id}-${new Date().getTime()}-image`,
+      } as Message;
+      setChatData({
+        messages: [...messages, newMessage],
+        loadingMessagesIds: [...loadingMessagesIds, newMessage.id],
+        isPending: true,
+      });
       const formData = new FormData();
       formData.append("image", file);
       uploadImage(formData);
     }
+
     if (message) {
       const newMessage = {
         content: message,
@@ -70,9 +119,13 @@ const useSendMessage = () => {
         userId: user?.id,
         timestamp: new Date().toISOString(),
         imageUrl: user?.imageUrl,
-        id: `${orderId}-${user?.id}-${new Date().getTime()}`,
+        id: `${orderId}-${user?.id}-${new Date().getTime()}-text`,
       } as Message;
-      setChatData({ messages: [...messages, newMessage] });
+      setChatData({
+        messages: [...messages, newMessage],
+        loadingMessagesIds: [...loadingMessagesIds, newMessage.id],
+        isPending: true,
+      });
       sendMessage({
         content: message,
         room: orderId,

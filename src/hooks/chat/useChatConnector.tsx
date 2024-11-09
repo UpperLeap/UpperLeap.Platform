@@ -37,8 +37,8 @@ const useChatConnector = (orderId: string) => {
   useEffect(() => {
     if (!connection || connection.state === "Disconnected") return;
     connection.invoke("Join", orderId);
-    connection.invoke("Leave", orderId);
-  }, [connection, orderId]);
+    // connection.invoke("Leave", orderId);
+  }, [connection, orderId, connection?.state]);
 
   useEffect(() => {
     if (!connection) return;
@@ -46,7 +46,7 @@ const useChatConnector = (orderId: string) => {
       .start()
       .then(() => {
         connection.on("onMessage", (message: Message) => {
-          console.log(message);
+          console.log("crusher", message);
           setChatData({
             messages: [...messages, message],
           });
@@ -64,6 +64,10 @@ const useChatConnector = (orderId: string) => {
       })
       .catch((error) => console.log(error));
   }, [connection]);
+
+  useEffect(() => {
+    console.log(messages);
+  }, [messages]);
 };
 
 export default useChatConnector;

@@ -16,8 +16,8 @@ const Orders = ({ initialOrders }: { initialOrders: OrdersResponse }) => {
   const searchParams = useSearchParams();
 
   const { data, isLoading, isError, isSuccess } = useGet<OrdersResponse>({
-    endpoint: `/orders?${searchParams.toString()}`,
-    queryKey: ["orders", searchParams.toString()],
+    endpoint: `/boosting/orders?${searchParams.toString()}`,
+    queryKey: ["boosting-orders", searchParams.toString()],
     queryOptions: {
       staleTime: 0,
       initialData: initialOrders,

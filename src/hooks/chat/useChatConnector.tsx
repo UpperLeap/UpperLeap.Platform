@@ -1,9 +1,7 @@
-import { BASE_URL } from "@/constants/api";
 import { useSession } from "@/hooks/auth/useSession";
 import { HubConnectionBuilder } from "@microsoft/signalr";
 import * as signalR from "@microsoft/signalr";
 import { useQueryClient } from "@tanstack/react-query";
-import { Message } from "@/types/chat";
 import { useEffect, useState } from "react";
 import useChatDataStore from "@/stores/chat";
 
@@ -45,10 +43,11 @@ const useChatConnector = (orderId: string) => {
     connection
       .start()
       .then(() => {
-        connection.on("onMessage", (message: Message) => {
-          console.log("crusher", message);
+        connection.on("onMessage", (message: string) => {
+          const messageObj = JSON.parse(message);
+          const newMessages = [...messages, messageObj];
           setChatData({
-            messages: [...messages, message],
+            messages: newMessages,
           });
         });
         connection.on("onJoin", () => {
@@ -64,10 +63,6 @@ const useChatConnector = (orderId: string) => {
       })
       .catch((error) => console.log(error));
   }, [connection]);
-
-  useEffect(() => {
-    console.log(messages);
-  }, [messages]);
 };
 
 export default useChatConnector;

@@ -21,12 +21,19 @@ const MessagesList = ({
 
   useEffect(() => {
     if (messagesRef.current) {
-      messagesRef.current.scrollTop += 10000; 
+      messagesRef.current.scrollTop += 10000;
     }
   }, [messages]);
 
+  // useEffect(() => {
+  //   console.log(messages);
+  // }, [messages]);
+
   return (
-    <div ref={messagesRef} className="flex flex-col w-full p-5 gap-2 max-h-[400px] overflow-y-auto">
+    <div
+      ref={messagesRef}
+      className="flex flex-col w-full p-5 gap-2 max-h-[400px] overflow-y-auto"
+    >
       {messages.map((message) => (
         <Message
           key={message.id}

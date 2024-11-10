@@ -43,7 +43,7 @@ export default async function OrderPage({
         </div>
         <div className="grid grid-cols-3 mobile:grid-cols-1 mobile:gap-x-0 gap-5">
           <div className="col-span-2 flex flex-col gap-5">
-            {isChatVisible && <ChatHub orderId={orderId} />}
+            {isChatVisible && <ChatHub orderId={orderId} isOrderCompleted={order.completed} />}
             <BoostData order={order} />
             <BoostOptions order={order} />
             <BoostInformation order={order} />

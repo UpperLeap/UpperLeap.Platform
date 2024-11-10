@@ -15,10 +15,10 @@ const OrderActions = async ({ order }: { order: Order }) => {
   return (
     <div className="flex items-center gap-2">
       {isOrderBooster && <CompleteOrderModal order={order} />}
-      {!order?.transaction?.completed && isOrderOwner && (
+      {!order?.transaction?.completed && isOrderOwner && !order.completed && (
         <CompletePayment paymentUrl={order?.paymentUrl} />
       )}
-      {isOrderOwner && (
+      {isOrderOwner && !order.completed && (
         <EditOrder orderVpn={order?.boostingDetails?.vpnCountry} />
       )}
       {isOrderOwner && <ReportOrderModal order={order} />}

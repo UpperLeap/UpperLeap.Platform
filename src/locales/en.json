@@ -53,7 +53,8 @@
       "years": "years"
     },
     "report": "Report",
-    "maximumSizeIs5mb": "Maximum size is 5mb"
+    "maximumSizeIs5mb": "Maximum size is 5mb",
+    "complete": "Complete"
   },
   "navbar": {
     "login": "Log in",
@@ -387,7 +388,7 @@
     "credentialsUpdatedSuccessfully": "Credentials updated successfully",
     "twoFactorAuthWarning": "Two Factor Authentication is not supported at the moment, please disable it before adding your credentials.",
     "winsAmount": "Wins Amount",
-    "chatHub": "Chat Hub",
+    "chatHub": "Chat",
     "typeMessage": "Type a message",
     "reportOrder": "Report Order",
     "reportOrderDescription": "Please describe the issue you are experiencing with this order.",
@@ -395,7 +396,11 @@
     "contactInfo": "Contact Info",
     "contactInfoPlaceholder": "Enter the method you want us to contact you at",
     "contactInfoDescription": "ex: email, discord username, X handle, etc.",
-    "reportOrderSuccess": "Report sent successfully"
+    "reportOrderSuccess": "Report sent successfully",
+    "activeState": "Active now",
+    "boosterDeclaredCompleted": "Booster has declared this order as completed. If you have any problems, please ",
+    "contactSupport": "contact support",
+    "orReportOrder": "or report this order."
   },
   "transactions": {
     "storeCredit": "Store Credit",

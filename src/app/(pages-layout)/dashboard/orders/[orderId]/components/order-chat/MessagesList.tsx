@@ -21,13 +21,9 @@ const MessagesList = ({
 
   useEffect(() => {
     if (messagesRef.current) {
-      messagesRef.current.scrollTop += 10000;
+      messagesRef.current.scrollTop += 100000;
     }
   }, [messages]);
-
-  // useEffect(() => {
-  //   console.log(messages);
-  // }, [messages]);
 
   return (
     <div

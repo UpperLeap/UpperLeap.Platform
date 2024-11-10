@@ -54,6 +54,7 @@ const useSendMessage = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isLoading) return;
     if (!message.trim() && !file && !image) return;
 
     if (file && image) {

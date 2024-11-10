@@ -10,7 +10,7 @@ const useChatConnector = (orderId: string) => {
     null,
   );
   const queryClient = useQueryClient();
-  const { setChatData, messages } = useChatDataStore();
+  const { setChatData, addMessage } = useChatDataStore();
   const { accessToken } = useSession();
 
   useEffect(() => {
@@ -45,10 +45,7 @@ const useChatConnector = (orderId: string) => {
       .then(() => {
         connection.on("onMessage", (message: string) => {
           const messageObj = JSON.parse(message);
-          const newMessages = [...messages, messageObj];
-          setChatData({
-            messages: newMessages,
-          });
+          addMessage(messageObj);
         });
         connection.on("onJoin", () => {
           setChatData({

@@ -1,11 +1,9 @@
 "use client";
 
-import useChatDataStore from "@/stores/chat";
 import { Message as TMessage } from "@/types/chat";
 import { cn, getHourAndMinutes } from "@/utils/utils";
 import { Tooltip } from "@nextui-org/tooltip";
 import Image from "next/image";
-import { FaRegClock } from "react-icons/fa6";
 import { FaCheck } from "react-icons/fa6";
 
 const Message = ({
@@ -15,8 +13,6 @@ const Message = ({
   message: TMessage;
   isSender: boolean;
 }) => {
-  const { isPending, loadingMessagesIds } = useChatDataStore();
-
   return (
     <div className={cn("flex gap-1", isSender && "flex-row-reverse")}>
       {message.imageUrl && (
@@ -32,7 +28,7 @@ const Message = ({
       )}
       <div
         className={cn(
-          "flex flex-col gap-1 text-foreground bg-default rounded-lg px-2 py-1 w-fit",
+          "flex flex-col gap-1 text-foreground bg-default rounded-lg px-2 py-1 w-fit max-w-[85%] overflow-hidden",
           isSender && "self-end bg-primary/70 text-white",
         )}
       >
@@ -55,11 +51,7 @@ const Message = ({
           </p>
           {isSender && (
             <span>
-              {isPending && loadingMessagesIds.includes(message.id) ? (
-                <FaRegClock />
-              ) : (
-                <FaCheck />
-              )}
+              <FaCheck />
             </span>
           )}
         </div>

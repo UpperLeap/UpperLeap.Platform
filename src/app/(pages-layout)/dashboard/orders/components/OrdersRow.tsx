@@ -7,7 +7,13 @@ import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
 import OrderStatusChip from "./OrderStatusChip";
 
-const OrdersRow = ({ order }: { order: Order }) => {
+const OrdersRow = ({
+  order,
+  isBooster,
+}: {
+  order: Order;
+  isBooster: boolean;
+}) => {
   const t = useTranslations();
 
   return (
@@ -47,8 +53,33 @@ const OrdersRow = ({ order }: { order: Order }) => {
         )}
         {/* {`${timeCounter(order.updatedDate).amount} ${t(`common.timeUnits.${timeCounter(order.updatedDate).duration}`)} ${t("common.ago")}`} */}
       </td>
-      <td className="ellipsis w-[100px] flex-grow px-4 text-center flex items-center justify-center">
-        {order.transaction.completed ? (
+      {!isBooster && (
+        <td className="ellipsis w-[100px] flex-grow px-4 text-center flex items-center justify-center">
+          {order.transaction.completed ? (
+            <Link
+              className="flex items-center gap-2 bg-default-200 dark:bg-default-100 px-2 py-1.5 rounded-md text-sm hover:opacity-80 active:scale-90 select-none duration-300"
+              href={`/dashboard/orders/${order.id}`}
+            >
+              <span>{t("dashboard.view")}</span>
+              <span>
+                <FaArrowRightLong />
+              </span>
+            </Link>
+          ) : (
+            <a
+              className="flex items-center gap-2 text-green-700 dark:text-green-400 bg-green-400/20 px-2 py-1.5 rounded-md text-sm hover:opacity-80 active:scale-90 select-none duration-300"
+              href={order.paymentUrl}
+            >
+              <span>{t("dashboard.payNow")}</span>
+              <span>
+                <FaArrowRightLong />
+              </span>
+            </a>
+          )}
+        </td>
+      )}
+      {isBooster && (
+        <td className="ellipsis w-[100px] flex-grow px-4 text-center flex items-center justify-center">
           <Link
             className="flex items-center gap-2 bg-default-200 dark:bg-default-100 px-2 py-1.5 rounded-md text-sm hover:opacity-80 active:scale-90 select-none duration-300"
             href={`/dashboard/orders/${order.id}`}
@@ -58,18 +89,8 @@ const OrdersRow = ({ order }: { order: Order }) => {
               <FaArrowRightLong />
             </span>
           </Link>
-        ) : (
-          <a
-            className="flex items-center gap-2 text-green-700 dark:text-green-400 bg-green-400/20 px-2 py-1.5 rounded-md text-sm hover:opacity-80 active:scale-90 select-none duration-300"
-            href={order.paymentUrl}
-          >
-            <span>{t("dashboard.payNow")}</span>
-            <span>
-              <FaArrowRightLong />
-            </span>
-          </a>
-        )}
-      </td>
+        </td>
+      )}
     </tr>
   );
 };

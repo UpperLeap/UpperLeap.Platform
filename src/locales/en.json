@@ -246,7 +246,8 @@
     "comingSoonDescription": "Our team is working hard to bring you the best services. We'll be launching soon, and when we do, we'll shake up the industry with unbeatable prices, expert boosters, and the best customer service.",
     "getNotifiedDescription": "To get a notification when our services are live, sign up with your email.",
     "getNotified": "Get Notified",
-    "emailUsage": "We'll only use your email to notify you about our services release."
+    "emailUsage": "We'll only use your email to notify you about our services release.",
+    "onlyClients": "Only clients can buy boosts"
   },
   "valorant": {
     "winBoostTitle": "Win Boost",

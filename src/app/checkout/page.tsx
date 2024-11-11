@@ -1,6 +1,6 @@
 import PaymentMethod from "./components/PaymentMethod";
 import PaymentDetails from "./components/PaymentDetails";
-import { getIsLoggedIn } from "@/utils/auth";
+import { getIsLoggedIn, getSession } from "@/utils/auth";
 import { redirect } from "next/navigation";
 import { Metadata } from "next";
 
@@ -10,9 +10,13 @@ export const metadata: Metadata = {
 };
 
 export default async function CheckoutPage() {
-  const isLoggedIn = await getIsLoggedIn();
+  const session = await getSession();
+  const isBooster =
+    session?.[
+      "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+    ]?.includes("Booster");
 
-  if (!isLoggedIn) {
+  if (!session || isBooster) {
     redirect("/");
   }
 

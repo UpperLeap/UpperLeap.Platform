@@ -1,9 +1,15 @@
 import { Order } from "@/types/order";
 import { useTranslations } from "next-intl";
 import OrdersRow from "./OrdersRow";
+import { useSession } from "@/hooks/auth/useSession";
 
 const OrdersTable = ({ orders }: { orders: Order[] }) => {
   const t = useTranslations();
+  const session = useSession();
+  const isBooster =
+    session?.[
+      "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+    ]?.includes("Booster");
 
   return (
     <table className="border-1 border-foreground-secondary/20 block w-full max-w-full overflow-auto rounded-md">
@@ -30,7 +36,9 @@ const OrdersTable = ({ orders }: { orders: Order[] }) => {
         </tr>
       </thead>
       <tbody className="block w-full bg-background-secondary/30">
-        {orders?.map((order) => <OrdersRow key={order.id} order={order} />)}
+        {orders?.map((order) => (
+          <OrdersRow key={order.id} order={order} isBooster={!!isBooster} />
+        ))}
       </tbody>
     </table>
   );

@@ -1,6 +1,6 @@
 import PaymentMethod from "./components/PaymentMethod";
 import PaymentDetails from "./components/PaymentDetails";
-import { getIsLoggedIn, getSession } from "@/utils/auth";
+import { getSession } from "@/utils/auth";
 import { redirect } from "next/navigation";
 import { Metadata } from "next";
 

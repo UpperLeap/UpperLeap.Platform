@@ -4,7 +4,12 @@ import Orders from "./components/Orders";
 import { OrdersResponse } from "@/types/order";
 import { getOrders } from "@/services/orders";
 import RequestError from "@/components/shared/RequestError";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Orders",
+  description: "Order page",
+};
 export default async function OrdersPage() {
   let orders: OrdersResponse | undefined;
 

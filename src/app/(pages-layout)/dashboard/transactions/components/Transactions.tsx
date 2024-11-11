@@ -5,9 +5,9 @@ import { useGet } from "@/hooks/api/useGet";
 import { Wallet } from "@/types/wallet";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
-import TransactionsTable from "./components/TransactionsTable";
-import PageLimit from "../orders/components/filters/PageLimit";
-import TablePagination from "../orders/components/filters/TablePagination";
+import TransactionsTable from "./TransactionsTable";
+import PageLimit from "../../orders/components/filters/PageLimit";
+import TablePagination from "../../orders/components/filters/TablePagination";
 import { IoSwapVertical } from "react-icons/io5";
 
 const Transactions = ({ walletData }: { walletData: Wallet }) => {
@@ -35,7 +35,9 @@ const Transactions = ({ walletData }: { walletData: Wallet }) => {
         placeholderDescription={t("transactions.noTransactionsDescription")}
       >
         {data && (
-          <TransactionsTable transactions={data?.paginatedTransactions?.items} />
+          <TransactionsTable
+            transactions={data?.paginatedTransactions?.items}
+          />
         )}
       </AsyncDataWrapper>
       <div className="flex items-center justify-between">

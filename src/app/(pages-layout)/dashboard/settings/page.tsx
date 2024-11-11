@@ -5,6 +5,12 @@ import StoreCredit from "../transactions/components/StoreCredit";
 import UserInformation from "./components/UserInformation";
 import DeleteAccount from "./components/DeleteAccount";
 import RequestError from "@/components/shared/RequestError";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Settings",
+  description: "Settings page",
+};
 
 export default async function SettingsPage() {
   let user: User | undefined;

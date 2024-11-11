@@ -4,7 +4,13 @@ import { Wallet } from "@/types/wallet";
 import { getWalletData } from "@/services/wallet";
 import RequestError from "@/components/shared/RequestError";
 import TransactionsTableHeader from "./components/TransactionsTableHeader";
-import Transactions from "./Transactions";
+import Transactions from "./components/Transactions";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Transactions",
+  description: "Transactions page",
+};
 
 export default async function TransactionsPage() {
   let walletData: Wallet | undefined;

@@ -11,6 +11,29 @@ import BoosterDetails from "./components/order-data/BoosterDetails";
 import OrderCredentialsCard from "./components/order-data/OrderCredentialsCard";
 import { getSession } from "@/utils/auth";
 import ChatHub from "./components/order-chat/ChatHub";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params: { orderId },
+}: {
+  params: { orderId: string };
+}): Promise<Metadata> {
+  let order: Order | undefined;
+
+  try {
+    order = await getOrderById(orderId);
+  } catch (error) {
+    return {
+      title: "Order",
+      description: "Order page",
+    };
+  }
+
+  return {
+    title: order?.name,
+    description: `${order?.name} order`,
+  };
+}
 
 export default async function OrderPage({
   params: { orderId },
@@ -43,7 +66,9 @@ export default async function OrderPage({
         </div>
         <div className="grid grid-cols-3 mobile:grid-cols-1 mobile:gap-x-0 gap-5">
           <div className="col-span-2 flex flex-col gap-5">
-            {isChatVisible && <ChatHub orderId={orderId} isOrderCompleted={order.completed} />}
+            {isChatVisible && (
+              <ChatHub orderId={orderId} isOrderCompleted={order.completed} />
+            )}
             <BoostData order={order} />
             <BoostOptions order={order} />
             <BoostInformation order={order} />

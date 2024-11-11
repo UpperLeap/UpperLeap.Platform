@@ -5,6 +5,12 @@ import { getBoostingOrders } from "@/services/orders";
 import RequestError from "@/components/shared/RequestError";
 import { OrdersResponse } from "@/types/order";
 import Orders from "./components/Orders";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Claim orders",
+  description: "Claim orders page",
+};
 
 export default async function ClaimOrdersPage() {
   const session = await getSession();

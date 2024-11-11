@@ -5,6 +5,18 @@ import { User } from "@/types/user";
 import { getTranslations } from "next-intl/server";
 import BoosterData from "./components/BoosterData";
 import TipBooster from "./components/TipBooster";
+import { Metadata } from "next";
+
+export function generateMetadata({
+  params: { boosterUsername },
+}: {
+  params: { boosterUsername: string };
+}): Metadata {
+  return {
+    title: boosterUsername,
+    description: `${boosterUsername} booster page`,
+  };
+}
 
 export default async function BoosterPage({
   params: { boosterUsername },

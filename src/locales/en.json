@@ -450,7 +450,10 @@
     "selectLanguagesPlaceholder": "Select languages you are fluent in",
     "profileUpdatedSuccessfully": "Profile updated successfully",
     "usernameIsUnchangeable": "You will be able to change your username again in ",
-    "userNameIsChangeableEvery": "username is only changeable once every 30 days"
+    "userNameIsChangeableEvery": "username is only changeable once every 30 days",
+    "notifications": "Notifications",
+    "notificationsDescription": "Enable notifications to get notified instantly when any change happens to your order.",
+    "enableNotifications": "Enable Notifications"
   },
   "cms": {
     "aboutUs": "About Us",

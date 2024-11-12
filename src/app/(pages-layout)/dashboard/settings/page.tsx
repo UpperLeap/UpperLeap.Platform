@@ -6,6 +6,14 @@ import UserInformation from "./components/UserInformation";
 import DeleteAccount from "./components/DeleteAccount";
 import RequestError from "@/components/shared/RequestError";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
+const NotificationsBanner = dynamic(
+  () => import("./components/NotificationsBanner"),
+  {
+    ssr: false,
+    // loading: () => <Skeleton className="w-10 h-10 rounded-full" />,
+  },
+);
 
 export const metadata: Metadata = {
   title: "Settings",
@@ -25,6 +33,7 @@ export default async function SettingsPage() {
     return (
       <>
         <DashboardHeader page="settings" />
+        <NotificationsBanner />
         <div className="grid grid-cols-3 mobile:grid-cols-1 mobile:gap-x-0 gap-5">
           <div className="col-span-2 flex flex-col gap-5">
             <UserInformation user={user} />

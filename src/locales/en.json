@@ -401,7 +401,9 @@
     "activeState": "Active now",
     "boosterDeclaredCompleted": "Booster has declared this order as completed. If you have any problems, please ",
     "contactSupport": "contact support",
-    "orReportOrder": "or report this order."
+    "orReportOrder": "or report this order.",
+    "newOrder": "New Order",
+    "newOrderDescription": "New order has been created check it out."
   },
   "transactions": {
     "storeCredit": "Store Credit",

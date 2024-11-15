@@ -59,7 +59,7 @@ export default function AuthModal({
         aria-label="login"
         color="secondary"
         size="md"
-        className="text-white"
+        className="text-white mobile:w-full"
         onPress={onOpen}
       >
         {!isGetStarted ? (

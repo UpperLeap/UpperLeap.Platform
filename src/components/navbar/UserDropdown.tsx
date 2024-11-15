@@ -19,6 +19,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { User } from "@/types/user";
 import { useAuthStore } from "@/stores/auth";
 import { useEffect } from "react";
+import { useNavbarStore } from "@/stores/navbar";
 
 const UserDropdown = ({
   isMobileView = false,
@@ -31,6 +32,7 @@ const UserDropdown = ({
   const { clearData: logout } = useLogout();
   const { theme, setTheme } = useTheme();
   const { setAuth } = useAuthStore();
+  const { closeNavbar } = useNavbarStore();
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
@@ -104,6 +106,7 @@ const UserDropdown = ({
             </div>
           </DropdownItem>
           <DropdownItem
+            onClick={closeNavbar}
             href="/dashboard/orders"
             key="dashboard"
             startContent={<TbLayoutDashboard className="text-lg" />}
@@ -111,6 +114,7 @@ const UserDropdown = ({
             {t("navbar.dashboard")}
           </DropdownItem>
           <DropdownItem
+            onClick={closeNavbar}
             href="/dashboard/settings"
             key="settings"
             startContent={<IoSettingsOutline className="text-lg" />}
@@ -121,6 +125,7 @@ const UserDropdown = ({
 
         <DropdownSection aria-label="Preferences" showDivider>
           <DropdownItem
+            onClick={closeNavbar}
             key="help_and_feedback"
             href="/contact-us"
             startContent={<IoChatbubblesOutline className="text-lg" />}

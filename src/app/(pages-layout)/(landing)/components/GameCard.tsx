@@ -42,7 +42,7 @@ const GameCard = ({ game }: { game: BasicGame }) => {
             alt={`${game.name} logo`}
             width={190}
             height={250}
-            style={{ width: "auto", height: "auto" }}
+            style={{ height: "auto" }}
           />
         </div>
         <p className="text-left text-foreground font-bold">{game.name}</p>

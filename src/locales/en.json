@@ -54,7 +54,10 @@
     },
     "report": "Report",
     "maximumSizeIs5mb": "Maximum size is 5mb",
-    "complete": "Complete"
+    "complete": "Complete",
+    "dark": "Dark",
+    "light": "Light",
+    "themeSwitcher": "Theme Switcher"
   },
   "navbar": {
     "login": "Log in",

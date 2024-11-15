@@ -8,7 +8,8 @@ const Logo = ({ className }: { className?: string }) => {
     <Image
       src={logo}
       alt="logo"
-      loading="lazy"
+      // loading="lazy"
+      priority={true}
       className={cn("max-w-[160px] mobile:max-w-[140px] w-full", className)}
     />
   );

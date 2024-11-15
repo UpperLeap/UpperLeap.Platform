@@ -5,8 +5,15 @@ import { useTheme } from "next-themes";
 import React from "react";
 import { MdSunny } from "react-icons/md";
 import { FaMoon } from "react-icons/fa";
+import { useTranslations } from "next-intl";
+import { cn } from "@/utils/utils";
 
-const ThemeSwitcher = () => {
+const ThemeSwitcher = ({
+  isMobileView = false,
+}: {
+  isMobileView?: boolean;
+}) => {
+  const t = useTranslations();
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {
@@ -16,13 +23,19 @@ const ThemeSwitcher = () => {
   return (
     <Button
       variant="light"
-      radius="full"
       isIconOnly
       aria-label="theme-switcher"
-      className="mobile:w-full"
+      radius={!isMobileView ? "full" : "sm"}
+      className={cn(
+        "mobile:w-full flex items-center justify-start !gap-2",
+        isMobileView && "p-2",
+      )}
       onPress={toggleTheme}
     >
-      {theme === "dark" ? <MdSunny className="text-xl" /> : <FaMoon />}
+      <span>
+        {theme === "dark" ? <MdSunny className="text-xl" /> : <FaMoon />}
+      </span>
+      <span>{isMobileView && t("navbar.themeToggle")}</span>
     </Button>
   );
 };

@@ -36,7 +36,7 @@ const Navbar = async () => {
           {isLoggedIn ? <User /> : <AuthModal />}
         </div>
         <div className="hidden mobile:block">
-          <MobileNavbar />
+          <MobileNavbar isLoggedIn={isLoggedIn ?? false} />
         </div>
       </div>
     </header>

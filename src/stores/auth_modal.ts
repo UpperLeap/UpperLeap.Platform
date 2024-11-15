@@ -9,6 +9,7 @@ type loginPayload = {
 type StoreState = {
   closeModal: (() => void) | null;
   openModal: (() => void) | null;
+  isModalOpen: boolean;
   currentTab: "login" | "register" | "otp";
   payload: loginPayload;
   errorStatus: number | null;
@@ -18,6 +19,7 @@ type StoreState = {
 const useModalStore = create<StoreState>((set) => ({
   closeModal: null,
   openModal: null,
+  isModalOpen: false,
   payload: {
     email: "",
     username: "",

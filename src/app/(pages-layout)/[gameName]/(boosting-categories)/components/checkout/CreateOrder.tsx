@@ -3,14 +3,14 @@ import useModalStore from "@/stores/auth_modal";
 import { Button } from "@nextui-org/button";
 import { Tooltip } from "@nextui-org/tooltip";
 import { useTranslations } from "next-intl";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const CreateOrder = ({ isPending }: { isPending: boolean }) => {
   const t = useTranslations();
   const router = useRouter();
-  const { openModal } = useModalStore();
+  const { setModalData } = useModalStore();
   const session = useSession();
   const isBooster =
     session?.[
@@ -27,7 +27,8 @@ const CreateOrder = ({ isPending }: { isPending: boolean }) => {
         size="lg"
         onClick={() => {
           if (!session?.isLoggedIn) {
-            openModal?.();
+            // openModal?.();
+            setModalData({ isModalOpen: true });
           } else {
             router.push(`/checkout`);
           }

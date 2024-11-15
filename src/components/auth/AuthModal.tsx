@@ -29,11 +29,16 @@ export default function AuthModal({
 }) {
   const t = useTranslations();
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
-  const { setModalData, currentTab } = useModalStore();
+  const { setModalData, currentTab, isModalOpen } = useModalStore();
 
   useEffect(() => {
     setModalData({ openModal: onOpen, closeModal: onClose });
-  }, []);
+    if (isModalOpen) {
+      onOpen();
+    } else {
+      onClose();
+    }
+  }, [isModalOpen]);
 
   useEffect(() => {
     if (isOpen) return;
@@ -88,7 +93,10 @@ export default function AuthModal({
         placement="center"
         size={currentTab === "otp" ? "md" : "lg"}
         isOpen={isOpen}
-        onOpenChange={onOpenChange}
+        onOpenChange={(value) => {
+          onOpenChange();
+          setModalData({ isModalOpen: value });
+        }}
         className="bg-background border border-border card-shadow"
         classNames={{
           backdrop:

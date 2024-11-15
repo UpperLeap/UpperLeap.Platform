@@ -10,7 +10,6 @@ import {
 import { useTranslations } from "next-intl";
 import { IoChatbubblesOutline, IoExitOutline } from "react-icons/io5";
 import { useLogout } from "@/hooks/auth/useLogout";
-import { useRouter } from "next/navigation";
 import UserAvatar from "../ui/UserAvatar";
 import { useTheme } from "next-themes";
 import { MdSunny } from "react-icons/md";
@@ -29,7 +28,6 @@ const UserDropdown = ({
   userData: User | undefined;
 }) => {
   const t = useTranslations();
-  const router = useRouter();
   const { clearData: logout } = useLogout();
   const { theme, setTheme } = useTheme();
   const { setAuth } = useAuthStore();
@@ -148,7 +146,6 @@ const UserDropdown = ({
             startContent={<IoExitOutline className="text-lg" />}
             onPress={() => {
               logout();
-              router.refresh();
             }}
           >
             {t("navbar.logout")}

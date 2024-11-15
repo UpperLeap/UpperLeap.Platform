@@ -38,7 +38,9 @@ const useNotificationsConnector = () => {
   useEffect(() => {
     if (!connection || connection.state === "Disconnected") return;
     connection.invoke("Join", "Boosters");
+
     return () => {
+      if (!connection || connection.state === "Disconnected") return;
       connection.invoke("Leave", "Boosters");
     };
   }, [connection, connection?.state]);

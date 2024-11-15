@@ -1,11 +1,13 @@
 "use client";
 
+import { useAuthStore } from "@/stores/auth";
 import { GetSessionData } from "@/utils/auth";
 import { useState, useEffect } from "react";
 
 export function useSession() {
   const [session, setSession] = useState<GetSessionData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const { isLoggedIn } = useAuthStore();
 
   useEffect(() => {
     async function fetchSessionStatus() {
@@ -21,7 +23,7 @@ export function useSession() {
     }
 
     fetchSessionStatus();
-  }, []);
+  }, [isLoggedIn]);
 
   return { ...session, isLoading };
 }

@@ -46,9 +46,9 @@ export default async function BoosterPage({
         <div className="col-span-2">
           <BoosterData booster={booster} />
         </div>
-        <div className="col-span-1 ">
+        {/* <div className="col-span-1 ">
           <TipBooster booster={booster} />
-        </div>
+        </div> */}
       </div>
     </>
   );

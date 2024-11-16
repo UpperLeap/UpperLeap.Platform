@@ -10,7 +10,9 @@ import logo from "../../../public/logoipsum.svg";
 
 const useNotificationsConnector = () => {
   const t = useTranslations();
-  const isNotificationAllowed = Notification?.permission === "granted";
+  const isNotificationAllowed =
+    typeof Notification !== "undefined" &&
+    Notification?.permission === "granted";
   const [connection, setConnection] = useState<signalR.HubConnection | null>(
     null,
   );

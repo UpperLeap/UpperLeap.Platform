@@ -4,12 +4,14 @@ import { useTranslations } from "next-intl";
 
 const NotificationsBanner = () => {
   const t = useTranslations();
-  const isNotificationAllowed = Notification?.permission === "granted";
+  const isNotificationAllowed =
+    typeof Notification !== "undefined" &&
+    Notification?.permission === "granted";
 
-  if (isNotificationAllowed) return null;
+  if (isNotificationAllowed || typeof Notification === "undefined") return null;
 
   return (
-    <div className="flex items-center justify-between gap-1 p-5 bg-background-secondary/50 border-1 border-foreground-secondary/10 rounded-lg">
+    <div className="flex items-center justify-between flex-wrap gap-3 p-5 bg-background-secondary/50 border-1 border-foreground-secondary/10 rounded-lg">
       <p className="text-foreground font-semibold">
         {t("settings.notificationsDescription")}
       </p>

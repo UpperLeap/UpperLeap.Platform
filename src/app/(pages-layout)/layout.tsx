@@ -9,9 +9,11 @@ export default function PagesLayout({
 }) {
   return (
     <>
-      <Navbar />
       <Cover />
-      {children}
+      <main className="z-[1] relative">
+        <Navbar />
+        {children}
+      </main>
       <div className="h-[3px] w-full bg-gradient-to-r from-20% to-80% from-gray-400/90 dark:from-gray-800/90 dark:via-secondary/80 via-secondary/90 to-gray-400/90 dark:to-gray-800/90 " />
       <Footer />
     </>

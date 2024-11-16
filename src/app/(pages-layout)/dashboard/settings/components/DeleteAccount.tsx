@@ -15,8 +15,8 @@ const DeleteAccount = ({ user }: { user: User }) => {
   const [isInputVisible, setIsInputVisible] = useState(false);
 
   return (
-    <div className="p-5  border-1 border-red-500/20 rounded-lg bg-background-secondary/70">
-      <div className="flex items-center justify-between">
+    <div className="p-5  border-1 border-red-500/20 rounded-lg bg-background-secondary/70 ">
+      <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h3 className="text-lg font-medium text-foreground">
             {t("settings.deleteAccount")}

@@ -8,6 +8,7 @@ import { Dispatch, SetStateAction } from "react";
 import { User } from "@/types/user";
 import { formatDate } from "@/utils/utils";
 import { languagesPrefixes } from "@/i18n/config";
+import { useSession } from "@/hooks/auth/useSession";
 
 const UserModificationForm = ({
   user,
@@ -21,6 +22,11 @@ const UserModificationForm = ({
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }) => {
   const t = useTranslations();
+  const session = useSession();
+  const isBooster =
+    session?.[
+      "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+    ]?.includes("Booster");
   const nextChangeDate = new Date(user.lastUserNameChangeDate);
   nextChangeDate.setDate(nextChangeDate.getDate() + 30);
   const isUsernameDisabled = user.lastUserNameChangeDate
@@ -83,21 +89,23 @@ const UserModificationForm = ({
           )}
         </p>
       </div>
-      <div className="w-full">
-        <label htmlFor="bio" className="text-foreground text-sm mb-1 block">
-          {t("settings.bio")}
-        </label>
-        <textarea
-          name="bio"
-          id="bio"
-          className="bg-transparent resize-none w-full h-[90px] border-1 border-foreground-secondary/20 rounded-md p-2 focus:border-white outline-none placeholder:text-sm text-sm"
-          placeholder={t("settings.bioPlaceholder")}
-          value={userData.biography}
-          onChange={(e) =>
-            setUserData({ ...userData, biography: e.target.value })
-          }
-        />
-      </div>
+      {isBooster && (
+        <div className="w-full">
+          <label htmlFor="bio" className="text-foreground text-sm mb-1 block">
+            {t("settings.bio")}
+          </label>
+          <textarea
+            name="bio"
+            id="bio"
+            className="bg-transparent resize-none w-full h-[90px] border-1 border-foreground-secondary/20 rounded-md p-2 focus:border-white outline-none placeholder:text-sm text-sm"
+            placeholder={t("settings.bioPlaceholder")}
+            value={userData.biography}
+            onChange={(e) =>
+              setUserData({ ...userData, biography: e.target.value })
+            }
+          />
+        </div>
+      )}
       <LanguagesSelect userData={userData} setUserData={setUserData} />
     </form>
   );

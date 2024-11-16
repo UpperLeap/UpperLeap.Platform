@@ -20,7 +20,7 @@ const UserImage = ({ user }: { user: User }) => {
         <UserAvatar
           src={newImage || user?.imageUrl}
           username={user?.userName}
-          className="w-28 h-28 rounded-full font-bold text-2xl"
+          className="w-28 h-28 rounded-full font-bold text-2xl mobile:w-24 mobile:h-24"
           width={100}
           height={100}
         />

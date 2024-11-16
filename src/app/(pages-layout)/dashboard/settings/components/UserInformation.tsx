@@ -36,7 +36,12 @@ const UserInformation = ({ user }: { user: User }) => {
             className="p-5 w-full max-w-[300px] flex-wrap border-b-1 border-foreground-secondary/10"
           >
             <p className="text-foreground font-medium">{data?.title}</p>
-            <p className="mt-2 text-sm">{data?.value}</p>
+            <p
+              className="mt-2 text-sm max-w-full text-ellipsis overflow-hidden"
+              title={data?.value}
+            >
+              {data?.value}
+            </p>
           </div>
         ))}
         <div className="p-5 w-full max-w-[300px] flex-wrap border-b-1 border-foreground-secondary/10">

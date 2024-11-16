@@ -1,7 +1,6 @@
 import { getUser } from "@/services/user";
 import { User } from "@/types/user";
 import DashboardHeader from "../components/DashboardHeader";
-import StoreCredit from "../transactions/components/StoreCredit";
 import UserInformation from "./components/UserInformation";
 import DeleteAccount from "./components/DeleteAccount";
 import RequestError from "@/components/shared/RequestError";
@@ -9,6 +8,7 @@ import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import BoosterLevel from "./components/BoosterLevel";
 import { getSession } from "@/utils/auth";
+import StoreCredit from "../wallet/components/StoreCredit";
 const NotificationsBanner = dynamic(
   () => import("./components/NotificationsBanner"),
   {

@@ -9,6 +9,7 @@ import { BsCart4 } from "react-icons/bs";
 import { IoSettings, IoSwapVertical } from "react-icons/io5";
 import { GiCardPickup } from "react-icons/gi";
 import { useSession } from "@/hooks/auth/useSession";
+import { FaWallet } from "react-icons/fa6";
 
 type Tab = {
   name: string;
@@ -38,9 +39,9 @@ const DashboardTabs = () => {
       isActive: true,
     },
     {
-      name: t("dashboard.transactions.title"),
-      path: "/dashboard/transactions",
-      icon: <IoSwapVertical />,
+      name: t("dashboard.wallet.title"),
+      path: "/dashboard/wallet/transactions",
+      icon: <FaWallet />,
       isActive: true,
     },
     {

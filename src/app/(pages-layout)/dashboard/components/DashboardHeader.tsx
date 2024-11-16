@@ -1,14 +1,15 @@
 import { useTranslations } from "next-intl";
 import { BsCart4 } from "react-icons/bs";
-import { IoSettings, IoSwapVertical } from "react-icons/io5";
+import { IoSettings } from "react-icons/io5";
 import { GiCardPickup } from "react-icons/gi";
+import { FaWallet } from "react-icons/fa6";
 
 const DashboardHeader = ({ page }: { page: string }) => {
   const t = useTranslations();
 
   const headerIcon = {
     orders: <BsCart4 />,
-    transactions: <IoSwapVertical />,
+    wallet: <FaWallet />,
     settings: <IoSettings />,
     claimOrders: <GiCardPickup />,
   };

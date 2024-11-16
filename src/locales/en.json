@@ -305,8 +305,8 @@
     }
   },
   "dashboard": {
-    "transactions": {
-      "title": "Transactions",
+    "wallet": {
+      "title": "Wallet",
       "subTitle": "View all your transactions here."
     },
     "settings": {
@@ -433,7 +433,9 @@
     "amountPlaceholder": "Enter the amount you want to withdraw",
     "minimumWithdrawal": "Minimum withdrawal amount is $50",
     "withdrawSuccess": "Withdrawal request sent successfully",
-    "withdraw": "Withdraw"
+    "withdraw": "Withdraw",
+    "transactions": "Transactions",
+    "withdrawals": "Withdrawals"
   },
   "settings": {
     "userInformation": "User Information",

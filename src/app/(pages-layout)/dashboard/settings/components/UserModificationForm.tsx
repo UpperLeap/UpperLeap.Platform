@@ -47,7 +47,7 @@ const UserModificationForm = ({
           id="email"
           type="email"
           disabled
-          value={user.email}
+          value={user.email || ""}
           name="email"
           placeholder={t("settings.email")}
         />

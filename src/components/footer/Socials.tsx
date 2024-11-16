@@ -1,23 +1,29 @@
 import { FaTiktok } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
 
 const Socials = () => {
   const socials = [
     {
       name: "Tiktok",
       icon: <FaTiktok />,
-      link: "https://www.tiktok.com/",
+      link: "https://www.tiktok.com/@upperleap",
     },
     {
       name: "Facebook",
       icon: <FaFacebook />,
-      link: "https://www.facebook.com/",
+      link: "https://www.facebook.com/upperleap",
     },
     {
       name: "x",
       icon: <FaXTwitter />,
-      link: "https://x.com",
+      link: "https://x.com/upperleap",
+    },
+    {
+      name: "Instagram",
+      icon: <FaInstagram />,
+      link: "https://www.instagram.com/upperleap",
     },
   ];
 

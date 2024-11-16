@@ -16,10 +16,17 @@ import UserDropdown from "./UserDropdown";
 import { useAuthStore } from "@/stores/auth";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const MobileNavbar = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
   const { isNavbarOpen, closeNavbar, openNavbar } = useNavbarStore();
   const { user } = useAuthStore();
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = isNavbarOpen ? "hidden" : "auto";
+    }
+  }, [isNavbarOpen]);
 
   return (
     <>

@@ -458,7 +458,15 @@
     "userNameIsChangeableEvery": "username is only changeable once every 30 days",
     "notifications": "Notifications",
     "notificationsDescription": "Enable notifications to get notified instantly when any change happens to your order.",
-    "enableNotifications": "Enable Notifications"
+    "enableNotifications": "Enable Notifications",
+    "boosterLevel": "Booster Level",
+    "boosterRank": {
+      "novice": "Novice",
+      "expert": "Expert",
+      "master": "Master",
+      "legend": "Legend"
+    },
+    "maxLevel": "Max Level"
   },
   "cms": {
     "aboutUs": "About Us",

@@ -6,6 +6,7 @@ import { getTranslations } from "next-intl/server";
 import BoosterData from "./components/BoosterData";
 import TipBooster from "./components/TipBooster";
 import { Metadata } from "next";
+import { TbStarFilled } from "react-icons/tb";
 
 export function generateMetadata({
   params: { boosterUsername },
@@ -26,6 +27,8 @@ export default async function BoosterPage({
   const t = await getTranslations();
   const booster: User | null = await getBoosterByUsername(boosterUsername);
 
+  console.log(booster);
+
   if (!booster) return <RequestError />;
 
   return (
@@ -38,9 +41,24 @@ export default async function BoosterPage({
           height={56}
           className="rounded-full w-14 h-14 object-cover"
         />
-        <h1 className="text-2xl text-foreground font-semibold">
-          {boosterUsername}
-        </h1>
+        <div className="flex flex-col gap-1">
+          <h1 className="text-2xl text-foreground font-semibold">
+            {boosterUsername}
+          </h1>
+          {booster.boosterStats && (
+            <div className="flex items-center gap-1">
+              {Array.from(
+                { length: booster.boosterStats.rank + 1 },
+                (_, index) => (
+                  <TbStarFilled
+                    key={index}
+                    className="text-yellow-500 text-lg"
+                  />
+                ),
+              )}
+            </div>
+          )}
+        </div>
       </div>
       <div className="grid grid-cols-3 mobile:grid-cols-1 mobile:gap-x-0 gap-5">
         <div className="col-span-2">

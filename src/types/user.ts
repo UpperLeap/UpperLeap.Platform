@@ -6,6 +6,19 @@ type Wallet = {
   transactions: string[];
 };
 
+export enum BoosterRank {
+  Novice,
+  Expert,
+  Master,
+  Legend,
+}
+
+export type BoosterStats = {
+  rank: BoosterRank;
+  totalOrders: number;
+  completedOrders: number;
+};
+
 export type User = {
   id: string;
   userName: string;
@@ -29,4 +42,5 @@ export type User = {
   lockoutEnd: string;
   lockoutEnabled: boolean;
   accessFailedCount: number;
+  boosterStats?: BoosterStats;
 };

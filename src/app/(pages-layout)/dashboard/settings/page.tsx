@@ -7,6 +7,8 @@ import DeleteAccount from "./components/DeleteAccount";
 import RequestError from "@/components/shared/RequestError";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
+import BoosterLevel from "./components/BoosterLevel";
+import { getSession } from "@/utils/auth";
 const NotificationsBanner = dynamic(
   () => import("./components/NotificationsBanner"),
   {
@@ -21,6 +23,7 @@ export const metadata: Metadata = {
 };
 
 export default async function SettingsPage() {
+  const session = await getSession();
   let user: User | undefined;
 
   try {
@@ -29,7 +32,14 @@ export default async function SettingsPage() {
     return <RequestError />;
   }
 
+  // console.log(user);
+
   if (user) {
+    const isBooster =
+      session?.[
+        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+      ]?.includes("Booster");
+
     return (
       <>
         <DashboardHeader page="settings" />
@@ -37,6 +47,9 @@ export default async function SettingsPage() {
         <div className="grid grid-cols-3 mobile:grid-cols-1 mobile:gap-x-0 gap-5">
           <div className="col-span-2 flex flex-col gap-5">
             <UserInformation user={user} />
+            {isBooster && user?.boosterStats && (
+              <BoosterLevel boosterStats={user.boosterStats} />
+            )}
             <DeleteAccount user={user} />
           </div>
           <div className="col-span-1 flex flex-col gap-5">

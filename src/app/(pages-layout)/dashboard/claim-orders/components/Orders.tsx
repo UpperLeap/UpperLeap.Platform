@@ -32,8 +32,8 @@ const Orders = ({ initialOrders }: { initialOrders: OrdersResponse }) => {
         isSuccess={isSuccess}
         isEmpty={data && data?.items?.length === 0}
         placeholderIcon={<BsCartX />}
-        placeholderTitle={t("dashboard.noOrders")}
-        placeholderDescription={t("dashboard.noOrdersDescription")}
+        placeholderTitle={t("dashboard.noClaimOrders")}
+        placeholderDescription={t("dashboard.noClaimOrdersDescription")}
       >
         {data && (
           <div

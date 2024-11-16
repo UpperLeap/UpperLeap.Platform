@@ -52,7 +52,7 @@ const DashboardTabs = () => {
   ].filter(Boolean) as Tab[];
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center flex-wrap mobile:justify-center">
       {tabs.map((tab) => (
         <Tooltip
           placement="bottom"

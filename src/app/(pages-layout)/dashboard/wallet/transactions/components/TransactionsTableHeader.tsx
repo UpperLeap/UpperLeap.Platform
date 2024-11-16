@@ -1,4 +1,4 @@
-import SortOrder from "../../orders/components/filters/SortOrder";
+import SortOrder from "../../../orders/components/filters/SortOrder";
 import { useTranslations } from "next-intl";
 
 const TransactionsTableHeader = () => {

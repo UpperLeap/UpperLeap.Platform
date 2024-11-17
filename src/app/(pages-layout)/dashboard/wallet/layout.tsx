@@ -5,12 +5,18 @@ import React from "react";
 import DashboardHeader from "../components/DashboardHeader";
 import StoreCredit from "./components/StoreCredit";
 import WalletTabs from "./components/WalletTabs";
+import { getSession } from "@/utils/auth";
 
 export default async function WalletLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getSession();
+  const isBooster =
+    session?.[
+      "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+    ]?.includes("Booster");
   let walletData: Wallet | undefined;
 
   try {
@@ -28,7 +34,7 @@ export default async function WalletLayout({
             <StoreCredit balance={walletData?.balance} />
           </div>
           <div className="col-span-5 flex flex-col gap-5">
-            <WalletTabs />
+            <WalletTabs isBooster={isBooster ?? false} />
             {children}
           </div>
         </div>

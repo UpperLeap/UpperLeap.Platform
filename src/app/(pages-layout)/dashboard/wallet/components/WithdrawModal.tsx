@@ -16,19 +16,13 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { GiMoneyStack } from "react-icons/gi";
 
-const WithdrawModal = ({
-  boosterId,
-  balance,
-}: {
-  boosterId: string;
-  balance: number;
-}) => {
+const WithdrawModal = ({ balance }: { balance: number }) => {
   const t = useTranslations();
   const { isOpen, onOpenChange, onOpen, onClose } = useDisclosure();
   const [amount, setAmount] = useState(0);
 
   const { mutate, isPending } = useAction({
-    endpoint: `/booster/${boosterId}/withdraw`,
+    endpoint: `/withdraws`,
     method: "POST",
     mutationOptions: {
       onSuccess: () => onClose(),
@@ -37,7 +31,7 @@ const WithdrawModal = ({
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    mutate({ amount, boosterId });
+    mutate({ amount });
   };
 
   return (

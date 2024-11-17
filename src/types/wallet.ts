@@ -35,3 +35,14 @@ export type Wallet = {
   transactions: Transaction[];
   paginatedTransactions: PaginatedTransactions;
 };
+
+export type Withdrawal = {
+  id: string;
+  userId: string;
+  amount: number;
+  isCompleted: boolean;
+  isRejected: boolean;
+  rejectionReason: string;
+  createdDate: string;
+  updatedDate: string;
+};

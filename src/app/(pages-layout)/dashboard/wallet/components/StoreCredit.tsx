@@ -23,7 +23,7 @@ const StoreCredit = async ({ balance }: { balance: number }) => {
       </div>
       {isBooster && (
         <div className="border-t-1 border-foreground-secondary/10 px-5 py-2">
-          <WithdrawModal boosterId={session?.nameid || ""} balance={balance} />
+          <WithdrawModal balance={balance} />
         </div>
       )}
     </div>

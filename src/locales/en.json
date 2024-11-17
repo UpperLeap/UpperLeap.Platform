@@ -435,8 +435,17 @@
     "withdrawSuccess": "Withdrawal request sent successfully",
     "withdraw": "Withdraw",
     "transactions": "Transactions",
-    "withdrawals": "Withdrawals"
+    "withdrawals": "Withdrawals",
+    "completed": "Completed",
+    "rejected": "Rejected",
+    "pending": "Pending",
+    "rejectionReason": "Rejection Reason",
+    "reason": "Reason",
+    "cancelWithdrawalRequest": "Cancel Withdrawal Request",
+    "cancelWithdrawalRequestDescription": "Are you sure you want to cancel this withdrawal request? This action cannot be undone.",
+    "cancelSuccess": "Withdrawal request canceled successfully"
   },
+
   "settings": {
     "userInformation": "User Information",
     "email": "Email",

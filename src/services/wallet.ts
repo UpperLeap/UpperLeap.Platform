@@ -1,5 +1,5 @@
 import { BASE_URL } from "@/constants/api";
-import { Wallet } from "@/types/wallet";
+import { Wallet, Withdrawal } from "@/types/wallet";
 import { getSession } from "@/utils/auth";
 
 export async function getWalletData() {
@@ -11,7 +11,6 @@ export async function getWalletData() {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-
       Authorization: `Bearer ${accessToken}`,
     },
   });
@@ -25,4 +24,24 @@ export async function getWalletData() {
   }
 
   return data as Wallet;
+}
+
+export async function getWithdrawals() {
+  const session = await getSession();
+  if (!session?.accessToken) return null;
+  const accessToken = session?.accessToken;
+
+  const response = await fetch(`${BASE_URL}/withdraws`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  if (!response.ok) return null;
+
+  const data = await response.json();
+
+  return data as Withdrawal[];
 }

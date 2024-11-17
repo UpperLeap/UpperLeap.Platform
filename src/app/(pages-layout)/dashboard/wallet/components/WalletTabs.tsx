@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const WalletTabs = () => {
+const WalletTabs = ({ isBooster }: { isBooster: boolean }) => {
   const t = useTranslations();
   const pathname = usePathname();
 
@@ -21,16 +21,18 @@ const WalletTabs = () => {
       >
         {t("transactions.transactions")}
       </Link>
-      <Link
-        href="/dashboard/wallet/withdrawals"
-        className={cn(
-          "text-sm font-medium text-foreground-secondary hover:text-foreground transition-colors px-4 py-2 rounded-md hover:bg-foreground-secondary/20",
-          pathname?.includes("withdrawals") &&
-            "text-foreground bg-foreground-secondary/20",
-        )}
-      >
-        {t("transactions.withdrawals")}
-      </Link>
+      {isBooster && (
+        <Link
+          href="/dashboard/wallet/withdrawals"
+          className={cn(
+            "text-sm font-medium text-foreground-secondary hover:text-foreground transition-colors px-4 py-2 rounded-md hover:bg-foreground-secondary/20",
+            pathname?.includes("withdrawals") &&
+              "text-foreground bg-foreground-secondary/20",
+          )}
+        >
+          {t("transactions.withdrawals")}
+        </Link>
+      )}
     </div>
   );
 };

@@ -17,8 +17,11 @@ import { useAuthStore } from "@/stores/auth";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
+import GamesList from "./GamesList";
 
 const MobileNavbar = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
+  const t = useTranslations();
   const { isNavbarOpen, closeNavbar, openNavbar } = useNavbarStore();
   const { user } = useAuthStore();
 
@@ -44,21 +47,21 @@ const MobileNavbar = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
       )}
       <div
         className={cn(
-          "fixed bg-background w-[350px] h-dvh left-0 top-0 z-30 duration-300 border-r-2 border-foreground-secondary/30 flex flex-col justify-between gap-2 p-5",
+          "fixed bg-background w-[350px] overflow-y-auto h-dvh left-0 top-0 z-30 duration-300 border-r-2 border-foreground-secondary/30 flex flex-col justify-between gap-2 py-5 px-3",
           isNavbarOpen ? "left-0" : "-left-[350px]",
         )}
       >
         <div className="flex flex-col gap-5">
-          <Link onClick={closeNavbar} href="/" className="mb-10">
+          <Link onClick={closeNavbar} href="/" className="mb-7">
             <Logo />
           </Link>
-          <ExploreGamesLink />
-          <div className="flex items-center justify-between gap-5">
-            <LanguagePicker isMobileView={true} />
-          </div>
-          {!isLoggedIn ? <ThemeSwitcher isMobileView /> : null}
+          {/* <ExploreGamesLink /> */}
+          <p className="text-foreground-secondary">{t("navbar.games")}</p>
+          <GamesList />
         </div>
-        <div>
+        <div className="flex flex-col gap-5">
+          <LanguagePicker isMobileView={true} />
+          {!isLoggedIn ? <ThemeSwitcher isMobileView /> : null}
           {isLoggedIn && user ? (
             <UserDropdown userData={user} isMobileView={true} />
           ) : (

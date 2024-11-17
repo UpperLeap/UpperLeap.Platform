@@ -443,7 +443,10 @@
     "reason": "Reason",
     "cancelWithdrawalRequest": "Cancel Withdrawal Request",
     "cancelWithdrawalRequestDescription": "Are you sure you want to cancel this withdrawal request? This action cannot be undone.",
-    "cancelSuccess": "Withdrawal request canceled successfully"
+    "cancelSuccess": "Withdrawal request canceled successfully",
+    "action": "Action",
+    "noWithdrawals": "No withdrawals",
+    "noWithdrawalsDescription": "You have no withdrawals yet, once you request a withdrawal, it will be displayed here."
   },
 
   "settings": {

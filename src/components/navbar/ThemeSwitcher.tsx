@@ -23,19 +23,19 @@ const ThemeSwitcher = ({
   return (
     <Button
       variant="light"
-      isIconOnly
+      isIconOnly={!isMobileView}
       aria-label="theme-switcher"
       radius={!isMobileView ? "full" : "sm"}
       className={cn(
-        "mobile:w-full flex items-center justify-start !gap-2",
-        isMobileView && "p-2",
+        "mobile:w-full flex items-center !gap-2",
+        isMobileView && "p-2 justify-start",
       )}
       onPress={toggleTheme}
     >
       <span>
         {theme === "dark" ? <MdSunny className="text-xl" /> : <FaMoon />}
       </span>
-      <span>{isMobileView && t("navbar.themeToggle")}</span>
+      {isMobileView && <span>{t("navbar.themeToggle")}</span>}
     </Button>
   );
 };

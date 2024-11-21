@@ -19,7 +19,12 @@ export default function CareersPage() {
         <p className="max-w-4xl mt-2">{t("cms.workWithUs.description")}</p>
       </div>
       <div className="mt-20">
-        <div className="max-w-[500px] h-[600px] w-full p-5 border-1 border-foreground-secondary/20 rounded-lg mx-auto" />
+        <div className="max-w-[500px] h-[600px] w-full border-1 border-foreground-secondary/20 rounded-lg mx-auto overflow-hidden">
+          <iframe
+            src="https://tally.so/embed/3XRGjO?alignLeft=1&hideTitle=1&transparentBackground=2&dynamicHeight=2"
+            className="w-full h-full"
+          ></iframe>
+        </div>
       </div>
     </section>
   );

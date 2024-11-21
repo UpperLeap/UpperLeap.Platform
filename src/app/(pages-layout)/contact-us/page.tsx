@@ -29,8 +29,11 @@ export default function ContactUsPage() {
             {t("cms.messageUsDescription")}
           </p>
         </div>
-        <div className="mt-10">
-          <div className="max-w-[500px] h-[600px] w-full p-5 border-1 border-foreground-secondary/20 rounded-lg mx-auto" />
+        <div className="max-w-[500px] h-[600px] w-full border-2 border-foreground-secondary/20 rounded-lg mx-auto mt-10 overflow-hidden">
+          <iframe
+            src="https://tally.so/embed/wvOxdX?alignLeft=1&hideTitle=1&transparentBackground&dynamicHeight=2"
+            className="w-full h-full"
+          ></iframe>
         </div>
       </div>
     </section>

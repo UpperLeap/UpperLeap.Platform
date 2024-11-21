@@ -6,8 +6,7 @@ const Legal = () => {
 
   const legalLinks = [
     { name: t("footer.tos"), href: "/terms-of-service" },
-    { name: t("footer.privacyPolicy"), href: "/privacy-policy" },
-    { name: t("footer.cookiePolicy"), href: "/cookies-policy" },
+    { name: t("footer.privacyPolicy"), href: "/privacy-policy" }
   ];
 
   return (

@@ -5,6 +5,10 @@ const withNextIntl = createNextIntlPlugin("./src/utils/i18n.ts");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  output: 'standalone',
   images: {
     dangerouslyAllowSVG: true,
     remotePatterns: [

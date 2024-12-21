@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@microsoft/signalr": "^8.0.7",
+    "@next/third-parties": "^15.1.2",
     "@nextui-org/accordion": "^2.0.38",
     "@nextui-org/button": "^2.0.37",
     "@nextui-org/dropdown": "^2.1.29",

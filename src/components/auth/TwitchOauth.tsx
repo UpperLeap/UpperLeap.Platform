@@ -8,7 +8,7 @@ const TwitchOauth = () => {
   const t = useTranslations();
   const clientId = TWITCH_CLIENT_ID;
 
-  const redirectUri = "http://localhost:3000/callback/twitch";
+  const redirectUri = "https://upperleap.com/callback/twitch";
 
   const redirect = () => {
     location.href = `https://id.twitch.tv/oauth2/authorize?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=user:read:email`;

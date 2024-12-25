@@ -6,7 +6,7 @@ import { BsDiscord } from "react-icons/bs";
 const DiscordOauth = () => {
   const t = useTranslations();
   const clientId = DISCORD_CLIENT_ID;
-  const redirectUri = "http://localhost:3000/callback/discord";
+  const redirectUri = "https://upperleap.com/callback/discord";
 
   const redirect = () => {
     location.href = `https://discord.com/oauth2/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=identify+email+openid`;

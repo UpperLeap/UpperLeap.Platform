@@ -8,7 +8,7 @@ const GoogleOauth = () => {
   const t = useTranslations();
   const clientId = GOOGLE_CLIENT_ID;
 
-  const redirectUri = "http://localhost:3000/callback/google";
+  const redirectUri = "https://upperleap.com/callback/google";
 
   const redirect = () => {
     location.href = `https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&response_type=code&redirect_uri=${redirectUri}&client_id=${clientId}`;

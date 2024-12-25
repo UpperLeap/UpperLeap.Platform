@@ -4,6 +4,8 @@ import "@/styles/globals.css";
 import Providers from "@/providers";
 import { getLocale } from "next-intl/server";
 import dynamic from "next/dynamic";
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 const NotificationsConnection = dynamic(
   () => import("../components/notifications/NotificationsConnection"),
   {
@@ -38,6 +40,7 @@ export default async function RootLayout({
           </>
         </Providers>
       </body>
+      <GoogleAnalytics gaId="G-TZ8WSMMCLP" />
     </html>
   );
 }

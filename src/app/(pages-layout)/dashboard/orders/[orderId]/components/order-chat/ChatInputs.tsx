@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { LuSendHorizonal } from "react-icons/lu";
+import { LuSendHorizontal } from "react-icons/lu";
 import { BiImageAdd } from "react-icons/bi";
 import useSendMessage from "@/hooks/chat/useSendMessage";
 import { IoClose } from "react-icons/io5";
@@ -72,7 +72,7 @@ const ChatInputs = () => {
             {isLoading ? (
               <PiSpinnerBall className="animate-spin text-xl" />
             ) : (
-              <LuSendHorizonal className="text-xl group-hover:text-foreground duration-300" />
+              <LuSendHorizontal className="text-xl group-hover:text-foreground duration-300" />
             )}
           </button>
         </div>

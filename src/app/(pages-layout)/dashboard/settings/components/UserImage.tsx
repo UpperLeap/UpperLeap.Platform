@@ -5,7 +5,7 @@ import UserAvatar from "@/components/ui/UserAvatar";
 import { MdOutlineEdit } from "react-icons/md";
 import useUploadImage from "@/hooks/user/useUploadImage";
 import { useTranslations } from "next-intl";
-import { LuLoader2 } from "react-icons/lu";
+import { LuLoader } from "react-icons/lu";
 
 const UserImage = ({ user }: { user: User }) => {
   const t = useTranslations();
@@ -26,7 +26,7 @@ const UserImage = ({ user }: { user: User }) => {
         />
         <span className="absolute bottom-0 -right-0 text-foreground p-1 rounded-full bg-default-100 text-xl">
           {isPending ? (
-            <LuLoader2 className="animate-spin" />
+            <LuLoader className="animate-spin" />
           ) : (
             <MdOutlineEdit />
           )}

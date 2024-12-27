@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
     await deleteAuthenticationCookies();
 
     // return NextResponse.json({ error: "Invalid Session" }, { status: 401 });
-    return NextResponse.redirect("/");
+    return NextResponse.redirect(new URL("/", request.url));
   }
 
   const response = await fetch(`${BASE_URL}/authentication/refresh`, {
@@ -45,7 +45,7 @@ export async function GET(request: NextRequest) {
     //   { error: "Failed to refresh session" },
     //   { status: 401 },
     // );
-    return NextResponse.redirect("/");
+    return NextResponse.redirect(new URL("/", request.url));
   }
 
   const data: AuthResponse = await response.json();

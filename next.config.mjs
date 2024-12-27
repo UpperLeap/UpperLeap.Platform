@@ -9,7 +9,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  output: 'standalone',
   images: {
     dangerouslyAllowSVG: true,
     remotePatterns: [

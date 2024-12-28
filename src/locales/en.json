@@ -116,28 +116,28 @@
     "stillNeedHelp": "Still need help? Contact us",
     "accordion": {
       "0": {
-        "question": "How does boosting work?",
-        "answer": "Boosting is a service where a highly skilled player logs into your account and plays on your behalf to achieve your desired rank."
+        "question": "What services do you offer?",
+        "answer": "We offer personalized coaching, strategic guidance, and performance enhancement services to help you improve your gameplay and reach your desired rank through legitimate means."
       },
       "1": {
-        "question": "Is boosting safe?",
-        "answer": "Yes, our boosters are professionals who take your account security seriously. We use VPNs and other security measures to ensure your account is safe."
+        "question": "How do you ensure account security?", 
+        "answer": "We take security seriously with industry-standard encryption, secure authentication, and strict privacy policies. Your account details are always protected."
       },
       "2": {
-        "question": "How long does boosting take?",
-        "answer": "The time it takes to boost your account depends on the game and the rank you want to achieve. Our boosters are the fastest in the industry and will work to get you to your desired rank as quickly as possible."
+        "question": "How long does the process typically take?",
+        "answer": "The timeline varies based on your current level and goals. We create a customized plan and work efficiently to help you achieve sustainable improvement at a reasonable pace."
       },
       "3": {
-        "question": "What games do you offer boosting for?",
-        "answer": "We offer boosting services for a wide range of games, including League of Legends, Valorant, and more. If you don't see your game listed, contact us and we'll see if we can help."
+        "question": "Which games do you support?",
+        "answer": "We currently only support Valorant, but we're constantly expanding our services."
       },
       "4": {
-        "question": "What games do you offer boosting for?",
-        "answer": "We offer boosting services for a wide range of games, including League of Legends, Valorant, and more. If you don't see your game listed, contact us and we'll see if we can help."
+        "question": "How do I get started?",
+        "answer": "Simply create an account, select your game and desired services, and our team will guide you through the process. We'll match you with experts who specialize in your chosen game."
       },
       "5": {
-        "question": "What games do you offer boosting for?",
-        "answer": "We offer boosting services for a wide range of games, including League of Legends, Valorant, and more. If you don't see your game listed, contact us and we'll see if we can help."
+        "question": "What makes your boosters different from others?",
+        "answer": "Our boosters undergo a rigorous selection process and must maintain consistently high rankings across multiple seasons. We only work with professional players who have proven track records in competitive play and coaching experience."
       }
     },
     "getStarted": {
@@ -296,7 +296,7 @@
     },
     "lemon": {
       "name": "Lemon",
-      "description": "Debit/Credit cards · Klarna · SEPA · Giropay · iDeal"
+      "description": "Credit/Debit Cards · Apple Pay · Google Pay · PayPal"
     },
     "boostingType": {
       "rank-boost": "Rank Boost",
@@ -355,7 +355,7 @@
     "deleteOrderDescription": "Are you sure you want to delete this order? This action cannot be undone.",
     "editOrder": "Edit Order",
     "selectCountry": "Select a Country",
-    "vpnAddedSuccessfully": "Vpn added successfully",
+    "vpnAddedSuccessfully": "VPN added successfully",
     "boostData": "Boost Data",
     "startTier": "Start Tier",
     "endTier": "End Tier",
@@ -363,7 +363,7 @@
     "endDivision": "End Division",
     "rankRating": "Rank Rating",
     "boostOptions": "Boost Options",
-    "orderVpn": "Order Vpn",
+    "orderVpn": "Order VPN",
     "yes": "Yes",
     "streamGames": "Stream Games",
     "priorityBoost": "Priority Boost",
@@ -462,7 +462,7 @@
     "deleteAccountDescription": "Deleting your account is irreversible and will permanently remove all your information including your store credit and any other information you have provided to us. This action cannot be undone.",
     "back": "Back",
     "rewriteYourUsername": "Rewrite your username to confirm deleting your account.",
-    "deleteAccountSuccess": "Your account has been deleted successfully.",
+    "deleteAccountSuccess": "Account deletion process has started. Your account will be permanently deleted within the next few hours.",
     "imageUploadedSuccess": "Your picture has been updated successfully.",
     "avatar": "Avatar",
     "emailIsUnchangeable": "You can't change your email address, if you have any issue with your account please contact us.",

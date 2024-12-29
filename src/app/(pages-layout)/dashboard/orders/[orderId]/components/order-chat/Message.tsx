@@ -39,6 +39,11 @@ const Message = ({
             width={160}
             height={160}
             className="max-h-60 w-auto object-cover rounded-lg"
+            onClick={() => {
+              if (typeof window !== "undefined") {
+                window.open(message.content, "_blank");
+              }
+            }}
           />
         ) : (
           <p className="text-foreground text-sm whitespace-pre-wrap">

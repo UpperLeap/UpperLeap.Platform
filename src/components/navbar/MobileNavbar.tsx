@@ -3,8 +3,7 @@
 import { useNavbarStore } from "@/stores/navbar";
 import { cn } from "@/utils/utils";
 import Logo from "../shared/Logo";
-import ExploreGamesLink from "./ExploreGamesLink";
-import LanguagePicker from "./LanguagePicker";
+// import LanguagePicker from "./LanguagePicker";
 const ThemeSwitcher = dynamic(() => import("./ThemeSwitcher"), {
   ssr: false,
   loading: () => <Skeleton className="w-10 h-10 rounded-full" />,
@@ -60,7 +59,7 @@ const MobileNavbar = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
           <GamesList />
         </div>
         <div className="flex flex-col gap-5">
-          <LanguagePicker isMobileView={true} />
+          {/* <LanguagePicker isMobileView={true} /> */}
           {!isLoggedIn ? <ThemeSwitcher isMobileView /> : null}
           {isLoggedIn && user ? (
             <UserDropdown userData={user} isMobileView={true} />

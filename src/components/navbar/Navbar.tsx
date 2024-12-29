@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import { Skeleton } from "@nextui-org/skeleton";
 import Link from "next/link";
 import ExploreGamesLink from "./ExploreGamesLink";
-import LanguagePicker from "./LanguagePicker";
+// import LanguagePicker from "./LanguagePicker";
 import MobileNavbar from "./MobileNavbar";
 import AuthModal from "../auth/AuthModal";
 import { getIsLoggedIn } from "@/utils/auth";
@@ -27,11 +27,14 @@ const Navbar = async () => {
           {!isLoggedIn && <ThemeSwitcher />}
         </div>
 
-        <Link href="/" className="max-w-[201px] w-full">
+        <Link
+          href="/"
+          className="max-w-[201px] w-full justify-center flex items-center"
+        >
           <Logo />
         </Link>
         <div className="flex items-center gap-5 mobile:hidden max-w-[210px] w-full justify-end">
-          <LanguagePicker />
+          {/* <LanguagePicker /> */}
 
           {isLoggedIn ? <User /> : <AuthModal />}
         </div>

@@ -19,13 +19,13 @@ const MethodOptions = () => {
       percentage: 5,
       imageUrl: lemonLogo,
     },
-    {
-      value: 1,
-      name: "crypto",
-      percentage: 3.9,
-      imageUrl:
-        "https://cdn.gameboost.com/static/payment-methods/btc-card.webp",
-    },
+    // {
+    //   value: 1,
+    //   name: "crypto",
+    //   percentage: 3.9,
+    //   imageUrl:
+    //     "https://cdn.gameboost.com/static/payment-methods/btc-card.webp",
+    // },
   ];
 
   return (

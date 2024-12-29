@@ -40,7 +40,6 @@ export default async function RootLayout({
           </>
         </Providers>
       </body>
-      <GoogleAnalytics gaId="G-TZ8WSMMCLP" />
     </html>
   );
 }

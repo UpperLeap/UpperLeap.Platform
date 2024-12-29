@@ -78,7 +78,7 @@ export default async function OrderPage({
               boosterData={order?.boostingDetails?.booster}
               isPaid={order.transaction.completed}
             />
-            {(isOrderOwner || isOrderBooster) && <OrderCredentialsCard />}
+            {(isOrderOwner || isOrderBooster) && <OrderCredentialsCard isOrderOwner={isOrderOwner} />}
           </div>
         </div>
       </div>

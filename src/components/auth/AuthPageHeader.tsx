@@ -17,7 +17,7 @@ const AuthPageHeader = () => {
         {t(`auth.${currentTab}.title`)}
       </h2>
 
-      <div className="flex items-center gap-1 mt-1 text-center font-normal text-sm">
+      {/* <div className="flex items-center gap-1 mt-1 text-center font-normal text-sm">
         <p className="font-medium">
           {currentTab === "login" && t("auth.dontHaveAccount")}
           {currentTab === "register" && t("auth.alreadyHaveAccount")}
@@ -42,7 +42,7 @@ const AuthPageHeader = () => {
               : t("auth.loginHere")}
           </button>
         )}
-      </div>
+      </div> */}
     </ModalHeader>
   );
 };

@@ -6,9 +6,11 @@ import { cn } from "@/utils/utils";
 const Logo = ({ className }: { className?: string }) => {
   return (
     <Image
-      src={logo}
+      src={"https://cdn.upperleap.com/logo.svg"}
       alt="logo"
       // loading="lazy"
+      width={160}
+      height={40}
       priority={true}
       className={cn("max-w-[160px] mobile:max-w-[140px] w-full", className)}
     />

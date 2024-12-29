@@ -12,7 +12,7 @@ import { useGet } from "@/hooks/api/useGet";
 import { useParams } from "next/navigation";
 import { Skeleton } from "@nextui-org/skeleton";
 
-const OrderCredentialsCard = () => {
+const OrderCredentialsCard = ({ isOrderOwner }: { isOrderOwner: boolean }) => {
   const t = useTranslations();
   const { orderId } = useParams();
 
@@ -44,21 +44,23 @@ const OrderCredentialsCard = () => {
           <Credentials orderCredentials={orderCredentials} />
         )}
       </div>
-      <div className="p-3 border-t-1 border-foreground-secondary/10 flex items-center justify-end">
-        <AddCredentialsSheet
-          orderCredentials={orderCredentials}
-          refetch={refetch}
-        >
-          <div className="flex items-center gap-2 text-foreground text-sm hover:bg-foreground-secondary/10 transition-all duration-300 cursor-pointer w-fit px-2 py-1 rounded-md">
-            <span>{orderCredentials ? <RiEdit2Line /> : <FaPlus />}</span>
-            <span>
-              {orderCredentials
-                ? t("orders.editCredentials")
-                : t("orders.addCredentials")}
-            </span>
-          </div>
-        </AddCredentialsSheet>
-      </div>
+      {isOrderOwner && (
+        <div className="p-3 border-t-1 border-foreground-secondary/10 flex items-center justify-end">
+          <AddCredentialsSheet
+            orderCredentials={orderCredentials}
+            refetch={refetch}
+          >
+            <div className="flex items-center gap-2 text-foreground text-sm hover:bg-foreground-secondary/10 transition-all duration-300 cursor-pointer w-fit px-2 py-1 rounded-md">
+              <span>{orderCredentials ? <RiEdit2Line /> : <FaPlus />}</span>
+              <span>
+                {orderCredentials
+                  ? t("orders.editCredentials")
+                  : t("orders.addCredentials")}
+              </span>
+            </div>
+          </AddCredentialsSheet>
+        </div>
+      )}
     </div>
   );
 };

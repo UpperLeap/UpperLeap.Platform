@@ -4,7 +4,7 @@ import { IoChatbubblesOutline } from "react-icons/io5";
 import { FaDiscord } from "react-icons/fa";
 import dynamic from "next/dynamic";
 import { Skeleton } from "@nextui-org/skeleton";
-import LanguagePicker from "../navbar/LanguagePicker";
+// import LanguagePicker from "../navbar/LanguagePicker";
 const ThemeSwitcher = dynamic(
   () => import("../../components/navbar/ThemeSwitcher"),
   {
@@ -46,7 +46,7 @@ const Support = () => {
       </div>
       <div className="flex items-center gap-2">
         <ThemeSwitcher />
-        <LanguagePicker />
+        {/* <LanguagePicker /> */}
       </div>
     </div>
   );

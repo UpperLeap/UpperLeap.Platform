@@ -10,14 +10,14 @@ import {
 import { Button } from "@nextui-org/button";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
-import LoginForm from "./LoginForm";
+// import LoginForm from "./LoginForm";
 import GoogleOauth from "./GoogleOauth";
 import Divider from "../ui/Divider";
 import DiscordOauth from "./DiscordOauth";
 import TwitchOauth from "./TwitchOauth";
 import useModalStore from "@/stores/auth_modal";
-import RegisterForm from "./RegisterForm";
-import VerificationForm from "./VerificationForm";
+// import RegisterForm from "./RegisterForm";
+// import VerificationForm from "./VerificationForm";
 import "@/styles/auth.css";
 import AuthPageHeader from "./AuthPageHeader";
 import { PiUserCirclePlusDuotone } from "react-icons/pi";
@@ -112,17 +112,17 @@ export default function AuthModal({
                 <ModalBody className="pb-4">
                   {currentTab !== "otp" && (
                     <div>
-                      <div className="flex items-center gap-5 mobile:flex-col">
+                      <div className="flex items-center gap-5 flex-col">
                         <TwitchOauth />
                         <DiscordOauth />
                         <GoogleOauth />
                       </div>
-                      <Divider text={t("auth.or")} className="my-3" />
+                      {/* <Divider text={t("auth.or")} className="my-3" /> */}
                     </div>
                   )}
-                  {currentTab === "login" && <LoginForm />}
+                  {/* {currentTab === "login" && <LoginForm />}
                   {currentTab === "register" && <RegisterForm />}
-                  {currentTab === "otp" && <VerificationForm />}
+                  {currentTab === "otp" && <VerificationForm />} */}
                 </ModalBody>
               </div>
             </>

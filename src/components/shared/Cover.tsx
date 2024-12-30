@@ -6,10 +6,10 @@ import deadlockCover from "../../../public/deadlock-cover.jpg";
 
 const covers = {
   "league-of-legends":
-    "https://cdn.gameboost.com/games/league-of-legends/banner/katarina.webp",
-  valorant: "https://cdn.gameboost.com/games/valorant/banner/neon.webp",
+    "https://cdn.upperleap.com/games/covers/katarina.webp",
+  valorant: "https://cdn.upperleap.com/games/covers/valorant.jpg",
   "counter-strike-2":
-    "https://blitz-cdn.blitz.gg/blitz/ui/img/game-bg/cs2-home-bg-centered.webp",
+    "https://cdn.upperleap.com/games/covers/cs2.webp",
   deadlock: deadlockCover,
 };
 

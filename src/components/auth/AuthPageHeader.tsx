@@ -5,7 +5,7 @@ import useModalStore from "@/stores/auth_modal";
 import { useTranslations } from "next-intl";
 
 const AuthPageHeader = () => {
-  const t = useTranslations();
+  const t = useTranslations(); 
   const { currentTab, setModalData, payload } = useModalStore();
 
   return (
@@ -16,6 +16,9 @@ const AuthPageHeader = () => {
       <h2 className="text-foreground mt-7 text-center text-lg font-bold capitalize">
         {t(`auth.${currentTab}.title`)}
       </h2>
+      <p className="text-default-500 text-center text-sm">
+        {t(`auth.${currentTab}.description`)}
+      </p>
 
       {/* <div className="flex items-center gap-1 mt-1 text-center font-normal text-sm">
         <p className="font-medium">

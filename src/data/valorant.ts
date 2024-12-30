@@ -99,7 +99,7 @@ export const valorant = {
     {
       name: "valorant.ranks.iron",
       title: "Iron",
-      image: "https://cdn.gameboost.com/games/valorant/tiers/Iron.webp",
+      image: "https://cdn.upperleap.com/games/valorant/ranks/Iron.webp",
       hiddenOn: null,
       color: "#4e4e4e",
       isDivisionsVisible: true,
@@ -107,7 +107,7 @@ export const valorant = {
     {
       name: "valorant.ranks.bronze",
       title: "Bronze",
-      image: "https://cdn.gameboost.com/games/valorant/tiers/Bronze.webp",
+      image: "https://cdn.upperleap.com/games/valorant/ranks/Bronze.webp",
       hiddenOn: null,
       color: "#79541a",
       isDivisionsVisible: true,
@@ -115,7 +115,7 @@ export const valorant = {
     {
       name: "valorant.ranks.silver",
       title: "Silver",
-      image: "https://cdn.gameboost.com/games/valorant/tiers/Silver.webp",
+      image: "https://cdn.upperleap.com/games/valorant/ranks/Silver.webp",
       hiddenOn: null,
       color: "#b8bdbb",
       isDivisionsVisible: true,
@@ -123,7 +123,7 @@ export const valorant = {
     {
       name: "valorant.ranks.gold",
       title: "Gold",
-      image: "https://cdn.gameboost.com/games/valorant/tiers/Gold.webp",
+      image: "https://cdn.upperleap.com/games/valorant/ranks/Gold.webp",
       hiddenOn: null,
       color: "#ebbd44",
       isDivisionsVisible: true,
@@ -131,7 +131,7 @@ export const valorant = {
     {
       name: "valorant.ranks.platinum",
       title: "Platinum",
-      image: "https://cdn.gameboost.com/games/valorant/tiers/Platinum.webp",
+      image: "https://cdn.upperleap.com/games/valorant/ranks/Platinum.webp",
       hiddenOn: null,
       color: "#39a4b6",
       isDivisionsVisible: true,
@@ -139,7 +139,7 @@ export const valorant = {
     {
       name: "valorant.ranks.diamond",
       title: "Diamond",
-      image: "https://cdn.gameboost.com/games/valorant/tiers/Diamond.webp",
+      image: "https://cdn.upperleap.com/games/valorant/ranks/Diamond.webp",
       hiddenOn: null,
       color: "#b362ca",
       isDivisionsVisible: true,
@@ -147,7 +147,7 @@ export const valorant = {
     {
       name: "valorant.ranks.ascendant",
       title: "Ascendant",
-      image: "https://cdn.gameboost.com/games/valorant/tiers/Ascendant.webp",
+      image: "https://cdn.upperleap.com/games/valorant/ranks/Ascendant.webp",
       hiddenOn: null,
       color: "#3a8a5f",
       isDivisionsVisible: true,
@@ -155,7 +155,7 @@ export const valorant = {
     {
       name: "valorant.ranks.immortal",
       title: "Immortal",
-      image: "https://cdn.gameboost.com/games/valorant/tiers/Immortal.webp",
+      image: "https://cdn.upperleap.com/games/valorant/ranks/Immortal.webp",
       hiddenOn: null,
       color: "#8b163e",
       isDivisionsVisible: true,
@@ -163,7 +163,7 @@ export const valorant = {
     {
       name: "valorant.ranks.radiant",
       title: "Radiant",
-      image: "https://cdn.gameboost.com/games/valorant/tiers/Radiant.webp",
+      image: "https://cdn.upperleap.com/games/valorant/ranks/Radiant.webp",
       hiddenOn: ["rank-boost"],
       color: "#b1b1af",
       isDivisionsVisible: false,

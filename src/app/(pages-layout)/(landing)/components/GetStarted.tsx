@@ -15,7 +15,7 @@ const GetStarted = async () => {
     <section className="relative h-[70vh] mt-52">
       <div className="absolute top-0 left-0 z-0 w-full h-full">
         <Image
-          src={"https://blitz-cdn.blitz.gg/blitz/ui/img/game-bg/lol-f455c.webp"}
+          src={"https://cdn.upperleap.com/static/background-getstarted.jpg"}
           alt="Get started"
           width={400}
           height={400}

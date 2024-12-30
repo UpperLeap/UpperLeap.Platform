@@ -21,8 +21,8 @@ const GameCard = ({ game }: { game: BasicGame }) => {
     >
       <Link
         className={cn(
-          "flex flex-col gap-4",
-          game.isUpcoming ? "opacity-50" : "opacity-100",
+          "group flex flex-col gap-4 transition-all duration-300 hover:scale-105",
+          game.isUpcoming ? "opacity-50" : "opacity-100"
         )}
         href={game.isDisabled ? "" : `/${gameSlug}`}
         onMouseEnter={() => {
@@ -32,9 +32,10 @@ const GameCard = ({ game }: { game: BasicGame }) => {
           if (game.isDisabled) e.preventDefault();
         }}
       >
-        <div className="game-card-wrapper">
+        <div className="game-card-wrapper relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 group-hover:shadow-xl">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           <Image
-            className="game-logo"
+            className="game-logo transition-transform duration-300 group-hover:scale-110"
             placeholder="blur"
             blurDataURL={game.imageUrl}
             src={game.imageUrl}
@@ -45,7 +46,9 @@ const GameCard = ({ game }: { game: BasicGame }) => {
             style={{ height: "auto" }}
           />
         </div>
-        <p className="text-left text-foreground font-bold">{game.name}</p>
+        <p className="text-center text-foreground font-bold transition-colors duration-300 group-hover:text-primary">
+          {game.name}
+        </p>
       </Link>
     </Tooltip>
   );

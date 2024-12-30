@@ -24,8 +24,7 @@ const OrdersRow = ({
           href={`/dashboard/orders/${order.id}`}
         >
           <Image
-            // src={order?.boostingDetails?.game?.iconUrl}
-            src="https://cdn.gameboost.com/games/logos/valorant.png"
+            src={order?.boostingDetails?.game?.iconUrl || "https://cdn.gameboost.com/games/logos/valorant.png"}
             alt={order?.name}
             width={35}
             height={35}
